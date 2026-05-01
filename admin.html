@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Painel Admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<div id="conteudo" style="display: none;">
+
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h2>Painel Admin</h2>
+    <button onclick="sair()" style="width:auto; padding:8px 15px; background:red;">
+      Sair
+    </button>
+  </div>
+
+<h3>Criar Notícia</h3>
+
+<input id="titulo" placeholder="Título"><br>
+<input id="descricao" placeholder="Descrição"><br><br>
+
+<input type="file" id="imagemFile" accept="image/*"><br><br>
+
+<img id="preview" width="150" style="display:none; margin-bottom:10px;"><br>
+
+<button onclick="criar()">Criar</button>
+
+  <hr>
+
+  <h3>Lista de Notícias</h3>
+  <div id="listaNoticias"></div>
+
+</div>
+
+<script type="module" src="./js/pages/admin.js"></script>
+
+</body>
+</html>
