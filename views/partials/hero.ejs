@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Ionos</title>
+
+  <link
+    rel="icon"
+    href="/images/logo/icon-ionos.png"
+  >
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="/css/style.css"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <%- include('../partials/header') %>
+
+  <%- include('../partials/hero') %>
+
+  <section class="py-24 bg-white">
+
+    <div class="container mx-auto px-6 text-center">
+
+      <h2 class="section-title text-4xl font-bold mb-20">
+        Nossa Tecnologia
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="p-8 rounded-2xl shadow-lg border">
+
+          <h3 class="text-2xl font-semibold mb-4">
+            CDI
+          </h3>
+
+          <p class="text-gray-600">
+            A Deionização Capacitiva reduz o consumo energético
+            comparado à osmose reversa.
+          </p>
+
+        </div>
+
+        <div class="p-8 rounded-2xl shadow-lg border">
+
+          <h3 class="text-2xl font-semibold mb-4">
+            Monitoramento
+          </h3>
+
+          <p class="text-gray-600">
+            Monitoramento remoto em tempo real.
+          </p>
+
+        </div>
+
+        <div class="p-8 rounded-2xl shadow-lg border">
+
+          <h3 class="text-2xl font-semibold mb-4">
+            Controle Inteligente
+          </h3>
+
+          <p class="text-gray-600">
+            Sensores e algoritmos otimizam todo o processo.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <%- include('../partials/footer') %>
+
+  <script src="/js/menu.js"></script>
+
+</body>
+
+</html>

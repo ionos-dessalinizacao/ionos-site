@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title><%= title %></title>
+
+  <link
+    rel="stylesheet"
+    href="/css/admin.css"
+  >
+
+
+<script type="module">
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+    import {
+        getAuth,
+        signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyB1mMrpHnE7AMiraLnf1Ta51tAw-D5J3Ts",
+        authDomain: "site-ionos-8a20a.firebaseapp.com",
+        projectId: "site-ionos-8a20a",
+        storageBucket: "site-ionos-8a20a.firebasestorage.app",
+        messagingSenderId: "152493412507",
+        appId: "1:152493412507:web:9fd029868cfdd3b0f2763e"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+
+    const form = document.querySelector("form");
+
+
+    form.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email").value;
+
+        const senha =
+            document.getElementById("senha").value;
+
+
+        try {
+
+            // ==========================================
+            // LOGIN NO FIREBASE
+            // ==========================================
+
+            const resultado =
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    senha
+                );
+
+
+            // ==========================================
+            // PEGAR ID TOKEN
+            // ==========================================
+
+            const idToken =
+                await resultado.user.getIdToken();
+
+
+            // ==========================================
+            // ENVIAR TOKEN PARA O SERVIDOR
+            // ==========================================
+
+            const response =
+                await fetch("/login", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        idToken
+                    })
+
+                });
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                alert(
+                    data.erro ||
+                    "Erro ao realizar login."
+                );
+
+                return;
+
+            }
+
+
+            // ==========================================
+            // LOGIN CONCLUÍDO
+            // ==========================================
+
+            window.location.href = "/admin";
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            let mensagem =
+                "Erro ao realizar login.";
+
+
+            if (
+                error.code ===
+                "auth/invalid-credential"
+            ) {
+
+                mensagem =
+                    "E-mail ou senha incorretos.";
+
+            }
+
+
+            if (
+                error.code ===
+                "auth/user-not-found"
+            ) {
+
+                mensagem =
+                    "Usuário não encontrado.";
+
+            }
+
+
+            if (
+                error.code ===
+                "auth/wrong-password"
+            ) {
+
+                mensagem =
+                    "Senha incorreta.";
+
+            }
+
+
+            alert(mensagem);
+
+        }
+
+    });
+
+</script>
+
+
+</head>
+
+<body>
+
+  <main class="login-container">
+
+    <div class="login-card">
+
+      <div class="text-center mb-8">
+
+        <img
+          src="/images/logo/icon-ionos.png"
+          alt="Ionos"
+          class="w-16 mx-auto mb-4"
+        >
+
+        <h1>
+          Painel Administrativo
+        </h1>
+
+        <p>
+          Entre para gerenciar o conteúdo da Ionos.
+        </p>
+
+      </div>
+
+
+      <form
+        method="POST"
+        action="/login"
+      >
+
+        <label for="email">
+          E-mail
+        </label>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+        >
+
+
+        <label for="senha">
+          Senha
+        </label>
+
+        <input
+          id="senha"
+          name="senha"
+          type="password"
+          required
+        >
+
+
+        <button type="submit">
+          Entrar
+        </button>
+
+      </form>
+
+    </div>
+
+  </main>
+
+</body>
+
+</html>

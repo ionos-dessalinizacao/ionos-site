@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title><%= title %></title>
+
+  <link
+    rel="stylesheet"
+    href="/css/admin-noticias.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header class="admin-header">
+
+    <div>
+
+      <a
+        href="/admin"
+        class="back-link"
+      >
+        ← Painel
+      </a>
+
+      <h1>
+        Gerenciar Notícias
+      </h1>
+
+      <p>
+        Ionos Dessalinização
+      </p>
+
+    </div>
+
+
+    <a
+      href="/login/sair"
+      class="logout-button"
+    >
+      Sair
+    </a>
+
+  </header>
+
+
+
+  <main class="admin-container">
+
+
+    <!-- =====================================
+         INTRODUÇÃO
+    ====================================== -->
+
+    <section class="page-introduction">
+
+      <span>
+        CONTEÚDO
+      </span>
+
+      <h2>
+        Notícias
+      </h2>
+
+      <p>
+        Crie, edite, arquive ou remova
+        as notícias publicadas no site.
+      </p>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CRIAR NOTÍCIA
+    ====================================== -->
+
+    <section class="admin-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <span class="card-label">
+            NOVA PUBLICAÇÃO
+          </span>
+
+          <h2>
+            Criar notícia
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <form
+        id="formNoticia"
+        class="noticia-form"
+      >
+
+
+        <div class="form-group">
+
+          <label for="titulo">
+            Título
+          </label>
+
+          <input
+            id="titulo"
+            name="titulo"
+            type="text"
+            placeholder="Digite o título da notícia"
+            required
+          >
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label for="descricao">
+            Descrição
+          </label>
+
+          <textarea
+            id="descricao"
+            name="descricao"
+            rows="6"
+            placeholder="Digite o conteúdo ou descrição da notícia"
+            required
+          ></textarea>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label for="imagemFile">
+            Imagem
+          </label>
+
+          <input
+            id="imagemFile"
+            type="file"
+            accept="image/*"
+          >
+
+          <small>
+            Selecione uma imagem para a notícia.
+          </small>
+
+        </div>
+
+
+
+        <div
+          id="preview-container"
+          class="preview-container"
+          style="display: none;"
+        >
+
+          <span>
+            Pré-visualização
+          </span>
+
+          <img
+            id="preview"
+            alt="Pré-visualização da notícia"
+          >
+
+        </div>
+
+
+
+        <button
+          type="submit"
+          class="primary-button"
+        >
+
+          Criar notícia
+
+        </button>
+
+
+      </form>
+
+    </section>
+
+
+
+    <!-- =====================================
+         LISTA DE NOTÍCIAS
+    ====================================== -->
+
+    <section class="admin-card">
+
+
+      <div class="card-header">
+
+        <div>
+
+          <span class="card-label">
+            PUBLICAÇÕES
+          </span>
+
+          <h2>
+            Notícias cadastradas
+          </h2>
+
+        </div>
+
+
+        <span class="news-count">
+          <%= noticias.length %>
+          notícia(s)
+        </span>
+
+      </div>
+
+
+
+      <div
+        id="listaNoticias"
+        class="noticias-list"
+      >
+
+
+        <% if (noticias.length === 0) { %>
+
+          <div class="empty-state">
+
+            <div class="empty-icon">
+              📰
+            </div>
+
+            <h3>
+              Nenhuma notícia cadastrada
+            </h3>
+
+            <p>
+              Crie sua primeira notícia
+              utilizando o formulário acima.
+            </p>
+
+          </div>
+
+        <% } %>
+
+
+
+        <% noticias.forEach(noticia => { %>
+
+
+          <article
+            class="admin-noticia
+            <%= noticia.arquivada ? 'noticia-arquivada' : '' %>"
+          >
+
+
+            <!-- IMAGEM -->
+
+            <div class="noticia-image">
+
+              <% if (noticia.imagemUrl) { %>
+
+                <img
+                  src="<%= noticia.imagemUrl %>"
+                  alt="<%= noticia.titulo %>"
+                >
+
+              <% } else { %>
+
+                <div class="no-image">
+
+                  <span>
+                    Ionos
+                  </span>
+
+                </div>
+
+              <% } %>
+
+            </div>
+
+
+
+            <!-- CONTEÚDO -->
+
+            <div class="noticia-content">
+
+
+              <div class="noticia-status">
+
+                <% if (noticia.arquivada) { %>
+
+                  <span class="status archived">
+                    Arquivada
+                  </span>
+
+                <% } else { %>
+
+                  <span class="status published">
+                    Publicada
+                  </span>
+
+                <% } %>
+
+              </div>
+
+
+
+              <h3>
+                <%= noticia.titulo %>
+              </h3>
+
+
+              <p>
+                <%= noticia.descricao %>
+              </p>
+
+
+
+              <div class="admin-actions">
+
+
+                <% if (noticia.arquivada) { %>
+
+                  <button
+                    type="button"
+                    class="action-button archive-button"
+                    onclick="desarquivar('<%= noticia.id %>')"
+                  >
+                    Desarquivar
+                  </button>
+
+                <% } else { %>
+
+                  <button
+                    type="button"
+                    class="action-button archive-button"
+                    onclick="arquivar('<%= noticia.id %>')"
+                  >
+                    Arquivar
+                  </button>
+
+                <% } %>
+
+
+
+                <button
+                  type="button"
+                  class="action-button edit-button"
+                  onclick="editarNoticia(
+                    '<%= noticia.id %>',
+                    '<%= noticia.titulo.replace(/'/g, "\\'") %>',
+                    '<%= noticia.descricao.replace(/'/g, "\\'") %>',
+                    '<%= (noticia.imagemUrl || '').replace(/'/g, "\\'") %>'
+                  )"
+                >
+                  Editar
+                </button>
+
+
+
+                <button
+                  type="button"
+                  class="action-button delete-button"
+                  onclick="deletar('<%= noticia.id %>')"
+                >
+                  Deletar
+                </button>
+
+
+              </div>
+
+
+            </div>
+
+
+          </article>
+
+
+        <% }) %>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <script src="/js/admin-noticias.js"></script>
+
+
+</body>
+
+</html>

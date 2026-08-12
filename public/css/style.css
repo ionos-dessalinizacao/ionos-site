@@ -1,0 +1,278 @@
+/* =========================
+   🌍 PADRÃO GLOBAL
+========================= */
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  margin: 0;
+}
+
+
+/* =========================
+   🧱 CONTAINER PADRÃO (login/admin)
+========================= */
+.page-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+/* =========================
+   📦 CARD PADRÃO
+========================= */
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   ✍️ INPUTS
+========================= */
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* =========================
+   🔘 BOTÕES
+========================= */
+.button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   📰 LISTA DE NOTÍCIAS (admin)
+========================= */
+.news-item {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+}
+
+
+.hero-bg {
+  background: linear-gradient(rgba(0, 30, 70, 0.7), rgba(0, 30, 70, 0.7)),
+              url('../images/ui/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ==========================================
+   IDIOMA - IDENTIDADE VISUAL IONOS
+========================================== */
+
+.ionos-language {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding-left: 14px;
+
+  border-left: 1px solid #e5e7eb;
+}
+
+.ionos-language-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+
+  line-height: 1;
+}
+
+
+/* ==========================================
+   SELECT
+========================================== */
+
+.ionos-language-select {
+  appearance: none;
+
+  min-width: 58px;
+
+  padding: 7px 28px 7px 10px;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 6px;
+
+  background-color: #ffffff;
+
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #2563eb 50%
+    ),
+    linear-gradient(
+      135deg,
+      #2563eb 50%,
+      transparent 50%
+    );
+
+  background-position:
+    calc(100% - 13px) 12px,
+    calc(100% - 8px) 12px;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+
+  color: #1f2937;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+/* HOVER */
+
+.ionos-language-select:hover {
+
+  border-color: #2563eb;
+
+  background-color: #f8fafc;
+}
+
+
+/* FOCUS */
+
+.ionos-language-select:focus {
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(37, 99, 235, 0.10);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+
+  .ionos-language {
+
+    padding-left: 0;
+
+    border-left: none;
+
+  }
+
+  .ionos-language-select {
+
+    min-width: 105px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+  }
+
+}
+
+
+/* ==========================================
+   GOOGLE TRANSLATE
+   ESCONDER COMPLETAMENTE A BARRA SUPERIOR
+========================================== */
+
+/* Barra superior do Google */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    border: 0 !important;
+}
+
+/* iframe da barra */
+iframe.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Remove o deslocamento que o Google adiciona */
+html {
+    margin-top: 0 !important;
+    top: 0 !important;
+}
+
+body {
+    margin-top: 0 !important;
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Elementos do Google Translate */
+.goog-te-gadget {
+    font-size: 0 !important;
+}
+
+.goog-te-gadget > span {
+    display: none !important;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+/* Balão de tradução */
+.goog-te-balloon-frame {
+    display: none !important;
+}
+
+/* Elementos skiptranslate */
+.skiptranslate {
+    font-size: 0 !important;
+}
+
+/* Oculta elementos que o Google injeta */
+body > .skiptranslate {
+    display: none !important;
+}
+
+/* Impede o Google de deixar espaço no topo */
+body > iframe {
+    display: none !important;
+}

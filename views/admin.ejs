@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title><%= title %></title>
+
+  <link
+    rel="stylesheet"
+    href="/css/admin.css"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+</head>
+
+
+<body>
+
+  <!-- ==========================================
+       HEADER
+  =========================================== -->
+
+  <header class="admin-header">
+
+    <div class="admin-brand">
+
+      <div class="admin-logo">
+        I
+      </div>
+
+      <div>
+
+        <h1>
+          Painel Administrativo
+        </h1>
+
+        <p>
+          Ionos Dessalinização
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="admin-header-actions">
+
+      <a
+        href="/"
+        target="_blank"
+        class="btn-site"
+      >
+        Ver site
+      </a>
+
+      <a
+        href="/login/sair"
+        class="btn-logout"
+      >
+        Sair
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==========================================
+       CONTEÚDO
+  =========================================== -->
+
+  <main class="admin-container">
+
+
+    <!-- INTRODUÇÃO -->
+
+    <section class="admin-intro">
+
+      <span>
+        ADMINISTRAÇÃO
+      </span>
+
+      <h2>
+        Gerencie o conteúdo do site
+      </h2>
+
+      <p>
+        Selecione uma página abaixo para editar
+        seus conteúdos, informações e elementos.
+      </p>
+
+    </section>
+
+
+    <!-- ==========================================
+         PÁGINAS DO SITE
+    =========================================== -->
+
+    <section class="admin-pages">
+
+
+      <!-- INÍCIO -->
+
+      <a
+        href="/admin/inicio"
+        class="admin-page-card"
+      >
+
+        <div class="admin-page-icon">
+          🏠
+        </div>
+
+        <div class="admin-page-content">
+
+          <h3>
+            Início
+          </h3>
+
+          <p>
+            Gerencie o conteúdo principal,
+            conquistas e galeria.
+          </p>
+
+        </div>
+
+        <span class="admin-page-arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- EQUIPE -->
+
+      <a
+        href="/admin/equipe"
+        class="admin-page-card"
+      >
+
+        <div class="admin-page-icon">
+          👥
+        </div>
+
+        <div class="admin-page-content">
+
+          <h3>
+            Equipe
+          </h3>
+
+          <p>
+            Gerencie os membros e suas
+            informações profissionais.
+          </p>
+
+        </div>
+
+        <span class="admin-page-arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- APLICAÇÕES -->
+
+      <a
+        href="/admin/aplicacoes"
+        class="admin-page-card"
+      >
+
+        <div class="admin-page-icon">
+          ⚙
+        </div>
+
+        <div class="admin-page-content">
+
+          <h3>
+            Aplicações
+          </h3>
+
+          <p>
+            Gerencie as aplicações e
+            projetos apresentados no site.
+          </p>
+
+        </div>
+
+        <span class="admin-page-arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- NOTÍCIAS -->
+
+      <a
+        href="/admin/noticias"
+        class="admin-page-card"
+      >
+
+        <div class="admin-page-icon">
+          📰
+        </div>
+
+        <div class="admin-page-content">
+
+          <h3>
+            Notícias
+          </h3>
+
+          <p>
+            Crie, edite, arquive ou exclua
+            notícias da Ionos.
+          </p>
+
+        </div>
+
+        <span class="admin-page-arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- SOBRE NÓS -->
+
+      <a
+        href="/admin/sobre"
+        class="admin-page-card"
+      >
+
+        <div class="admin-page-icon">
+          ℹ
+        </div>
+
+        <div class="admin-page-content">
+
+          <h3>
+            Sobre Nós
+          </h3>
+
+          <p>
+            Atualize as informações,
+            textos e conteúdos institucionais.
+          </p>
+
+        </div>
+
+        <span class="admin-page-arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- CONTATO -->
+
+      <a
+        href="/admin/contato"
+        class="admin-page-card"
+      >
+
+        <div class="admin-page-icon">
+          ✉
+        </div>
+
+        <div class="admin-page-content">
+
+          <h3>
+            Contato
+          </h3>
+
+          <p>
+            Gerencie as informações e
+            canais de contato.
+          </p>
+
+        </div>
+
+        <span class="admin-page-arrow">
+          →
+        </span>
+
+      </a>
+
+
+    </section>
+
+
+    <!-- ==========================================
+         ACESSO RÁPIDO
+    =========================================== -->
+
+    <section class="admin-quick">
+
+      <div>
+
+        <span class="admin-quick-label">
+          SITE
+        </span>
+
+        <h2>
+          Visualizar Ionos
+        </h2>
+
+        <p>
+          Veja como as alterações aparecem
+          para os visitantes.
+        </p>
+
+      </div>
+
+      <a
+        href="/"
+        target="_blank"
+        class="admin-quick-button"
+      >
+        Acessar site
+        →
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+
+  <footer class="admin-footer">
+
+    <p>
+      © <%= new Date().getFullYear() %>
+      Ionos Dessalinização
+    </p>
+
+    <span>
+      Painel Administrativo
+    </span>
+
+  </footer>
+
+
+  <script src="/js/admin.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,676 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f8f9;
+  color: #1f2933;
+  min-height: 100vh;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.admin-header {
+  width: 100%;
+  min-height: 82px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+
+/* Marca */
+
+.admin-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.admin-brand-name {
+  color: #007a8f;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+
+.admin-brand-subtitle {
+  margin-top: 5px;
+
+  color: #6b7280;
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* Lado direito */
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+
+.admin-header-title {
+  color: #4b5563;
+
+  font-size: 0.9rem;
+}
+
+
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 18px;
+
+  border-radius: 9px;
+
+  background: #007a8f;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+}
+
+
+.logout-button:hover {
+  background: #005f70;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.admin-container {
+  width: min(1200px, 92%);
+
+  margin: 0 auto;
+
+  padding: 70px 0 90px;
+}
+
+
+/* ==========================================
+   INTRODUÇÃO
+========================================== */
+
+.admin-introduction {
+  margin-bottom: 48px;
+}
+
+
+.admin-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #007a8f;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+.admin-introduction h1 {
+  color: #111827;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.15;
+
+  margin-bottom: 16px;
+}
+
+
+.admin-introduction p {
+  max-width: 650px;
+
+  color: #6b7280;
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.admin-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.admin-card {
+  position: relative;
+
+  min-height: 210px;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.04);
+
+  text-decoration: none;
+
+  color: inherit;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 20px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.admin-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #07c0d4;
+
+  box-shadow:
+    0 14px 35px rgba(0, 122, 143, 0.12);
+}
+
+
+/* ==========================================
+   ÍCONE
+========================================== */
+
+.admin-card-icon {
+  width: 54px;
+  height: 54px;
+
+  min-width: 54px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #e8f7f9;
+
+  font-size: 1.55rem;
+}
+
+
+/* ==========================================
+   CONTEÚDO DO CARD
+========================================== */
+
+.admin-card h2 {
+  margin-bottom: 9px;
+
+  color: #111827;
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+}
+
+
+.admin-card p {
+  max-width: 420px;
+
+  color: #6b7280;
+
+  font-size: 0.95rem;
+
+  line-height: 1.65;
+}
+
+
+/* ==========================================
+   SETA
+========================================== */
+
+.admin-card-arrow {
+  position: absolute;
+
+  right: 26px;
+  bottom: 24px;
+
+  color: #007a8f;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  transition: transform 0.25s ease;
+}
+
+
+.admin-card:hover .admin-card-arrow {
+  transform: translateX(5px);
+}
+
+
+/* ==========================================
+   CARD DE NOTÍCIAS
+========================================== */
+
+.admin-card-highlight {
+  border-color: #bde8ed;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fdfe 100%
+    );
+}
+
+
+/*
+   O card de notícias agora possui
+   conteúdo vertical.
+*/
+
+.admin-card-highlight {
+  display: block;
+
+  min-height: auto;
+}
+
+
+/* ==========================================
+   CABEÇALHO DO CARD DE NOTÍCIAS
+========================================== */
+
+.admin-card-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 20px;
+
+  position: relative;
+
+  padding-right: 35px;
+}
+
+
+.admin-card-header h2 {
+  margin-bottom: 8px;
+}
+
+
+.admin-card-header p {
+  max-width: 500px;
+}
+
+
+/* ==========================================
+   STATUS DA SEÇÃO
+========================================== */
+
+.admin-section-status {
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #e5e7eb;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.admin-section-status .admin-label {
+  margin-bottom: 0;
+}
+
+
+/* ==========================================
+   STATUS ATIVO / INATIVO
+========================================== */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+.status-ativo {
+  background: #dcfce7;
+
+  color: #166534;
+}
+
+
+.status-inativo {
+  background: #fee2e2;
+
+  color: #991b1b;
+}
+
+
+/* ==========================================
+   AÇÕES DO CARD
+========================================== */
+
+.admin-card-actions {
+  margin-top: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.admin-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #007a8f;
+
+  color: #ffffff;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.admin-button:hover {
+  background: #005f70;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(0, 122, 143, 0.18);
+}
+
+
+/* Botão desativar */
+
+.admin-button.danger {
+  background: #ffffff;
+
+  color: #b91c1c;
+
+  border: 1px solid #fecaca;
+}
+
+
+.admin-button.danger:hover {
+  background: #fef2f2;
+
+  color: #991b1b;
+
+  border-color: #fca5a5;
+
+  box-shadow: none;
+}
+
+
+/* Botão ativar */
+
+.admin-button.success {
+  background: #ffffff;
+
+  color: #15803d;
+
+  border: 1px solid #bbf7d0;
+}
+
+
+.admin-button.success:hover {
+  background: #f0fdf4;
+
+  color: #166534;
+
+  border-color: #86efac;
+
+  box-shadow: none;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.admin-footer {
+  width: 100%;
+
+  padding: 30px 6%;
+
+  border-top: 1px solid #e5e7eb;
+
+  background: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.admin-footer p {
+  color: #007a8f;
+
+  font-weight: 700;
+}
+
+
+.admin-footer span {
+  color: #9ca3af;
+
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 850px) {
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .admin-header {
+    padding: 0 5%;
+  }
+
+
+  .admin-header-title {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .admin-container {
+    width: 90%;
+
+    padding: 45px 0 60px;
+  }
+
+
+  .admin-header {
+    min-height: 72px;
+  }
+
+
+  .admin-header-right {
+    gap: 10px;
+  }
+
+
+  .admin-card {
+    padding: 24px;
+
+    min-height: 190px;
+  }
+
+
+  .admin-card-icon {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+
+    font-size: 1.3rem;
+  }
+
+
+  .admin-card h2 {
+    font-size: 1.15rem;
+  }
+
+
+  .admin-card p {
+    font-size: 0.88rem;
+  }
+
+
+  .admin-section-status {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  .admin-card-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .admin-button {
+    width: 100%;
+  }
+
+
+  .admin-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 25px 5%;
+  }
+
+}
