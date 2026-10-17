@@ -1,0 +1,1710 @@
+
+/* =========================================================
+   IONOS DESSALINIZAÇÃO — SOBRE NÓS
+   Arquivo: public/css/sobre.css
+
+   Identidade visual:
+   Azul-petróleo: #007A8F
+   Ciano:         #07C0D4
+   Cinza:         #5F5F5F
+   Preto:         #0D0D0D
+   ========================================================= */
+
+/* =========================================================
+   01. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+:root {
+  --color-primary: #007A8F;
+  --color-accent: #07C0D4;
+  --color-text-body: #5F5F5F;
+  --color-text-title: #0D0D0D;
+
+  --bg-main: #FFFFFF;
+  --bg-secondary: #F9F8F5;
+  --bg-dark: #0D0D0D;
+  --bg-primary: #007A8F;
+
+  --font-title: "Manrope", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --container-width: 1200px;
+  --container-padding: 28px;
+
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 26px;
+
+  --shadow-soft: 0 12px 36px rgba(13, 13, 13, 0.06);
+  --shadow-card: 0 18px 50px rgba(13, 13, 13, 0.08);
+
+  --transition-fast: 180ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sobre-page {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--color-text-body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: clip;
+}
+
+.sobre-page *,
+.sobre-page *::before,
+.sobre-page *::after {
+  box-sizing: border-box;
+}
+
+.sobre-page img,
+.sobre-page svg {
+  display: block;
+}
+
+.sobre-page img {
+  max-width: 100%;
+}
+
+.sobre-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sobre-page button {
+  font: inherit;
+}
+
+.sobre-page button,
+.sobre-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sobre-page button:focus-visible,
+.sobre-page a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.sobre-page h1,
+.sobre-page h2,
+.sobre-page h3,
+.sobre-page p {
+  margin-top: 0;
+}
+
+.sobre-page h1,
+.sobre-page h2,
+.sobre-page h3 {
+  color: var(--color-text-title);
+  font-family: var(--font-title);
+  letter-spacing: -0.045em;
+}
+
+.sobre-page h1,
+.sobre-page h2 {
+  font-weight: 700;
+}
+
+.sobre-page p {
+  color: var(--color-text-body);
+}
+
+.sobre-container {
+  width: min(
+    var(--container-width),
+    calc(100% - var(--container-padding) * 2)
+  );
+  margin-inline: auto;
+}
+
+.sobre-page section {
+  position: relative;
+}
+
+.sobre-page section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* =========================================================
+   02. ELEMENTOS COMPARTILHADOS
+   ========================================================= */
+
+.sobre-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.sobre-eyebrow__line {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: var(--color-accent);
+}
+
+.sobre-eyebrow--center {
+  justify-content: center;
+}
+
+.sobre-eyebrow--light {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sobre-eyebrow--light .sobre-eyebrow__line {
+  background: var(--color-accent);
+}
+
+.sobre-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 15px 22px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  transition:
+    color var(--transition-normal),
+    background var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.sobre-button svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  transition: transform var(--transition-normal);
+}
+
+.sobre-button:hover {
+  transform: translateY(-3px);
+}
+
+.sobre-button:hover svg {
+  transform: translateX(4px);
+}
+
+.sobre-button--primary {
+  background: var(--color-primary);
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(0, 122, 143, 0.19);
+}
+
+.sobre-button--primary:hover {
+  background: #006879;
+  box-shadow: 0 12px 30px rgba(0, 122, 143, 0.28);
+}
+
+.sobre-button--light {
+  background: #FFFFFF;
+  color: var(--color-primary) !important;
+}
+
+.sobre-button--light:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-title) !important;
+}
+
+.sobre-section-heading {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.sobre-section-heading h2,
+.sobre-intro__heading h2,
+.sobre-historia__content h2,
+.sobre-galeria__heading h2 {
+  margin-bottom: 22px;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.14;
+}
+
+.sobre-section-heading h2 span,
+.sobre-intro__heading h2 span,
+.sobre-historia__content h2 span,
+.sobre-galeria__heading h2 span {
+  color: var(--color-primary);
+}
+
+.sobre-section-heading > p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.sobre-section-heading--left {
+  max-width: 100%;
+  margin-inline: 0;
+  text-align: left;
+}
+
+.sobre-section-heading--left .sobre-eyebrow {
+  justify-content: flex-start;
+}
+
+.sobre-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 750ms ease,
+    transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sobre-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   03. HERO INSTITUCIONAL
+   ========================================================= */
+
+.sobre-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 650px;
+  padding: 100px 0 90px;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(7, 192, 212, 0.11),
+      transparent 40%
+    ),
+    linear-gradient(125deg, #FFFFFF 0%, #F9F8F5 72%, #F0F9FA 100%);
+}
+
+.sobre-hero__background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sobre-hero__grid {
+  position: absolute;
+  inset: 0 0 0 45%;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(0, 122, 143, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 122, 143, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to left, black, transparent);
+}
+
+.sobre-hero__orb {
+  position: absolute;
+  border: 1px solid rgba(7, 192, 212, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sobre-hero__orb--one {
+  top: 6%;
+  right: 5%;
+  width: 360px;
+  height: 360px;
+  animation: sobre-orbit 18s linear infinite;
+}
+
+.sobre-hero__orb--two {
+  top: 17%;
+  right: 12%;
+  width: 220px;
+  height: 220px;
+  border-color: rgba(0, 122, 143, 0.14);
+  animation: sobre-orbit 24s linear infinite reverse;
+}
+
+.sobre-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-width);
+}
+
+.sobre-hero__content > * {
+  max-width: 760px;
+}
+
+.sobre-hero__title {
+  margin-bottom: 26px;
+  font-size: clamp(2.8rem, 6.2vw, 5.6rem);
+  line-height: 1.03;
+  letter-spacing: -0.07em;
+}
+
+.sobre-hero__title span {
+  display: block;
+  color: var(--color-primary);
+}
+
+.sobre-hero__description {
+  max-width: 610px;
+  margin-bottom: 32px;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.9;
+}
+
+.sobre-hero__signature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 50px;
+  color: #777777;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sobre-hero__signature span {
+  width: 38px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.sobre-hero__side-label {
+  position: absolute;
+  right: 22px;
+  bottom: 70px;
+  color: rgba(0, 122, 143, 0.65);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-rl;
+}
+
+/* =========================================================
+   04. APRESENTAÇÃO INSTITUCIONAL
+   ========================================================= */
+
+.sobre-intro {
+  padding: 120px 0 100px;
+  background: var(--bg-main);
+}
+
+.sobre-intro__layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(40px, 8vw, 120px);
+  align-items: start;
+}
+
+.sobre-intro__heading h2 {
+  max-width: 480px;
+  margin-bottom: 0;
+  font-size: clamp(2.15rem, 4vw, 3.55rem);
+  line-height: 1.15;
+}
+
+.sobre-intro__heading h2 span {
+  display: block;
+  margin-top: 8px;
+  color: var(--color-primary);
+}
+
+.sobre-intro__text {
+  padding-top: 12px;
+}
+
+.sobre-intro__text p {
+  margin-bottom: 22px;
+  font-size: 1.02rem;
+  line-height: 1.95;
+}
+
+.sobre-intro__text p:last-child {
+  margin-bottom: 0;
+}
+
+.sobre-intro__highlight {
+  position: relative;
+  max-width: 880px;
+  margin: 80px auto 0;
+  padding: 34px 44px 34px 70px;
+  border-left: 3px solid var(--color-accent);
+  background: linear-gradient(100deg, #F0FAFB, #FFFFFF);
+}
+
+.sobre-intro__highlight-mark {
+  position: absolute;
+  top: 16px;
+  left: 25px;
+  color: var(--color-primary);
+  font-family: Georgia, serif;
+  font-size: 3.3rem;
+  line-height: 1;
+}
+
+.sobre-intro__highlight p {
+  margin-bottom: 0;
+  color: var(--color-text-title);
+  font-family: var(--font-title);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.025em;
+}
+
+.sobre-intro__highlight-line {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 72px;
+  height: 3px;
+  background: var(--color-primary);
+}
+
+/* =========================================================
+   05. HISTÓRIA DA IONOS
+   ========================================================= */
+
+.sobre-historia {
+  padding: 115px 0 125px;
+  background: var(--bg-secondary);
+}
+
+.sobre-historia__layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(45px, 7vw, 100px);
+  align-items: center;
+}
+
+.sobre-historia__visual {
+  position: relative;
+  min-width: 0;
+  padding: 0 24px 38px 0;
+}
+
+.sobre-historia__image-frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 480px;
+  border-radius: 4px;
+  background: #E2EFF0;
+  box-shadow: var(--shadow-card);
+}
+
+.sobre-historia__image-frame::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border: 1px solid rgba(0, 122, 143, 0.1);
+  content: "";
+  pointer-events: none;
+}
+
+.sobre-historia__image-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sobre-historia__visual:hover .sobre-historia__image-frame img {
+  transform: scale(1.045);
+}
+
+.sobre-historia__image-overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(13, 13, 13, 0.3));
+  pointer-events: none;
+}
+
+.sobre-historia__image-caption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 20px);
+  padding: 17px 22px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.sobre-historia__caption-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.sobre-historia__visual-decoration {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  display: grid;
+  grid-template-columns: repeat(3, 8px);
+  gap: 9px;
+  padding: 12px;
+}
+
+.sobre-historia__visual-decoration span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.65;
+}
+
+.sobre-historia__content h2 {
+  margin-bottom: 27px;
+  font-size: clamp(2.1rem, 4vw, 3.35rem);
+}
+
+.sobre-historia__content > p {
+  margin-bottom: 18px;
+  font-size: 0.98rem;
+  line-height: 1.95;
+}
+
+.sobre-historia__content > p:last-of-type {
+  margin-bottom: 28px;
+}
+
+.sobre-historia__content em {
+  color: var(--color-primary);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.sobre-historia__milestone {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid rgba(0, 122, 143, 0.15);
+  background: #FFFFFF;
+  box-shadow: 0 8px 28px rgba(13, 13, 13, 0.035);
+}
+
+.sobre-historia__milestone-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: #EAF8F9;
+  color: var(--color-primary);
+}
+
+.sobre-historia__milestone-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.sobre-historia__milestone strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--color-text-title);
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+}
+
+.sobre-historia__milestone p {
+  margin-bottom: 0;
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   06. TECNOLOGIA CDI
+   ========================================================= */
+
+.sobre-tecnologia {
+  padding: 120px 0;
+  background: var(--bg-main);
+}
+
+.sobre-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.sobre-tech-card {
+  position: relative;
+  min-width: 0;
+  padding: 35px 30px 36px;
+  overflow: hidden;
+  border: 1px solid #E8EEEE;
+  background: #FFFFFF;
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.sobre-tech-card::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--color-accent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 450ms ease;
+}
+
+.sobre-tech-card:hover {
+  border-color: rgba(0, 122, 143, 0.3);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-7px);
+}
+
+.sobre-tech-card:hover::after {
+  transform: scaleX(1);
+}
+
+.sobre-tech-card__number {
+  position: absolute;
+  top: 22px;
+  right: 25px;
+  color: #D9E6E7;
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.sobre-tech-card__icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 27px;
+  place-items: center;
+  background: #EAF8F9;
+  color: var(--color-primary);
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.sobre-tech-card:hover .sobre-tech-card__icon {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  transform: rotate(-4deg);
+}
+
+.sobre-tech-card__icon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.sobre-tech-card h3 {
+  margin-bottom: 13px;
+  font-size: 1.22rem;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.sobre-tech-card p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+/* =========================================================
+   07. MISSÃO, VISÃO E DIFERENCIAL
+   ========================================================= */
+
+.sobre-pilares {
+  padding: 115px 0 125px;
+  background: #F5F8F8;
+}
+
+.sobre-pilares .sobre-section-heading {
+  margin-bottom: 48px;
+}
+
+.sobre-pilares__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.sobre-pilar {
+  position: relative;
+  min-width: 0;
+  padding: 32px 29px 36px;
+  border: 1px solid #E4ECEC;
+  background: #FFFFFF;
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.sobre-pilar:hover {
+  border-color: rgba(0, 122, 143, 0.3);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-5px);
+}
+
+.sobre-pilar--featured {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.sobre-pilar--featured h3,
+.sobre-pilar--featured p,
+.sobre-pilar--featured .sobre-pilar__index {
+  color: #FFFFFF;
+}
+
+.sobre-pilar--featured .sobre-pilar__icon {
+  background: rgba(255, 255, 255, 0.13);
+  color: #FFFFFF;
+}
+
+.sobre-pilar--featured:hover {
+  border-color: #006879;
+  box-shadow: 0 20px 45px rgba(0, 122, 143, 0.18);
+}
+
+.sobre-pilar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.sobre-pilar__icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  background: #EAF8F9;
+  color: var(--color-primary);
+}
+
+.sobre-pilar__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sobre-pilar__index {
+  color: #9AAEAF;
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.sobre-pilar h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  letter-spacing: -0.035em;
+}
+
+.sobre-pilar p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+  line-height: 1.9;
+}
+
+.sobre-pilar--featured p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* =========================================================
+   08. GALERIA DE IMAGENS
+   ========================================================= */
+
+.sobre-galeria {
+  padding: 120px 0 110px;
+  background: #FFFFFF;
+}
+
+.sobre-galeria__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+  margin-bottom: 38px;
+}
+
+.sobre-galeria__heading h2 {
+  max-width: 650px;
+  margin-bottom: 0;
+}
+
+.sobre-galeria__controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding-bottom: 5px;
+}
+
+.sobre-gallery-button {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid #DDE7E7;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition:
+    color var(--transition-normal),
+    background var(--transition-normal),
+    border-color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.sobre-gallery-button:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.sobre-gallery-button svg {
+  width: 21px;
+  height: 21px;
+}
+
+.sobre-galeria__stage {
+  position: relative;
+  overflow: hidden;
+  background: #E7F1F2;
+}
+
+.sobre-galeria__image-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: clamp(300px, 51vw, 570px);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #E7F1F2;
+  cursor: zoom-in;
+}
+
+.sobre-galeria__image-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sobre-galeria__image-button:hover img {
+  transform: scale(1.035);
+}
+
+.sobre-galeria__zoom {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  background: rgba(0, 122, 143, 0.95);
+  color: #FFFFFF;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.sobre-galeria__image-button:hover .sobre-galeria__zoom,
+.sobre-galeria__image-button:focus-visible .sobre-galeria__zoom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sobre-galeria__zoom svg {
+  width: 23px;
+  height: 23px;
+}
+
+.sobre-galeria__counter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 130px;
+  padding: 16px 22px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.sobre-galeria__counter-divider {
+  width: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.sobre-galeria__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 23px;
+}
+
+.sobre-galeria__footer p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sobre-galeria__dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sobre-galeria__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: #C9D7D8;
+  cursor: pointer;
+  transition:
+    width var(--transition-normal),
+    background var(--transition-normal);
+}
+
+.sobre-galeria__dot.is-active {
+  width: 28px;
+  background: var(--color-primary);
+}
+
+/* =========================================================
+   09. CHAMADA PARA CONTATO
+   ========================================================= */
+
+.sobre-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 105px 0 110px;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(7, 192, 212, 0.16),
+      transparent 35%
+    ),
+    linear-gradient(120deg, #005E6D, #007A8F 65%, #006778);
+}
+
+.sobre-cta__pattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(110deg, transparent, black);
+}
+
+.sobre-cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  text-align: center;
+}
+
+.sobre-cta__content .sobre-eyebrow {
+  justify-content: center;
+}
+
+.sobre-cta__content h2 {
+  margin-bottom: 24px;
+  color: #FFFFFF;
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.06em;
+}
+
+.sobre-cta__content h2 span {
+  display: block;
+  color: #8CEAF1;
+}
+
+.sobre-cta__content > p {
+  max-width: 630px;
+  margin: 0 auto 32px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.sobre-cta__watermark {
+  position: absolute;
+  right: -15px;
+  bottom: -65px;
+  color: rgba(255, 255, 255, 0.045);
+  font-family: var(--font-title);
+  font-size: clamp(7rem, 22vw, 20rem);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================================
+   10. LIGHTBOX
+   ========================================================= */
+
+.sobre-lightbox {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 70px 35px 35px;
+  background: rgba(5, 16, 18, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--transition-normal),
+    visibility var(--transition-normal);
+}
+
+.sobre-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.sobre-lightbox__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: min(1100px, calc(100% - 150px));
+  max-height: 100%;
+  margin: 0;
+}
+
+.sobre-lightbox__figure img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 145px);
+  object-fit: contain;
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.3);
+}
+
+.sobre-lightbox__figure figcaption {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.sobre-lightbox__close,
+.sobre-lightbox__nav {
+  position: absolute;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition:
+    background var(--transition-normal),
+    border-color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.sobre-lightbox__close:hover,
+.sobre-lightbox__nav:hover {
+  border-color: var(--color-accent);
+  background: var(--color-primary);
+}
+
+.sobre-lightbox__close {
+  top: 25px;
+  right: 28px;
+}
+
+.sobre-lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sobre-lightbox__nav:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.sobre-lightbox__nav--prev {
+  left: 25px;
+}
+
+.sobre-lightbox__nav--next {
+  right: 25px;
+}
+
+.sobre-lightbox__close svg,
+.sobre-lightbox__nav svg {
+  width: 23px;
+  height: 23px;
+}
+
+body.sobre-lightbox-open {
+  overflow: hidden;
+}
+
+/* =========================================================
+   11. ANIMAÇÕES
+   ========================================================= */
+
+@keyframes sobre-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   12. RESPONSIVIDADE — NOTEBOOKS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  :root {
+    --container-padding: 25px;
+  }
+
+  .sobre-hero {
+    min-height: 590px;
+  }
+
+  .sobre-hero__orb--one {
+    right: -70px;
+  }
+
+  .sobre-hero__orb--two {
+    right: -5px;
+  }
+
+  .sobre-intro__layout {
+    gap: 55px;
+  }
+
+  .sobre-historia__layout {
+    gap: 45px;
+  }
+
+  .sobre-historia__image-frame {
+    min-height: 430px;
+  }
+
+  .sobre-tech-card,
+  .sobre-pilar {
+    padding-inline: 23px;
+  }
+}
+
+/* =========================================================
+   13. RESPONSIVIDADE — TABLETS
+   ========================================================= */
+
+@media (max-width: 850px) {
+  :root {
+    --container-padding: 24px;
+  }
+
+  .sobre-hero {
+    min-height: auto;
+    padding: 105px 0 85px;
+  }
+
+  .sobre-hero__title {
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+  }
+
+  .sobre-hero__orb--one {
+    top: 12%;
+    right: -160px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .sobre-hero__orb--two {
+    right: -80px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .sobre-hero__side-label {
+    display: none;
+  }
+
+  .sobre-intro,
+  .sobre-historia,
+  .sobre-tecnologia,
+  .sobre-pilares,
+  .sobre-galeria {
+    padding-top: 85px;
+    padding-bottom: 90px;
+  }
+
+  .sobre-intro__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sobre-intro__heading h2 {
+    max-width: 650px;
+  }
+
+  .sobre-intro__text {
+    max-width: 720px;
+    padding-top: 0;
+  }
+
+  .sobre-intro__highlight {
+    margin-top: 55px;
+  }
+
+  .sobre-historia__layout {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .sobre-historia__visual {
+    width: 100%;
+    max-width: 650px;
+    margin-inline: auto;
+  }
+
+  .sobre-historia__image-frame {
+    min-height: 460px;
+  }
+
+  .sobre-historia__content {
+    max-width: 750px;
+  }
+
+  .sobre-tech-grid,
+  .sobre-pilares__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sobre-tech-card:last-child,
+  .sobre-pilar:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .sobre-section-heading {
+    margin-bottom: 42px;
+  }
+
+  .sobre-galeria__heading {
+    align-items: flex-end;
+  }
+
+  .sobre-galeria__image-button {
+    height: 420px;
+  }
+
+  .sobre-cta {
+    padding: 85px 0 95px;
+  }
+}
+
+/* =========================================================
+   14. RESPONSIVIDADE — CELULARES
+   ========================================================= */
+
+@media (max-width: 560px) {
+  :root {
+    --container-padding: 20px;
+  }
+
+  .sobre-page {
+    font-size: 15px;
+  }
+
+  .sobre-eyebrow {
+    gap: 9px;
+    margin-bottom: 19px;
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+  }
+
+  .sobre-eyebrow__line {
+    width: 24px;
+  }
+
+  .sobre-hero {
+    padding: 86px 0 68px;
+  }
+
+  .sobre-hero__title {
+    margin-bottom: 22px;
+    font-size: clamp(2.45rem, 12vw, 3.6rem);
+    letter-spacing: -0.065em;
+  }
+
+  .sobre-hero__description {
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+
+  .sobre-hero__signature {
+    flex-wrap: wrap;
+    margin-top: 36px;
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+  }
+
+  .sobre-hero__orb--one {
+    top: 5%;
+    right: -180px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .sobre-hero__orb--two {
+    top: 10%;
+    right: -120px;
+    width: 170px;
+    height: 170px;
+  }
+
+  .sobre-hero__grid {
+    left: 25%;
+    opacity: 0.2;
+  }
+
+  .sobre-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 17px;
+    font-size: 0.84rem;
+  }
+
+  .sobre-intro,
+  .sobre-historia,
+  .sobre-tecnologia,
+  .sobre-pilares,
+  .sobre-galeria {
+    padding-top: 68px;
+    padding-bottom: 70px;
+  }
+
+  .sobre-intro__heading h2,
+  .sobre-section-heading h2,
+  .sobre-historia__content h2,
+  .sobre-galeria__heading h2 {
+    font-size: clamp(1.9rem, 8.4vw, 2.65rem);
+  }
+
+  .sobre-intro__layout {
+    gap: 24px;
+  }
+
+  .sobre-intro__text p {
+    margin-bottom: 17px;
+    font-size: 0.94rem;
+    line-height: 1.85;
+  }
+
+  .sobre-intro__highlight {
+    margin-top: 38px;
+    padding: 28px 22px 27px 45px;
+  }
+
+  .sobre-intro__highlight-mark {
+    top: 14px;
+    left: 14px;
+    font-size: 2.4rem;
+  }
+
+  .sobre-intro__highlight p {
+    font-size: 1.1rem;
+  }
+
+  .sobre-historia__layout {
+    gap: 42px;
+  }
+
+  .sobre-historia__visual {
+    padding: 0 12px 32px 0;
+  }
+
+  .sobre-historia__image-frame {
+    min-height: 330px;
+  }
+
+  .sobre-historia__image-caption {
+    gap: 7px;
+    padding: 12px 13px;
+    font-size: 0.65rem;
+  }
+
+  .sobre-historia__visual-decoration {
+    top: -15px;
+    left: -12px;
+    gap: 7px;
+  }
+
+  .sobre-historia__content > p {
+    font-size: 0.93rem;
+    line-height: 1.85;
+  }
+
+  .sobre-historia__milestone {
+    gap: 12px;
+    padding: 17px 14px;
+  }
+
+  .sobre-historia__milestone-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .sobre-historia__milestone strong {
+    font-size: 0.87rem;
+  }
+
+  .sobre-historia__milestone p {
+    font-size: 0.81rem;
+  }
+
+  .sobre-section-heading {
+    margin-bottom: 32px;
+  }
+
+  .sobre-section-heading > p {
+    font-size: 0.93rem;
+  }
+
+  .sobre-tech-grid,
+  .sobre-pilares__grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .sobre-tech-card:last-child,
+  .sobre-pilar:last-child {
+    grid-column: auto;
+  }
+
+  .sobre-tech-card {
+    padding: 28px 23px 30px;
+  }
+
+  .sobre-tech-card__icon {
+    width: 51px;
+    height: 51px;
+    margin-bottom: 22px;
+  }
+
+  .sobre-tech-card h3 {
+    font-size: 1.14rem;
+  }
+
+  .sobre-tech-card p,
+  .sobre-pilar p {
+    font-size: 0.89rem;
+  }
+
+  .sobre-pilar {
+    padding: 27px 23px 30px;
+  }
+
+  .sobre-pilar__top {
+    margin-bottom: 25px;
+  }
+
+  .sobre-pilar h3 {
+    font-size: 1.28rem;
+  }
+
+  .sobre-galeria__heading {
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 26px;
+  }
+
+  .sobre-galeria__heading h2 {
+    font-size: clamp(1.75rem, 7.4vw, 2.35rem);
+  }
+
+  .sobre-galeria__controls {
+    gap: 7px;
+  }
+
+  .sobre-gallery-button {
+    width: 39px;
+    height: 39px;
+  }
+
+  .sobre-gallery-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sobre-galeria__image-button {
+    height: 300px;
+  }
+
+  .sobre-galeria__zoom {
+    right: 13px;
+    bottom: 13px;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .sobre-galeria__counter {
+    gap: 8px;
+    min-width: 105px;
+    padding: 12px 15px;
+    font-size: 0.82rem;
+  }
+
+  .sobre-galeria__counter-divider {
+    width: 22px;
+  }
+
+  .sobre-galeria__footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 17px;
+  }
+
+  .sobre-galeria__footer p {
+    font-size: 0.83rem;
+  }
+
+  .sobre-cta {
+    padding: 70px 0 76px;
+  }
+
+  .sobre-cta__content h2 {
+    font-size: clamp(2rem, 9vw, 2.9rem);
+  }
+
+  .sobre-cta__content > p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .sobre-cta__watermark {
+    right: -10px;
+    bottom: -25px;
+    font-size: 7rem;
+  }
+
+  .sobre-lightbox {
+    gap: 8px;
+    padding: 65px 12px 25px;
+  }
+
+  .sobre-lightbox__figure {
+    max-width: calc(100% - 60px);
+  }
+
+  .sobre-lightbox__figure img {
+    max-height: calc(100vh - 140px);
+  }
+
+  .sobre-lightbox__close {
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .sobre-lightbox__nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .sobre-lightbox__nav--prev {
+    left: 5px;
+  }
+
+  .sobre-lightbox__nav--next {
+    right: 5px;
+  }
+}
+
+/* =========================================================
+   15. ACESSIBILIDADE E MOVIMENTO REDUZIDO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .sobre-page *,
+  .sobre-page *::before,
+  .sobre-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .sobre-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

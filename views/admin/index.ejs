@@ -100,105 +100,178 @@
     <section class="admin-grid">
 
 
-      <!-- =====================================
-           INÍCIO
-      ====================================== -->
+<!-- =====================================
+     INÍCIO
+====================================== -->
 
-      <a
-        href="/admin/inicio"
-        class="admin-card"
-      >
+<section class="admin-card">
 
-        <div class="admin-card-icon">
-          🏠
-        </div>
+  <div class="admin-card-header">
 
-        <div>
+    <div class="admin-card-icon">
+      🏠
+    </div>
 
-          <h2>
-            Início
-          </h2>
+    <div>
+      <h2>
+        Início
+      </h2>
 
-          <p>
-            Gerencie os conteúdos
-            apresentados na página inicial.
-          </p>
+      <p>
+        Gerencie os conteúdos
+        apresentados na página inicial.
+      </p>
+    </div>
 
-        </div>
-
-        <span class="admin-card-arrow">
-          →
-        </span>
-
-      </a>
+  </div>
 
 
+  <!-- AÇÕES -->
 
-      <!-- =====================================
-           EQUIPE
-      ====================================== -->
+  <div class="admin-card-actions">
 
-      <a
-        href="/admin/equipe"
-        class="admin-card"
-      >
+    <a
+      href="/admin/inicio"
+      class="admin-button"
+    >
+      Administrar início
+    </a>
 
-        <div class="admin-card-icon">
-          👥
-        </div>
+  </div>
 
-        <div>
-
-          <h2>
-            Equipe
-          </h2>
-
-          <p>
-            Gerencie membros,
-            informações e fotos da equipe.
-          </p>
-
-        </div>
-
-        <span class="admin-card-arrow">
-          →
-        </span>
-
-      </a>
-
+</section>
 
 
       <!-- =====================================
-           APLICAÇÕES
-      ====================================== -->
+     EQUIPE
+====================================== -->
 
-      <a
-        href="/admin/aplicacoes"
-        class="admin-card"
+<section class="admin-card">
+
+  <div class="admin-card-header">
+
+    <div class="admin-card-icon">
+      👥
+    </div>
+
+    <div>
+      <h2>
+        Equipe
+      </h2>
+
+      <p>
+        Gerencie membros,
+        informações e fotos da equipe.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- AÇÕES -->
+
+  <div class="admin-card-actions">
+
+    <a
+      href="/admin/equipe"
+      class="admin-button"
+    >
+      Administrar equipe
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================
+     APLICAÇÕES
+====================================== -->
+
+<section class="admin-card admin-card-highlight">
+
+  <div class="admin-card-header">
+
+    <div class="admin-card-icon">
+      ⚗️
+    </div>
+
+    <div>
+      <h2>
+        Aplicações
+      </h2>
+
+      <p>
+        Gerencie aplicações,
+        projetos e informações técnicas.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- STATUS -->
+
+  <div class="admin-section-status">
+
+    <span class="admin-label">
+      SEÇÃO DO SITE
+    </span>
+
+    <% if (configuracoes && configuracoes.aplicacoesAtivas) { %>
+
+      <span class="status status-ativo">
+        Ativa
+      </span>
+
+    <% } else { %>
+
+      <span class="status status-inativo">
+        Inativa
+      </span>
+
+    <% } %>
+
+  </div>
+
+
+  <!-- AÇÕES -->
+
+  <div class="admin-card-actions">
+
+    <a
+      href="/admin/aplicacoes"
+      class="admin-button"
+    >
+      Administrar aplicações
+    </a>
+
+
+    <% if (configuracoes && configuracoes.aplicacoesAtivas) { %>
+
+      <button
+        type="button"
+        class="admin-button danger"
+        onclick="desativarAplicacoes()"
       >
+        Desativar seção
+      </button>
 
-        <div class="admin-card-icon">
-          ⚗️
-        </div>
+    <% } else { %>
 
-        <div>
+      <button
+        type="button"
+        class="admin-button success"
+        onclick="ativarAplicacoes()"
+      >
+        Ativar seção
+      </button>
 
-          <h2>
-            Aplicações
-          </h2>
+    <% } %>
 
-          <p>
-            Gerencie aplicações,
-            projetos e informações técnicas.
-          </p>
+  </div>
 
-        </div>
-
-        <span class="admin-card-arrow">
-          →
-        </span>
-
-      </a>
+</section>
 
 
 
@@ -296,72 +369,88 @@
 
 
 
-      <!-- =====================================
-           SOBRE
-      ====================================== -->
+<!-- =====================================
+     SOBRE
+====================================== -->
 
-      <a
-        href="/admin/sobre"
-        class="admin-card"
-      >
+<section class="admin-card">
 
-        <div class="admin-card-icon">
-          ℹ️
-        </div>
+  <div class="admin-card-header">
 
-        <div>
+    <div class="admin-card-icon">
+      ℹ️
+    </div>
 
-          <h2>
-            Sobre Nós
-          </h2>
+    <div>
+      <h2>
+        Sobre Nós
+      </h2>
 
-          <p>
-            Gerencie informações,
-            conquistas e conteúdos institucionais.
-          </p>
+      <p>
+        Gerencie informações,
+        conquistas e conteúdos institucionais.
+      </p>
+    </div>
 
-        </div>
-
-        <span class="admin-card-arrow">
-          →
-        </span>
-
-      </a>
+  </div>
 
 
+  <!-- AÇÕES -->
 
-      <!-- =====================================
-           CONTATO
-      ====================================== -->
+  <div class="admin-card-actions">
 
-      <a
-        href="/admin/contato"
-        class="admin-card"
-      >
+    <a
+      href="/admin/sobre"
+      class="admin-button"
+    >
+      Administrar Sobre Nós
+    </a>
 
-        <div class="admin-card-icon">
-          ✉️
-        </div>
+  </div>
 
-        <div>
+</section>
 
-          <h2>
-            Contato
-          </h2>
 
-          <p>
-            Gerencie informações
-            e canais de contato.
-          </p>
+<!-- =====================================
+     CONTATO
+====================================== -->
 
-        </div>
+<section class="admin-card">
 
-        <span class="admin-card-arrow">
-          →
-        </span>
+  <div class="admin-card-header">
 
-      </a>
+    <div class="admin-card-icon">
+      ✉️
+    </div>
 
+    <div>
+      <h2>
+        Contato
+      </h2>
+
+      <p>
+        Gerencie informações
+        e canais de contato.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- AÇÕES -->
+
+  <div class="admin-card-actions">
+
+    <a
+      href="/admin/contato"
+      class="admin-button"
+    >
+      Administrar contato
+    </a>
+
+  </div>
+
+</section>
 
     </section>
 

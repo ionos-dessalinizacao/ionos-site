@@ -1,466 +1,455 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Aplicações | Ionos Dessalinização</title>
   <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    name="description"
+    content="Conheça as aplicações das soluções de tratamento e dessalinização de água da Ionos para comunidades, indústrias e agricultura."
   >
+  <meta name="theme-color" content="#007A8F">
 
-  <title>Aplicações | Ionos</title>
+  <link rel="icon" type="image/png" href="/images/logo/icon-ionos.png">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    rel="stylesheet"
-    href="/css/style.css"
-  >
-
-  <link
-    rel="icon"
-    href="/images/logo/icon-ionos.png"
-    type="image/png"
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/aplicacoes.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 
+<body class="pagina-aplicacoes">
 
-<body class="bg-gray-50 text-gray-800">
+  <%- include('partials/header.ejs', { headerClass: 'header-light' }) %>
 
-  <%- include('partials/header.ejs') %>
+  <main>
+    <!-- HERO -->
+    <section class="aplicacoes-hero">
+      <div class="aplicacoes-hero__grid" aria-hidden="true"></div>
+      <div class="aplicacoes-hero__orb aplicacoes-hero__orb--one" aria-hidden="true"></div>
+      <div class="aplicacoes-hero__orb aplicacoes-hero__orb--two" aria-hidden="true"></div>
 
+      <div class="aplicacoes-container aplicacoes-hero__content">
+        <span class="aplicacoes-eyebrow aplicacoes-reveal">
+          <span class="aplicacoes-eyebrow__line"></span>
+          Soluções para diferentes realidades
+        </span>
 
-  <!-- =======================================================
-       HERO
-  ======================================================== -->
+        <h1 class="aplicacoes-hero__title aplicacoes-reveal">
+          A tecnologia da água
+          <span>em novas possibilidades.</span>
+        </h1>
 
-  <section class="relative overflow-hidden bg-[#007A8F] text-white py-28">
-
-    <!-- Elementos decorativos -->
-
-    <div
-      class="absolute -top-32 -right-32 w-96 h-96
-             bg-[#07C0D4] rounded-full
-             opacity-30 blur-3xl"
-    ></div>
-
-    <div
-      class="absolute -bottom-40 -left-32 w-96 h-96
-             bg-white rounded-full
-             opacity-10 blur-3xl"
-    ></div>
-
-
-    <div class="relative container mx-auto px-6 text-center">
-
-      <p
-        class="text-[#07C0D4] font-semibold uppercase
-               tracking-widest text-sm mb-4"
-      >
-        Soluções
-      </p>
-
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">
-        Aplicações
-      </h1>
-
-      <div
-        class="w-24 h-1 bg-[#07C0D4]
-               rounded-full mx-auto mb-8"
-      ></div>
-
-      <p
-        class="max-w-3xl mx-auto
-               text-lg md:text-xl
-               text-white/90 leading-8"
-      >
-        Desenvolvemos soluções de dessalinização
-        pensadas para diferentes contextos e necessidades,
-        combinando tecnologia, eficiência e sustentabilidade.
-      </p>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =======================================================
-       INTRODUÇÃO
-  ======================================================== -->
-
-  <section class="py-24 bg-white">
-
-    <div class="container mx-auto px-6">
-
-      <div class="max-w-4xl mx-auto text-center">
-
-        <p
-          class="text-[#07C0D4] font-semibold uppercase
-                 tracking-widest text-sm mb-3"
-        >
-          Onde podemos atuar
+        <p class="aplicacoes-hero__description aplicacoes-reveal">
+          Desenvolvemos soluções voltadas ao tratamento e à dessalinização
+          da água, buscando ampliar possibilidades de acesso e contribuir
+          para um uso mais eficiente desse recurso essencial.
         </p>
 
-        <h2
-          class="text-4xl md:text-5xl
-                 font-bold text-[#0D0D0D] mb-6"
+        <a
+          href="#nossas-aplicacoes"
+          class="aplicacoes-button aplicacoes-button--primary aplicacoes-reveal"
         >
-          Tecnologia para diferentes necessidades
+          Explore nossas aplicações
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 5v14m0 0 6-6m-6 6-6-6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+
+        <div class="aplicacoes-hero__signature aplicacoes-reveal">
+          <span></span>
+          Inovação para os desafios da água
+        </div>
+      </div>
+
+      <div class="aplicacoes-hero__vertical" aria-hidden="true">
+        IONOS DESSALINIZAÇÃO
+      </div>
+    </section>
+
+    <!-- INTRODUÇÃO -->
+    <section class="aplicacoes-intro">
+      <div class="aplicacoes-container aplicacoes-intro__layout">
+        <div class="aplicacoes-intro__heading aplicacoes-reveal">
+          <span class="aplicacoes-eyebrow">
+            <span class="aplicacoes-eyebrow__line"></span>
+            Onde atuamos
+          </span>
+
+          <h2>
+            Um desafio comum.
+            <span>Diferentes necessidades.</span>
+          </h2>
+        </div>
+
+        <div class="aplicacoes-intro__text aplicacoes-reveal">
+          <p>
+            A disponibilidade de água de qualidade é fundamental para
+            o desenvolvimento social, produtivo e econômico. Porém,
+            cada contexto apresenta desafios específicos.
+          </p>
+
+          <p>
+            Por isso, organizamos nossas áreas de aplicação considerando
+            as necessidades de comunidades, atividades industriais e
+            produção agrícola. Conheça cada uma delas e descubra como
+            nossas soluções podem contribuir para esses cenários.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICAÇÕES -->
+    <section class="aplicacoes-section" id="nossas-aplicacoes">
+      <div class="aplicacoes-container">
+        <div class="aplicacoes-section__heading aplicacoes-reveal">
+          <span class="aplicacoes-eyebrow">
+            <span class="aplicacoes-eyebrow__line"></span>
+            Nossas frentes
+          </span>
+
+          <h2>
+            Conheça nossas
+            <span>áreas de aplicação.</span>
+          </h2>
+
+          <p>
+            Explore os diferentes contextos em que a tecnologia de
+            tratamento e dessalinização da água pode fazer a diferença.
+          </p>
+        </div>
+
+        <div class="aplicacoes-grid">
+
+          <!-- COMUNIDADES -->
+          <article class="aplicacao-card aplicacao-card--comunidades aplicacoes-reveal">
+            <div class="aplicacao-card__visual">
+              <div class="aplicacao-card__visual-pattern" aria-hidden="true"></div>
+
+              <span class="aplicacao-card__number">01</span>
+
+              <div class="aplicacao-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path
+                    d="M8 29 32 10l24 19"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15 26v27h34V26M25 53V37h14v16"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M45 9h7v12"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32 23c-4 5-6 8-6 11a6 6 0 0 0 12 0c0-3-2-6-6-11Z"
+                    stroke="currentColor"
+                    stroke-width="2.1"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <span class="aplicacao-card__visual-label">Acesso à água</span>
+            </div>
+
+            <div class="aplicacao-card__content">
+              <span class="aplicacao-card__eyebrow">Impacto social</span>
+
+              <h3>Comunidades</h3>
+
+              <p>
+                Soluções que buscam contribuir para o acesso à água
+                de qualidade, considerando as necessidades de comunidades
+                e regiões com desafios de disponibilidade hídrica.
+              </p>
+
+              <a
+                href="/aplicacoes/comunidades"
+                class="aplicacao-card__link"
+                aria-label="Saiba mais sobre aplicações para comunidades"
+              >
+                <span>Saiba mais</span>
+                <span class="aplicacao-card__link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14m-6-6 6 6-6 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+          <!-- INDÚSTRIAS -->
+          <article class="aplicacao-card aplicacao-card--industrias aplicacoes-reveal">
+            <div class="aplicacao-card__visual">
+              <div class="aplicacao-card__visual-pattern" aria-hidden="true"></div>
+
+              <span class="aplicacao-card__number">02</span>
+
+              <div class="aplicacao-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path
+                    d="M10 54V29l16 9V27l16 11V17h12v37H10Z"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M42 17V9h8v8M18 46h4m8 0h4m8 0h4m8 0h2"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M21 22v-7h8v11"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <span class="aplicacao-card__visual-label">Eficiência produtiva</span>
+            </div>
+
+            <div class="aplicacao-card__content">
+              <span class="aplicacao-card__eyebrow">Desenvolvimento industrial</span>
+
+              <h3>Indústrias</h3>
+
+              <p>
+                Alternativas tecnológicas voltadas às necessidades
+                industriais de tratamento da água, com atenção à
+                eficiência dos processos e ao uso responsável dos recursos.
+              </p>
+
+              <a
+                href="/aplicacoes/industrias"
+                class="aplicacao-card__link"
+                aria-label="Saiba mais sobre aplicações para indústrias"
+              >
+                <span>Saiba mais</span>
+                <span class="aplicacao-card__link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14m-6-6 6 6-6 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+          <!-- AGRICULTURA -->
+          <article class="aplicacao-card aplicacao-card--agricultura aplicacoes-reveal">
+            <div class="aplicacao-card__visual">
+              <div class="aplicacao-card__visual-pattern" aria-hidden="true"></div>
+
+              <span class="aplicacao-card__number">03</span>
+
+              <div class="aplicacao-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path
+                    d="M32 55V27"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M32 36C17 36 10 28 10 15c13 0 22 7 22 21Z"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32 28c0-12 8-19 22-19 0 13-7 22-22 22"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17 55h30"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+
+              <span class="aplicacao-card__visual-label">Uso responsável</span>
+            </div>
+
+            <div class="aplicacao-card__content">
+              <span class="aplicacao-card__eyebrow">Produção agrícola</span>
+
+              <h3>Agricultura</h3>
+
+              <p>
+                Possibilidades de aplicação de tecnologias de tratamento
+                da água para apoiar atividades agrícolas e contribuir
+                para o aproveitamento responsável dos recursos hídricos.
+              </p>
+
+              <a
+                href="/aplicacoes/agricultura"
+                class="aplicacao-card__link"
+                aria-label="Saiba mais sobre aplicações para agricultura"
+              >
+                <span>Saiba mais</span>
+                <span class="aplicacao-card__link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14m-6-6 6 6-6 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTAQUE -->
+    <section class="aplicacoes-destaque">
+      <div class="aplicacoes-container aplicacoes-destaque__layout">
+        <div class="aplicacoes-destaque__mark aplicacoes-reveal" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path
+              d="M50 8C37 27 19 45 19 63a31 31 0 0 0 62 0C81 45 63 27 50 8Z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M34 64c2 10 8 15 17 16"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <div class="aplicacoes-destaque__content aplicacoes-reveal">
+          <span class="aplicacoes-eyebrow">
+            <span class="aplicacoes-eyebrow__line"></span>
+            Nosso propósito
+          </span>
+
+          <h2>
+            Tecnologia desenvolvida
+            <span>para necessidades reais.</span>
+          </h2>
+
+          <p>
+            Acreditamos na ciência e na inovação como caminhos para
+            investigar novas possibilidades para o tratamento da água.
+            Nosso objetivo é desenvolver soluções que considerem os
+            desafios de cada contexto e contribuam para um futuro
+            com maior segurança hídrica.
+          </p>
+
+          <a href="/sobre" class="aplicacoes-text-link">
+            Conheça a Ionos
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M5 12h14m-6-6 6 6-6 6"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="aplicacoes-cta">
+      <div class="aplicacoes-cta__pattern" aria-hidden="true"></div>
+
+      <div class="aplicacoes-container aplicacoes-cta__content aplicacoes-reveal">
+        <span class="aplicacoes-eyebrow aplicacoes-eyebrow--light">
+          <span class="aplicacoes-eyebrow__line"></span>
+          Vamos conversar
+        </span>
+
+        <h2>
+          Quer saber mais sobre
+          <span>nossas soluções?</span>
         </h2>
 
-        <div
-          class="w-20 h-1 bg-[#07C0D4]
-                 rounded-full mx-auto mb-8"
-        ></div>
-
-        <p
-          class="text-[#5F5F5F]
-                 text-lg leading-8"
-        >
-          A tecnologia de dessalinização pode ser aplicada
-          em diferentes contextos, desde comunidades e
-          propriedades rurais até ambientes industriais.
-          Conheça algumas das possibilidades de aplicação
-          das soluções desenvolvidas pela Ionos.
+        <p>
+          Entre em contato com a Ionos para conhecer melhor nosso trabalho
+          e conversar sobre possibilidades de aplicação.
         </p>
 
+        <a href="/contato" class="aplicacoes-button aplicacoes-button--light">
+          Fale conosco
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M5 12h14m-6-6 6 6-6 6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
       </div>
 
-    </div>
-
-  </section>
-
-
-
-  <!-- =======================================================
-       APLICAÇÕES
-  ======================================================== -->
-
-  <section class="py-24 bg-gray-50">
-
-    <div class="container mx-auto px-6">
-
-      <div
-        class="grid md:grid-cols-2
-               lg:grid-cols-3 gap-8"
-      >
-
-
-        <!-- ===================================================
-             COMUNIDADES
-        ==================================================== -->
-
-        <a
-          href="/aplicacoes/comunidades"
-          class="group block bg-white
-                 rounded-3xl p-8
-                 border border-gray-100
-                 shadow-lg hover:shadow-2xl
-                 hover:-translate-y-2
-                 transition-all duration-300"
-        >
-
-          <!-- Ícone -->
-
-          <div
-            class="w-14 h-14
-                   flex items-center justify-center
-                   rounded-2xl
-                   bg-cyan-50
-                   text-[#007A8F]
-                   group-hover:bg-[#007A8F]
-                   group-hover:text-white
-                   transition duration-300"
-          >
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7"
-            >
-
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M2.25 21h19.5M3.75 21V10.5m16.5 10.5V10.5M6 10.5V6.75A2.25 2.25 0 0 1 8.25 4.5h7.5A2.25 2.25 0 0 1 18 6.75v3.75M6 21v-6.75A2.25 2.25 0 0 1 8.25 12h7.5A2.25 2.25 0 0 1 18 14.25V21"
-              />
-
-            </svg>
-
-          </div>
-
-
-          <h3
-            class="text-2xl font-bold
-                   text-[#0D0D0D]
-                   mt-7 mb-4"
-          >
-            Comunidades
-          </h3>
-
-
-          <p class="text-[#5F5F5F] leading-7">
-
-            Sistemas de dessalinização pensados
-            para ampliar o acesso à água de qualidade
-            em comunidades e regiões que enfrentam
-            dificuldades relacionadas à disponibilidade
-            de água potável.
-
-          </p>
-
-
-          <div
-            class="mt-7 pt-6
-                   border-t border-gray-100
-                   flex items-center justify-between"
-          >
-
-            <span
-              class="text-[#007A8F]
-                     font-semibold text-sm
-                     group-hover:underline"
-            >
-              Saiba mais
-            </span>
-
-            <span
-              class="text-[#007A8F]
-                     text-lg
-                     group-hover:translate-x-1
-                     transition-transform"
-            >
-              →
-            </span>
-
-          </div>
-
-        </a>
-
-
-
-        <!-- ===================================================
-             INDÚSTRIAS
-        ==================================================== -->
-
-        <a
-          href="/aplicacoes/industrias"
-          class="group block bg-white
-                 rounded-3xl p-8
-                 border border-gray-100
-                 shadow-lg hover:shadow-2xl
-                 hover:-translate-y-2
-                 transition-all duration-300"
-        >
-
-          <!-- Ícone -->
-
-          <div
-            class="w-14 h-14
-                   flex items-center justify-center
-                   rounded-2xl
-                   bg-cyan-50
-                   text-[#007A8F]
-                   group-hover:bg-[#007A8F]
-                   group-hover:text-white
-                   transition duration-300"
-          >
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7"
-            >
-
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 21h16.5M4.5 21V7.5l6-3v16.5M10.5 21V10.5l6-3V21M16.5 21V12h3v9M7.5 10.5h.008v.008H7.5V10.5Zm0 3h.008v.008H7.5V13.5Zm6-1.5h.008v.008H13.5V12Zm0 3h.008v.008H13.5V15Z"
-              />
-
-            </svg>
-
-          </div>
-
-
-          <h3
-            class="text-2xl font-bold
-                   text-[#0D0D0D]
-                   mt-7 mb-4"
-          >
-            Indústrias
-          </h3>
-
-
-          <p class="text-[#5F5F5F] leading-7">
-
-            Soluções voltadas para processos
-            industriais que necessitam de água
-            com características específicas,
-            contribuindo para maior eficiência
-            e otimização dos processos.
-
-          </p>
-
-
-          <div
-            class="mt-7 pt-6
-                   border-t border-gray-100
-                   flex items-center justify-between"
-          >
-
-            <span
-              class="text-[#007A8F]
-                     font-semibold text-sm
-                     group-hover:underline"
-            >
-              Saiba mais
-            </span>
-
-            <span
-              class="text-[#007A8F]
-                     text-lg
-                     group-hover:translate-x-1
-                     transition-transform"
-            >
-              →
-            </span>
-
-          </div>
-
-        </a>
-
-
-
-        <!-- ===================================================
-             AGRICULTURA
-        ==================================================== -->
-
-        <a
-          href="/aplicacoes/agricultura"
-          class="group block bg-white
-                 rounded-3xl p-8
-                 border border-gray-100
-                 shadow-lg hover:shadow-2xl
-                 hover:-translate-y-2
-                 transition-all duration-300"
-        >
-
-          <!-- Ícone -->
-
-          <div
-            class="w-14 h-14
-                   flex items-center justify-center
-                   rounded-2xl
-                   bg-cyan-50
-                   text-[#007A8F]
-                   group-hover:bg-[#007A8F]
-                   group-hover:text-white
-                   transition duration-300"
-          >
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7"
-            >
-
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 21V9m0 0c0-3.314 2.686-6 6-6h3v3c0 3.314-2.686 6-6 6h-3Zm0 3c0-3.314-2.686-6-6-6H3v3c0 3.314 2.686 6 6 6h3Z"
-              />
-
-            </svg>
-
-          </div>
-
-
-          <h3
-            class="text-2xl font-bold
-                   text-[#0D0D0D]
-                   mt-7 mb-4"
-          >
-            Agricultura
-          </h3>
-
-
-          <p class="text-[#5F5F5F] leading-7">
-
-            Aplicações voltadas para propriedades
-            rurais e atividades agrícolas que dependem
-            de disponibilidade e qualidade da água
-            para suas operações.
-
-          </p>
-
-
-          <div
-            class="mt-7 pt-6
-                   border-t border-gray-100
-                   flex items-center justify-between"
-          >
-
-            <span
-              class="text-[#007A8F]
-                     font-semibold text-sm
-                     group-hover:underline"
-            >
-              Saiba mais
-            </span>
-
-            <span
-              class="text-[#007A8F]
-                     text-lg
-                     group-hover:translate-x-1
-                     transition-transform"
-            >
-              →
-            </span>
-
-          </div>
-
-        </a>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
+      <div class="aplicacoes-cta__watermark" aria-hidden="true">IONOS</div>
+    </section>
+  </main>
 
   <%- include('partials/footer.ejs') %>
 
-
-  <!-- =======================================================
-       SCRIPTS
-  ======================================================== -->
-
-  <script src="/js/menu.js"></script>
-
-
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/aplicacoes.js" defer></script>
 </body>
-
 </html>

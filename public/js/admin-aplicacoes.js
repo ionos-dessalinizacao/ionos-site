@@ -1,3 +1,4 @@
+
 // ==========================================
 // PREVIEW DA IMAGEM
 // ==========================================
@@ -33,7 +34,6 @@ if (imagemFile) {
       const url =
         URL.createObjectURL(file);
 
-
       preview.src = url;
 
       previewContainer.style.display =
@@ -46,11 +46,11 @@ if (imagemFile) {
 
 
 // ==========================================
-// CRIAR NOTÍCIA
+// CRIAR APLICAÇÃO
 // ==========================================
 
 const form =
-  document.getElementById("formNoticia");
+  document.getElementById("formAplicacao");
 
 
 if (form) {
@@ -72,18 +72,16 @@ if (form) {
       const imagem =
         document.getElementById("imagemFile");
 
-
       let imagemUrl = "";
 
 
       /*
        * Por enquanto estamos enviando
-       * somente os dados da notícia.
+       * somente os dados da aplicação.
        *
        * Quando configurarmos Firebase Storage,
        * o upload da imagem será feito aqui.
        */
-
 
       if (imagem.files.length > 0) {
 
@@ -99,7 +97,7 @@ if (form) {
 
         const response =
           await fetch(
-            "/admin/noticias",
+            "/admin/aplicacoes",
             {
 
               method: "POST",
@@ -127,7 +125,7 @@ if (form) {
 
           alert(
             data.erro ||
-            "Erro ao criar notícia."
+            "Erro ao criar aplicação."
           );
 
           return;
@@ -135,12 +133,11 @@ if (form) {
 
 
         alert(
-          "Notícia criada com sucesso!"
+          "Aplicação criada com sucesso!"
         );
 
 
         window.location.reload();
-
 
       } catch (error) {
 
@@ -162,11 +159,11 @@ if (form) {
 // ARQUIVAR
 // ==========================================
 
-async function arquivar(id) {
+async function arquivarAplicacao(id) {
 
   if (
     !confirm(
-      "Deseja arquivar esta notícia?"
+      "Deseja arquivar esta aplicação?"
     )
   ) {
 
@@ -179,7 +176,7 @@ async function arquivar(id) {
 
     const response =
       await fetch(
-        `/admin/noticias/${id}/arquivar`,
+        `/admin/aplicacoes/${id}/arquivar`,
         {
           method: "PATCH"
         }
@@ -194,7 +191,7 @@ async function arquivar(id) {
 
       alert(
         data.erro ||
-        "Erro ao arquivar notícia."
+        "Erro ao arquivar aplicação."
       );
 
       return;
@@ -221,13 +218,13 @@ async function arquivar(id) {
 // DESARQUIVAR
 // ==========================================
 
-async function desarquivar(id) {
+async function desarquivarAplicacao(id) {
 
   try {
 
     const response =
       await fetch(
-        `/admin/noticias/${id}/desarquivar`,
+        `/admin/aplicacoes/${id}/desarquivar`,
         {
           method: "PATCH"
         }
@@ -242,7 +239,7 @@ async function desarquivar(id) {
 
       alert(
         data.erro ||
-        "Erro ao desarquivar notícia."
+        "Erro ao desarquivar aplicação."
       );
 
       return;
@@ -269,11 +266,11 @@ async function desarquivar(id) {
 // DELETAR
 // ==========================================
 
-async function deletar(id) {
+async function deletarAplicacao(id) {
 
   if (
     !confirm(
-      "Tem certeza que deseja deletar esta notícia? Esta ação não pode ser desfeita."
+      "Tem certeza que deseja deletar esta aplicação? Esta ação não pode ser desfeita."
     )
   ) {
 
@@ -286,7 +283,7 @@ async function deletar(id) {
 
     const response =
       await fetch(
-        `/admin/noticias/${id}`,
+        `/admin/aplicacoes/${id}`,
         {
           method: "DELETE"
         }
@@ -301,7 +298,7 @@ async function deletar(id) {
 
       alert(
         data.erro ||
-        "Erro ao deletar notícia."
+        "Erro ao deletar aplicação."
       );
 
       return;
@@ -328,7 +325,7 @@ async function deletar(id) {
 // EDITAR
 // ==========================================
 
-function editarNoticia(
+function editarAplicacao(
   id,
   titulo,
   descricao,
@@ -337,7 +334,7 @@ function editarNoticia(
 
   const novoTitulo =
     prompt(
-      "Título da notícia:",
+      "Título da aplicação:",
       titulo
     );
 
@@ -354,7 +351,7 @@ function editarNoticia(
 
   const novaDescricao =
     prompt(
-      "Descrição da notícia:",
+      "Descrição da aplicação:",
       descricao
     );
 
@@ -369,7 +366,7 @@ function editarNoticia(
   }
 
 
-  atualizarNoticia(
+  atualizarAplicacao(
     id,
     novoTitulo,
     novaDescricao,
@@ -383,7 +380,7 @@ function editarNoticia(
 // ATUALIZAR
 // ==========================================
 
-async function atualizarNoticia(
+async function atualizarAplicacao(
   id,
   titulo,
   descricao,
@@ -394,7 +391,7 @@ async function atualizarNoticia(
 
     const response =
       await fetch(
-        `/admin/noticias/${id}`,
+        `/admin/aplicacoes/${id}`,
         {
 
           method: "PUT",
@@ -422,7 +419,7 @@ async function atualizarNoticia(
 
       alert(
         data.erro ||
-        "Erro ao atualizar notícia."
+        "Erro ao atualizar aplicação."
       );
 
       return;
@@ -431,7 +428,7 @@ async function atualizarNoticia(
 
 
     alert(
-      "Notícia atualizada com sucesso!"
+      "Aplicação atualizada com sucesso!"
     );
 
 

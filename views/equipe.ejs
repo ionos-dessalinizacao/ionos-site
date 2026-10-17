@@ -1,320 +1,349 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Equipe | Ionos Dessalinização</title>
   <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    name="description"
+    content="Conheça os fundadores e a equipe da Ionos Dessalinização, uma startup que desenvolve soluções tecnológicas para o tratamento e a dessalinização da água."
   >
+  <meta name="theme-color" content="#007A8F">
 
-  <title>Equipe | Ionos</title>
+  <link rel="icon" type="image/png" href="/images/logo/icon-ionos.png">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    rel="stylesheet"
-    href="/css/style.css"
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/equipe.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="pagina-equipe">
 
-  <%- include('partials/header', {
-    headerClass: 'header-light'
-}) %>
+  <%- include('partials/header.ejs', { headerClass: 'header-light' }) %>
 
-  <!-- HERO -->
- <section class="relative overflow-hidden py-32 bg-gradient-to-br from-[#005A72] via-[#007A8F] to-[#07C0D4]">
+  <main>
+    <!-- HERO -->
+    <section class="equipe-hero">
+      <div class="equipe-hero__pattern" aria-hidden="true"></div>
+      <div class="equipe-hero__orb equipe-hero__orb--one" aria-hidden="true"></div>
+      <div class="equipe-hero__orb equipe-hero__orb--two" aria-hidden="true"></div>
 
-  <!-- Círculos decorativos -->
-  <div class="absolute inset-0 overflow-hidden">
+      <div class="equipe-container equipe-hero__content">
+        <span class="equipe-eyebrow equipe-reveal">
+          <span class="equipe-eyebrow__line"></span>
+          Pessoas por trás da inovação
+        </span>
 
-    <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-white/5"></div>
+        <h1 class="equipe-hero__title equipe-reveal">
+          Grandes ideias começam
+          <span>com pessoas.</span>
+        </h1>
 
-    <div class="absolute top-16 right-24 w-48 h-48 rounded-full border border-white/10"></div>
+        <p class="equipe-hero__description equipe-reveal">
+          Conheça quem está por trás da Ionos Dessalinização e trabalha
+          para transformar conhecimento científico em soluções para os
+          desafios do tratamento da água.
+        </p>
 
-    <div class="absolute bottom-20 left-1/4 w-64 h-64 rounded-full border-2 border-white/10"></div>
+        <a href="#fundadores" class="equipe-button equipe-button--primary equipe-reveal">
+          Conheça nossa equipe
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 5v14m0 0 6-6m-6 6-6-6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
 
-    <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-white/5"></div>
+        <div class="equipe-hero__signature equipe-reveal">
+          <span></span>
+          Ciência · Colaboração · Tecnologia
+        </div>
+      </div>
 
-    <div class="absolute top-1/2 left-12 w-10 h-10 rounded-full bg-white/20"></div>
+      <div class="equipe-hero__vertical" aria-hidden="true">
+        IONOS DESSALINIZAÇÃO
+      </div>
+    </section>
 
-    <div class="absolute top-32 left-1/2 w-6 h-6 rounded-full bg-white/30"></div>
+    <!-- INTRODUÇÃO -->
+    <section class="equipe-intro">
+      <div class="equipe-container equipe-intro__layout">
+        <div class="equipe-intro__heading equipe-reveal">
+          <span class="equipe-eyebrow">
+            <span class="equipe-eyebrow__line"></span>
+            Nossa força
+          </span>
 
-    <div class="absolute bottom-28 right-1/3 w-8 h-8 rounded-full bg-white/20"></div>
+          <h2>
+            Diferentes talentos.
+            <span>Um propósito em comum.</span>
+          </h2>
+        </div>
 
-  </div>
+        <div class="equipe-intro__text equipe-reveal">
+          <p>
+            A Ionos reúne pessoas comprometidas com a pesquisa, o
+            desenvolvimento tecnológico e a construção de alternativas
+            para os desafios relacionados à água.
+          </p>
 
-  <!-- Conteúdo -->
-  <div class="relative container mx-auto px-6 text-center">
+          <p>
+            A colaboração entre diferentes conhecimentos e experiências
+            faz parte da nossa jornada. Cada pessoa contribui para que
+            ideias sejam investigadas, testadas e transformadas em
+            possibilidades concretas.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <br>
-    <h1 class="text-5xl md:text-6xl font-bold text-white">
-      Nossa Equipe
-    </h1>
+    <!-- FUNDADORES -->
+    <section class="equipe-section equipe-fundadores" id="fundadores">
+      <div class="equipe-container">
+        <div class="equipe-section__heading equipe-reveal">
+          <span class="equipe-eyebrow">
+            <span class="equipe-eyebrow__line"></span>
+            Nossa origem
+          </span>
 
-    <div class="w-24 h-1 bg-white rounded-full mx-auto mt-6 mb-8"></div>
+          <h2>
+            Quem deu início
+            <span>a essa jornada.</span>
+          </h2>
 
-    <p class="max-w-3xl mx-auto text-lg text-white/90 leading-8">
-      A Ionos reúne profissionais das áreas de engenharia,
-      química, pesquisa e desenvolvimento para transformar
-      conhecimento científico em soluções sustentáveis para
-      dessalinização de água.
-    </p>
+          <p>
+            Conheça as pessoas que estão à frente da criação e do
+            desenvolvimento da Ionos Dessalinização.
+          </p>
+        </div>
 
-  </div>
+        <%
+          const listaFundadores = Array.isArray(fundadores) ? fundadores : [];
+        %>
 
-</section>
+        <% if (listaFundadores.length > 0) { %>
+          <div class="equipe-grid equipe-grid--fundadores">
+            <% listaFundadores.forEach((membro, index) => { %>
+              <article
+                class="equipe-card equipe-card--fundador equipe-reveal"
+                style="--card-index: <%= index %>"
+              >
+                <div class="equipe-card__photo">
+                  <% if (membro.imagemUrl) { %>
+                    <img
+                      src="<%= membro.imagemUrl %>"
+                      alt="Foto de <%= membro.nome %>"
+                      loading="lazy"
+                      onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    >
+                  <% } %>
 
-  <!-- FUNDADORES -->
+                  <div
+                    class="equipe-card__initial"
+                    <% if (membro.imagemUrl) { %>style="display:none"<% } %>
+                    aria-hidden="true"
+                  >
+                    <%= (membro.nome || 'I').trim().charAt(0).toUpperCase() %>
+                  </div>
 
-  <section class="py-24 bg-white">
+                  <div class="equipe-card__photo-overlay"></div>
 
-    <div class="container mx-auto px-6">
+                  <span class="equipe-card__badge">
+                    Fundador(a)
+                  </span>
+                </div>
 
-      <div class="text-center">
+                <div class="equipe-card__content">
+                  <span class="equipe-card__number">
+                    <%= String(index + 1).padStart(2, '0') %>
+                  </span>
 
-        <h2 class="text-4xl font-bold">
-          Fundadores
+                  <h3><%= membro.nome %></h3>
+
+                  <% if (membro.cargo) { %>
+                    <p class="equipe-card__role"><%= membro.cargo %></p>
+                  <% } %>
+
+                  <% if (membro.descricao) { %>
+                    <p class="equipe-card__description"><%= membro.descricao %></p>
+                  <% } %>
+
+                  <span class="equipe-card__bottom-line"></span>
+                </div>
+              </article>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <div class="equipe-empty equipe-reveal">
+            <div class="equipe-empty__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="4"
+                  stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4 21v-2a8 8 0 0 1 16 0v2"
+                  stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3>Fundadores em breve</h3>
+            <p>As informações dos fundadores serão disponibilizadas em breve.</p>
+          </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- EQUIPE -->
+    <section class="equipe-section equipe-membros" id="membros">
+      <div class="equipe-container">
+        <div class="equipe-section__heading equipe-reveal">
+          <span class="equipe-eyebrow">
+            <span class="equipe-eyebrow__line"></span>
+            Nosso time
+          </span>
+
+          <h2>
+            Conhecimento que
+            <span>move a inovação.</span>
+          </h2>
+
+          <p>
+            Cada integrante contribui com habilidades, ideias e
+            dedicação para o desenvolvimento das nossas soluções.
+          </p>
+        </div>
+
+        <%
+          const listaEquipe = Array.isArray(equipe) ? equipe : [];
+        %>
+
+        <% if (listaEquipe.length > 0) { %>
+          <div class="equipe-grid equipe-grid--membros">
+            <% listaEquipe.forEach((membro, index) => { %>
+              <article
+                class="equipe-card equipe-card--membro equipe-reveal"
+                style="--card-index: <%= index %>"
+              >
+                <div class="equipe-card__photo">
+                  <% if (membro.imagemUrl) { %>
+                    <img
+                      src="<%= membro.imagemUrl %>"
+                      alt="Foto de <%= membro.nome %>"
+                      loading="lazy"
+                      onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    >
+                  <% } %>
+
+                  <div
+                    class="equipe-card__initial"
+                    <% if (membro.imagemUrl) { %>style="display:none"<% } %>
+                    aria-hidden="true"
+                  >
+                    <%= (membro.nome || 'I').trim().charAt(0).toUpperCase() %>
+                  </div>
+
+                  <div class="equipe-card__photo-overlay"></div>
+                </div>
+
+                <div class="equipe-card__content">
+                  <span class="equipe-card__number">
+                    <%= String(index + 1).padStart(2, '0') %>
+                  </span>
+
+                  <h3><%= membro.nome %></h3>
+
+                  <% if (membro.cargo) { %>
+                    <p class="equipe-card__role"><%= membro.cargo %></p>
+                  <% } %>
+
+                  <% if (membro.descricao) { %>
+                    <p class="equipe-card__description"><%= membro.descricao %></p>
+                  <% } %>
+
+                  <span class="equipe-card__bottom-line"></span>
+                </div>
+              </article>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <div class="equipe-empty equipe-reveal">
+            <div class="equipe-empty__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"
+                  stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round"/>
+                <circle cx="9.5" cy="7" r="4"
+                  stroke="currentColor" stroke-width="1.6"/>
+                <path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+                  stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3>Novos integrantes em breve</h3>
+            <p>
+              As informações dos integrantes da equipe serão disponibilizadas
+              em breve.
+            </p>
+          </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="equipe-cta">
+      <div class="equipe-cta__pattern" aria-hidden="true"></div>
+
+      <div class="equipe-container equipe-cta__content equipe-reveal">
+        <span class="equipe-eyebrow equipe-eyebrow--light">
+          <span class="equipe-eyebrow__line"></span>
+          Vamos construir juntos
+        </span>
+
+        <h2>
+          A inovação acontece
+          <span>quando colaboramos.</span>
         </h2>
 
-        <div class="w-20 h-1 bg-cyan-500 rounded-full mx-auto mt-5"></div>
-
-        <p class="text-gray-600 mt-6">
-          Idealizadores da Ionos e responsáveis pela visão científica e estratégica.
+        <p>
+          Quer conhecer melhor nosso trabalho ou conversar sobre
+          possibilidades de colaboração? Estamos à disposição.
         </p>
 
+        <a href="/contato" class="equipe-button equipe-button--light">
+          Entre em contato
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M5 12h14m-6-6 6 6-6 6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-20 max-w-5xl mx-auto mt-16">
+      <div class="equipe-cta__watermark" aria-hidden="true">IONOS</div>
+    </section>
+  </main>
 
-        <!-- Jessica -->
+  <%- include('partials/footer.ejs') %>
 
-        <div class="text-center">
-
-          <div class="relative inline-block">
-
-            <div class="absolute inset-0 rounded-full bg-cyan-300 blur-3xl opacity-25 scale-125"></div>
-
-            <img
-              src="/images/membros/jessica-miranda.jpg"
-              alt="Jessica Miranda"
-              class="relative w-56 h-56 rounded-full object-cover border-8 border-white shadow-2xl mx-auto"
-            >
-
-          </div>
-
-          <h3 class="text-3xl font-bold mt-8">
-            Jessica Miranda
-          </h3>
-
-          <p class="text-cyan-600 font-semibold mt-3">
-            PhD em Química
-          </p>
-
-          <p class="text-gray-600 leading-8 mt-6 max-w-md mx-auto">
-            Sócia fundadora e pesquisadora responsável pela liderança
-            científica, inovação e desenvolvimento tecnológico da Ionos.
-          </p>
-
-        </div>
-
-        <!-- Iago -->
-
-        <div class="text-center">
-
-          <div class="relative inline-block">
-
-            <div class="absolute inset-0 rounded-full bg-cyan-300 blur-3xl opacity-25 scale-125"></div>
-
-            <img
-              src="/images/membros/iago-farias.jpeg"
-              alt="Iago Farias"
-              class="relative w-56 h-56 rounded-full object-cover border-8 border-white shadow-2xl mx-auto"
-            >
-
-          </div>
-
-          <h3 class="text-3xl font-bold mt-8">
-            Iago Farias
-          </h3>
-
-          <p class="text-cyan-600 font-semibold mt-3">
-            Sócio Administrador
-          </p>
-
-          <p class="text-gray-600 leading-8 mt-6 max-w-md mx-auto">
-            Responsável pelo desenvolvimento de hardware,
-            estratégia tecnológica e gestão da empresa.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- EQUIPE -->
-
-<!-- EQUIPE -->
-<section class="py-24 bg-white">
-
-  <div class="container mx-auto px-6">
-
-    <!-- Título -->
-    <div class="text-center mb-16">
-
-      <h2 class="text-4xl font-bold text-gray-800">
-        Equipe Multidisciplinar
-      </h2>
-
-      <div class="w-20 h-1 bg-cyan-500 rounded-full mx-auto mt-5"></div>
-
-      <p class="text-gray-600 mt-6 max-w-3xl mx-auto leading-8">
-        Nossa equipe reúne especialistas em engenharia, química,
-        software e hardware para desenvolver tecnologias inovadoras
-        em dessalinização por Deionização Capacitiva.
-      </p>
-
-    </div>
-
-    <!-- Cards -->
-    <div class="flex flex-wrap justify-center gap-12">
-
-      <!-- MEMBRO -->
-      <div class="w-full sm:w-72 text-center">
-
-        <img
-          src="/images/membros/gabriel-gonzaga.jpg"
-          alt="Gabriel Gonzaga"
-          class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl">
-
-        <h3 class="mt-6 text-2xl font-semibold">
-          Gabriel Gonzaga
-        </h3>
-
-        <p class="text-cyan-600 font-medium mt-2">
-          Eng. Desenvolvimento & Validação
-        </p>
-
-        <p class="text-gray-500 text-sm leading-7 mt-4">
-          Atua na validação técnica e na transformação de protótipos
-          laboratoriais em soluções para aplicação prática.
-        </p>
-
-      </div>
-
-      <!-- MEMBRO -->
-      <div class="w-full sm:w-72 text-center">
-
-        <img
-          src="/images/membros/bianca-marjorie.jpg"
-          alt="Bianca Marjorie"
-          class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl">
-
-        <h3 class="mt-6 text-2xl font-semibold">
-          Bianca Marjorie
-        </h3>
-
-        <p class="text-cyan-600 font-medium mt-2">
-          Analista Química
-        </p>
-
-        <p class="text-gray-500 text-sm leading-7 mt-4">
-          Responsável pelas análises químicas, validação experimental
-          e controle de qualidade.
-        </p>
-
-      </div>
-
-      <!-- MEMBRO -->
-      <div class="w-full sm:w-72 text-center">
-
-        <img
-          src="/images/membros/lucas-sobral.jpg"
-          alt="Lucas Sobral"
-          class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl">
-
-        <h3 class="mt-6 text-2xl font-semibold">
-          Lucas Sobral
-        </h3>
-
-        <p class="text-cyan-600 font-medium mt-2">
-          Engenheiro de Software
-        </p>
-
-        <p class="text-gray-500 text-sm leading-7 mt-4">
-          Desenvolve o aplicativo e integra toda a plataforma digital.
-        </p>
-
-      </div>
-
-      <!-- MEMBRO -->
-      <div class="w-full sm:w-72 text-center">
-
-        <img
-          src="/images/membros/gustavo-seabra.jpg"
-          alt="Gustavo Seabra"
-          class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl">
-
-        <h3 class="mt-6 text-2xl font-semibold">
-          Gustavo Seabra
-        </h3>
-
-        <p class="text-cyan-600 font-medium mt-2">
-          Engenheiro de Hardware
-        </p>
-
-        <p class="text-gray-500 text-sm leading-7 mt-4">
-          Atua no desenvolvimento eletrônico, prototipagem
-          e otimização do hardware embarcado.
-        </p>
-
-      </div>
-
-      <!-- MEMBRO -->
-      <div class="w-full sm:w-72 text-center">
-
-        <img
-          src="/images/membros/larissa-holanda.jpeg"
-          alt="Larissa Holanda"
-          class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-white shadow-xl">
-
-        <h3 class="mt-6 text-2xl font-semibold">
-          Larissa Holanda
-        </h3>
-
-        <p class="text-cyan-600 font-medium mt-2">
-          Engenheira de Software
-        </p>
-
-        <p class="text-gray-500 text-sm leading-7 mt-4">
-          Responsável pelo desenvolvimento do site institucional,
-          experiência do usuário e aplicações web.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<%- include('partials/footer.ejs') %>
-
-<script src="/js/menu.js"></script>
-
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/equipe.js" defer></script>
 </body>
 </html>

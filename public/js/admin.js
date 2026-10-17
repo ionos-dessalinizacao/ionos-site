@@ -1,88 +1,81 @@
+
+"use strict";
+
 // ==========================================
-// ATIVAR NOTÍCIAS
+// AUXILIAR
 // ==========================================
 
-async function ativarNoticias() {
-
+async function alterarStatusSecao(url, mensagemErro) {
   try {
-
-    const resposta = await fetch(
-      "/admin/noticias/ativar",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        }
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json"
       }
-    );
+    });
 
-    const resultado = await resposta.json();
+    const texto = await response.text();
+    let data = {};
 
-    if (!resposta.ok || !resultado.sucesso) {
-      throw new Error(resultado.mensagem);
+    try {
+      data = texto ? JSON.parse(texto) : {};
+    } catch {
+      data = {};
     }
 
-    alert("Seção de notícias ativada com sucesso!");
+    if (!response.ok) {
+      alert(data.erro || data.mensagem || mensagemErro);
+      return;
+    }
 
+    alert(data.mensagem || "Operação realizada com sucesso.");
     window.location.reload();
-
   } catch (error) {
-
-    console.error(error);
-
-    alert(
-      "Erro ao ativar a seção de notícias."
-    );
-
+    console.error("Erro ao alterar status da seção:", error);
+    alert("Erro ao conectar com o servidor.");
   }
-
 }
 
-
 // ==========================================
-// DESATIVAR NOTÍCIAS
+// NOTÍCIAS
 // ==========================================
 
-async function desativarNoticias() {
-
-  const confirmar = confirm(
-    "Tem certeza que deseja desativar a seção de notícias do site?"
+function ativarNoticias() {
+  return alterarStatusSecao(
+    "/admin/noticias/ativar",
+    "Erro ao ativar a seção de notícias."
   );
+}
 
-  if (!confirmar) {
+function desativarNoticias() {
+  if (!confirm("Deseja desativar a seção Notícias?")) {
     return;
   }
 
-  try {
+  return alterarStatusSecao(
+    "/admin/noticias/desativar",
+    "Erro ao desativar a seção de notícias."
+  );
+}
 
-    const resposta = await fetch(
-      "/admin/noticias/desativar",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
+// ==========================================
+// APLICAÇÕES
+// ==========================================
 
-    const resultado = await resposta.json();
+function ativarAplicacoes() {
+  return alterarStatusSecao(
+    "/admin/aplicacoes/ativar",
+    "Erro ao ativar a seção de aplicações."
+  );
+}
 
-    if (!resposta.ok || !resultado.sucesso) {
-      throw new Error(resultado.mensagem);
-    }
-
-    alert("Seção de notícias desativada com sucesso!");
-
-    window.location.reload();
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(
-      "Erro ao desativar a seção de notícias."
-    );
-
+function desativarAplicacoes() {
+  if (!confirm("Deseja desativar a seção Aplicações?")) {
+    return;
   }
 
+  return alterarStatusSecao(
+    "/admin/aplicacoes/desativar",
+    "Erro ao desativar a seção de aplicações."
+  );
 }

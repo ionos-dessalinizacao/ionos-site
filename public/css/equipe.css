@@ -1,0 +1,914 @@
+
+/* =========================================================
+   IONOS DESSALINIZAÇÃO — EQUIPE
+   Arquivo: public/css/equipe.css
+   ========================================================= */
+
+:root {
+  --color-primary: #007A8F;
+  --color-accent: #07C0D4;
+  --color-text-body: #5F5F5F;
+  --color-text-title: #0D0D0D;
+
+  --bg-main: #FFFFFF;
+  --bg-secondary: #F9F8F5;
+
+  --font-title: "Manrope", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --equipe-container: 1200px;
+  --equipe-padding: 28px;
+
+  --equipe-transition: 300ms ease;
+  --equipe-shadow: 0 16px 45px rgba(13, 13, 13, 0.07);
+}
+
+.pagina-equipe {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--bg-main);
+  color: var(--color-text-body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.pagina-equipe *,
+.pagina-equipe *::before,
+.pagina-equipe *::after {
+  box-sizing: border-box;
+}
+
+.pagina-equipe img,
+.pagina-equipe svg {
+  display: block;
+}
+
+.pagina-equipe img {
+  max-width: 100%;
+}
+
+.pagina-equipe a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pagina-equipe button {
+  font: inherit;
+}
+
+.pagina-equipe a:focus-visible,
+.pagina-equipe button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.pagina-equipe h1,
+.pagina-equipe h2,
+.pagina-equipe h3 {
+  margin-top: 0;
+  color: var(--color-text-title);
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.pagina-equipe p {
+  color: var(--color-text-body);
+}
+
+.equipe-container {
+  width: min(
+    var(--equipe-container),
+    calc(100% - var(--equipe-padding) * 2)
+  );
+  margin-inline: auto;
+}
+
+.equipe-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 23px;
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.equipe-eyebrow__line {
+  width: 30px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: var(--color-accent);
+}
+
+.equipe-eyebrow--light {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.equipe-button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 23px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.4;
+  transition:
+    color var(--equipe-transition),
+    background var(--equipe-transition),
+    box-shadow var(--equipe-transition),
+    transform var(--equipe-transition);
+}
+
+.equipe-button svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  transition: transform var(--equipe-transition);
+}
+
+.equipe-button:hover {
+  transform: translateY(-3px);
+}
+
+.equipe-button:hover svg {
+  transform: translateX(4px);
+}
+
+.equipe-button--primary {
+  background: var(--color-primary);
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(0, 122, 143, 0.2);
+}
+
+.equipe-button--primary:hover {
+  background: #006879;
+  box-shadow: 0 12px 30px rgba(0, 122, 143, 0.27);
+}
+
+.equipe-button--light {
+  background: #FFFFFF;
+  color: var(--color-primary) !important;
+}
+
+.equipe-button--light:hover {
+  background: var(--color-accent);
+  color: var(--color-text-title) !important;
+}
+
+.equipe-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 750ms ease,
+    transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.equipe-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   01. HERO
+   ========================================================= */
+
+.equipe-hero {
+  position: relative;
+  display: flex;
+  min-height: 620px;
+  align-items: center;
+  padding: 100px 0 90px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 85% 20%,
+      rgba(7, 192, 212, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(125deg, #FFFFFF 0%, #F9F8F5 75%, #EFF9FA 100%);
+}
+
+.equipe-hero__pattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 42%;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(0, 122, 143, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 122, 143, 0.09) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to left, black, transparent);
+}
+
+.equipe-hero__orb {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(7, 192, 212, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.equipe-hero__orb--one {
+  top: 5%;
+  right: 5%;
+  width: 350px;
+  height: 350px;
+  animation: equipe-orbit 20s linear infinite;
+}
+
+.equipe-hero__orb--two {
+  top: 17%;
+  right: 12%;
+  width: 220px;
+  height: 220px;
+  border-color: rgba(0, 122, 143, 0.15);
+  animation: equipe-orbit 26s linear infinite reverse;
+}
+
+.equipe-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.equipe-hero__content > * {
+  max-width: 780px;
+}
+
+.equipe-hero__title {
+  margin-bottom: 26px;
+  font-size: clamp(2.8rem, 6.2vw, 5.3rem);
+  line-height: 1.04;
+  letter-spacing: -0.07em;
+}
+
+.equipe-hero__title span {
+  display: block;
+  color: var(--color-primary);
+}
+
+.equipe-hero__description {
+  max-width: 620px;
+  margin-bottom: 32px;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.9;
+}
+
+.equipe-hero__signature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 46px;
+  color: #777777;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.equipe-hero__signature span {
+  width: 36px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.equipe-hero__vertical {
+  position: absolute;
+  right: 22px;
+  bottom: 65px;
+  color: rgba(0, 122, 143, 0.65);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-rl;
+}
+
+/* =========================================================
+   02. INTRODUÇÃO
+   ========================================================= */
+
+.equipe-intro {
+  padding: 100px 0;
+  background: #FFFFFF;
+}
+
+.equipe-intro__layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: start;
+  gap: clamp(40px, 8vw, 110px);
+}
+
+.equipe-intro__heading h2 {
+  max-width: 480px;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.15;
+}
+
+.equipe-intro__heading h2 span {
+  display: block;
+  margin-top: 7px;
+  color: var(--color-primary);
+}
+
+.equipe-intro__text {
+  padding-top: 10px;
+}
+
+.equipe-intro__text p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.95;
+}
+
+.equipe-intro__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   03. SEÇÕES E TÍTULOS
+   ========================================================= */
+
+.equipe-section {
+  padding: 105px 0 115px;
+}
+
+.equipe-fundadores {
+  background: var(--bg-secondary);
+}
+
+.equipe-membros {
+  background: #FFFFFF;
+}
+
+.equipe-section__heading {
+  max-width: 750px;
+  margin: 0 auto 54px;
+  text-align: center;
+}
+
+.equipe-section__heading h2 {
+  margin-bottom: 20px;
+  font-size: clamp(2.1rem, 4vw, 3.35rem);
+  line-height: 1.15;
+}
+
+.equipe-section__heading h2 span {
+  display: block;
+  color: var(--color-primary);
+}
+
+.equipe-section__heading > p {
+  max-width: 610px;
+  margin: 0 auto;
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+/* =========================================================
+   04. GRADE DE PESSOAS
+   ========================================================= */
+
+.equipe-grid {
+  display: grid;
+  gap: 25px;
+}
+
+.equipe-grid--fundadores {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 850px;
+  margin-inline: auto;
+}
+
+.equipe-grid--membros {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.equipe-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #E5ECEC;
+  background: #FFFFFF;
+  box-shadow: 0 8px 26px rgba(13, 13, 13, 0.025);
+  transition:
+    border-color var(--equipe-transition),
+    box-shadow var(--equipe-transition),
+    transform var(--equipe-transition);
+  transition-delay: calc(var(--card-index, 0) * 40ms);
+}
+
+.equipe-card:hover {
+  border-color: rgba(0, 122, 143, 0.35);
+  box-shadow: var(--equipe-shadow);
+  transform: translateY(-7px);
+}
+
+.equipe-card__photo {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(7, 192, 212, 0.2), transparent 45%),
+    linear-gradient(145deg, #D8EFF1, #EDF5F5);
+}
+
+.equipe-card--fundador .equipe-card__photo {
+  height: 365px;
+}
+
+.equipe-card__photo img {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.equipe-card:hover .equipe-card__photo img {
+  transform: scale(1.045);
+}
+
+.equipe-card__initial {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-primary);
+  font-family: var(--font-title);
+  font-size: 6rem;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.equipe-card__photo-overlay {
+  position: absolute;
+  z-index: 2;
+  inset: 45% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(13, 13, 13, 0.32)
+  );
+  pointer-events: none;
+}
+
+.equipe-card__badge {
+  position: absolute;
+  z-index: 3;
+  bottom: 17px;
+  left: 18px;
+  padding: 7px 11px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.equipe-card__content {
+  position: relative;
+  padding: 27px 26px 31px;
+}
+
+.equipe-card__number {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--color-accent);
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.equipe-card__content h3 {
+  margin-bottom: 6px;
+  font-size: 1.28rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.equipe-card__role {
+  margin-bottom: 14px;
+  color: var(--color-primary) !important;
+  font-size: 0.83rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.equipe-card__description {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.equipe-card__bottom-line {
+  display: block;
+  width: 35px;
+  height: 2px;
+  margin-top: 23px;
+  background: var(--color-accent);
+  transition: width var(--equipe-transition);
+}
+
+.equipe-card:hover .equipe-card__bottom-line {
+  width: 70px;
+}
+
+/* =========================================================
+   05. ESTADO VAZIO
+   ========================================================= */
+
+.equipe-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 48px 25px;
+  border: 1px dashed #C9DADB;
+  background: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+
+.equipe-empty__icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  place-items: center;
+  background: #EAF8F9;
+  color: var(--color-primary);
+}
+
+.equipe-empty__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.equipe-empty h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.equipe-empty p {
+  max-width: 420px;
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+/* =========================================================
+   06. CHAMADA PARA CONTATO
+   ========================================================= */
+
+.equipe-cta {
+  position: relative;
+  padding: 100px 0 105px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 88% 15%,
+      rgba(7, 192, 212, 0.17),
+      transparent 35%
+    ),
+    linear-gradient(120deg, #005E6D, #007A8F 65%, #006778);
+}
+
+.equipe-cta__pattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.24) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.24) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(110deg, transparent, black);
+}
+
+.equipe-cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  text-align: center;
+}
+
+.equipe-cta__content .equipe-eyebrow {
+  justify-content: center;
+}
+
+.equipe-cta__content h2 {
+  margin-bottom: 22px;
+  color: #FFFFFF;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.13;
+  letter-spacing: -0.06em;
+}
+
+.equipe-cta__content h2 span {
+  display: block;
+  color: #8CEAF1;
+}
+
+.equipe-cta__content > p {
+  max-width: 610px;
+  margin: 0 auto 30px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.equipe-cta__watermark {
+  position: absolute;
+  right: -15px;
+  bottom: -65px;
+  color: rgba(255, 255, 255, 0.045);
+  font-family: var(--font-title);
+  font-size: clamp(7rem, 22vw, 20rem);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================================
+   07. ANIMAÇÕES
+   ========================================================= */
+
+@keyframes equipe-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   08. TABLETS E NOTEBOOKS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  :root {
+    --equipe-padding: 24px;
+  }
+
+  .equipe-hero {
+    min-height: 570px;
+  }
+
+  .equipe-hero__orb--one {
+    right: -80px;
+  }
+
+  .equipe-hero__orb--two {
+    right: -10px;
+  }
+
+  .equipe-grid--membros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equipe-card--fundador .equipe-card__photo {
+    height: 320px;
+  }
+
+  .equipe-intro__layout {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 760px) {
+  .equipe-hero {
+    min-height: auto;
+    padding: 95px 0 80px;
+  }
+
+  .equipe-hero__title {
+    font-size: clamp(2.8rem, 8vw, 4.3rem);
+  }
+
+  .equipe-hero__vertical {
+    display: none;
+  }
+
+  .equipe-intro {
+    padding: 75px 0;
+  }
+
+  .equipe-intro__layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .equipe-intro__heading h2 {
+    max-width: 600px;
+  }
+
+  .equipe-section {
+    padding: 80px 0 85px;
+  }
+
+  .equipe-section__heading {
+    margin-bottom: 40px;
+  }
+
+  .equipe-grid--fundadores {
+    max-width: 650px;
+  }
+
+  .equipe-card__photo {
+    height: 290px;
+  }
+
+  .equipe-card--fundador .equipe-card__photo {
+    height: 310px;
+  }
+
+  .equipe-card__content {
+    padding: 23px 20px 27px;
+  }
+
+  .equipe-cta {
+    padding: 80px 0 85px;
+  }
+}
+
+/* =========================================================
+   09. CELULARES
+   ========================================================= */
+
+@media (max-width: 540px) {
+  :root {
+    --equipe-padding: 20px;
+  }
+
+  .pagina-equipe {
+    font-size: 15px;
+  }
+
+  .equipe-eyebrow {
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+  }
+
+  .equipe-eyebrow__line {
+    width: 23px;
+  }
+
+  .equipe-hero {
+    padding: 78px 0 65px;
+  }
+
+  .equipe-hero__title {
+    margin-bottom: 20px;
+    font-size: clamp(2.4rem, 11.5vw, 3.5rem);
+    letter-spacing: -0.065em;
+  }
+
+  .equipe-hero__description {
+    font-size: 0.94rem;
+    line-height: 1.8;
+  }
+
+  .equipe-hero__signature {
+    flex-wrap: wrap;
+    margin-top: 32px;
+    font-size: 0.59rem;
+    letter-spacing: 0.08em;
+  }
+
+  .equipe-hero__orb--one {
+    top: 5%;
+    right: -175px;
+    width: 245px;
+    height: 245px;
+  }
+
+  .equipe-hero__orb--two {
+    top: 12%;
+    right: -110px;
+    width: 165px;
+    height: 165px;
+  }
+
+  .equipe-button {
+    width: 100%;
+    min-height: 51px;
+    padding: 13px 16px;
+    font-size: 0.83rem;
+  }
+
+  .equipe-intro {
+    padding: 62px 0;
+  }
+
+  .equipe-intro__heading h2,
+  .equipe-section__heading h2 {
+    font-size: clamp(1.9rem, 8.5vw, 2.65rem);
+  }
+
+  .equipe-intro__text p {
+    font-size: 0.93rem;
+    line-height: 1.85;
+  }
+
+  .equipe-section {
+    padding: 65px 0 70px;
+  }
+
+  .equipe-section__heading {
+    margin-bottom: 30px;
+  }
+
+  .equipe-section__heading > p {
+    font-size: 0.91rem;
+  }
+
+  .equipe-grid--fundadores,
+  .equipe-grid--membros {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 20px;
+    margin-inline: auto;
+  }
+
+  .equipe-card__photo,
+  .equipe-card--fundador .equipe-card__photo {
+    height: 330px;
+  }
+
+  .equipe-card__content {
+    padding: 23px 22px 27px;
+  }
+
+  .equipe-card__content h3 {
+    font-size: 1.22rem;
+  }
+
+  .equipe-card__description {
+    font-size: 0.88rem;
+  }
+
+  .equipe-empty {
+    padding: 35px 20px;
+  }
+
+  .equipe-cta {
+    padding: 67px 0 75px;
+  }
+
+  .equipe-cta__content h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .equipe-cta__content > p {
+    font-size: 0.91rem;
+  }
+
+  .equipe-cta__watermark {
+    right: -10px;
+    bottom: -25px;
+    font-size: 7rem;
+  }
+}
+
+/* =========================================================
+   10. ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-equipe *,
+  .pagina-equipe *::before,
+  .pagina-equipe *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .equipe-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

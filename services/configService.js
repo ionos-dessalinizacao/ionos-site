@@ -16,7 +16,8 @@ async function pegarConfiguracoes() {
   if (!doc.exists) {
 
     const configuracoesPadrao = {
-      noticiasAtivas: true
+      noticiasAtivas: true,
+      aplicacoesAtivas: true
     };
 
     await db
@@ -74,6 +75,32 @@ async function desativarNoticias() {
 
 
 // ==========================================
+// ATIVAR APLICAÇÕES
+// ==========================================
+
+async function ativarAplicacoes() {
+
+  await atualizarConfiguracoes({
+    aplicacoesAtivas: true
+  });
+
+}
+
+
+// ==========================================
+// DESATIVAR APLICAÇÕES
+// ==========================================
+
+async function desativarAplicacoes() {
+
+  await atualizarConfiguracoes({
+    aplicacoesAtivas: false
+  });
+
+}
+
+
+// ==========================================
 // EXPORTAÇÕES
 // ==========================================
 
@@ -81,5 +108,7 @@ module.exports = {
   pegarConfiguracoes,
   atualizarConfiguracoes,
   ativarNoticias,
-  desativarNoticias
+  desativarNoticias,
+  ativarAplicacoes,
+  desativarAplicacoes
 };

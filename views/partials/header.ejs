@@ -1,444 +1,248 @@
-<header class="bg-white shadow-md sticky top-0 z-50">
 
-  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+<link rel="stylesheet" href="/css/header.css">
 
-    <!-- LOGO -->
-    <a href="/">
+<header class="site-header">
+  <nav class="site-nav" aria-label="Navegação principal">
+    <a href="/" class="site-logo" aria-label="Ionos Dessalinização - Início">
       <img
-        src="/images/logo/ionos-logo.png"
+        src="/images/logo/logo-ionos-branca.png"
+        data-logo-white="/images/logo/logo-ionos-branca.png"
+        data-logo-color="/images/logo/ionos-logo.png"
         alt="Ionos Dessalinização"
-        class="h-16"
       >
     </a>
 
-    <!-- MENU DESKTOP -->
-    <div class="hidden md:flex items-center gap-8">
-
-      <a href="/" class="hover:text-blue-600 transition">
-        Início
-      </a>
-
-      <a href="/equipe" class="hover:text-blue-600 transition">
-        Equipe
-      </a>
-
-      <!--<a href="/aplicacoes" class="hover:text-blue-600 transition">
-        Aplicações
-      </a>-->
-
-      <!-- NOTÍCIAS -->
-      <% if (configuracoes && configuracoes.noticiasAtivas) { %>
-
-        <a href="/noticias" class="hover:text-blue-600 transition">
-          Notícias
-        </a>
-
-      <% } %>
-
-      <a href="/sobre" class="hover:text-blue-600 transition">
-        Sobre Nós
-      </a>
-
-      <a href="/contato" class="hover:text-blue-600 transition">
-        Contato
-      </a>
-
-      <!-- IDIOMA -->
-      <div class="relative">
-
-        <button
-          id="language-button"
-          type="button"
-          class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 hover:border-blue-500 hover:text-blue-600 transition"
-        >
-
-          <span id="current-language">
-            🇧🇷 PT
-          </span>
-
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-
-        </button>
-
-        <!-- DROPDOWN -->
-        <div
-          id="language-menu"
-          class="hidden absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50"
-        >
-
-          <button
-            type="button"
-            onclick="changeLanguage('pt')"
-            class="language-option"
-          >
-            🇧🇷 Português
-          </button>
-
-          <button
-            type="button"
-            onclick="changeLanguage('en')"
-            class="language-option"
-          >
-            🇺🇸 English
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- MENU MOBILE -->
     <button
+      class="mobile-menu-toggle"
       id="mobile-menu-button"
-      class="md:hidden"
       type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
-
-      <svg
-        class="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"
-        />
-      </svg>
-
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
 
-  </nav>
+    <div class="desktop-navigation">
+      <a href="/" class="nav-link">Início</a>
 
-  <!-- MENU MOBILE -->
+      <div class="nav-dropdown">
+        <a href="/sobre" class="nav-link nav-dropdown-trigger">
+          A Ionos
+          <span class="nav-chevron" aria-hidden="true">⌄</span>
+        </a>
 
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden bg-white border-t"
-  >
-
-    <a
-      href="/"
-      class="block px-6 py-4 hover:bg-gray-100"
-    >
-      Início
-    </a>
-
-    <a
-      href="/equipe"
-      class="block px-6 py-4 hover:bg-gray-100"
-    >
-      Equipe
-    </a>
-
-    <a
-      href="/aplicacoes"
-      class="block px-6 py-4 hover:bg-gray-100"
-    >
-      Aplicações
-    </a>
-
-    <!-- NOTÍCIAS MOBILE -->
-    <% if (configuracoes && configuracoes.noticiasAtivas) { %>
-
-      <a
-        href="/noticias"
-        class="block px-6 py-4 hover:bg-gray-100"
-      >
-        Notícias
-      </a>
-
-    <% } %>
-
-    <a
-      href="/sobre"
-      class="block px-6 py-4 hover:bg-gray-100"
-    >
-      Sobre Nós
-    </a>
-
-    <a
-      href="/contato"
-      class="block px-6 py-4 hover:bg-gray-100"
-    >
-      Contato
-    </a>
-
-    <!-- IDIOMA MOBILE -->
-
-    <div class="px-6 py-4 border-t">
-
-      <p class="text-sm text-gray-500 mb-2">
-        Idioma
-      </p>
-
-      <div class="flex gap-2">
-
-        <button
-          type="button"
-          onclick="changeLanguage('pt')"
-          class="language-option-mobile"
-        >
-          🇧🇷 Português
-        </button>
-
-        <button
-          type="button"
-          onclick="changeLanguage('en')"
-          class="language-option-mobile"
-        >
-          🇺🇸 English
-        </button>
-
+        <div class="nav-dropdown-menu">
+          <a href="/sobre">Sobre nós</a>
+          <a href="/equipe">Nossa equipe</a>
+        </div>
       </div>
 
+      <% if (
+        typeof configuracoes !== "undefined" &&
+        configuracoes &&
+        configuracoes.aplicacoesAtivas
+      ) { %>
+        <a href="/aplicacoes" class="nav-link">Aplicações</a>
+      <% } %>
+
+      <% if (
+        typeof configuracoes !== "undefined" &&
+        configuracoes &&
+        configuracoes.noticiasAtivas
+      ) { %>
+        <a href="/noticias" class="nav-link">Notícias</a>
+      <% } %>
     </div>
 
-  </div>
+    <div class="header-actions">
+      <div class="language-selector">
+        <button
+          type="button"
+          class="language-button"
+          id="language-button"
+          aria-expanded="false"
+          aria-controls="language-menu"
+        >
+          <span id="current-language">PT</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
 
-  <!-- GOOGLE TRANSLATE ESCONDIDO -->
+        <div class="language-menu" id="language-menu" hidden>
+          <button type="button" data-language="pt">Português</button>
+          <button type="button" data-language="en">English</button>
+        </div>
+      </div>
+
+      <a href="/login" class="header-login">Login</a>
+      <a href="/contato" class="header-contact">Contato</a>
+    </div>
+  </nav>
+
+  <div class="mobile-navigation" id="mobile-menu" hidden>
+    <a href="/">Início</a>
+    <a href="/sobre">Sobre nós</a>
+    <a href="/equipe">Nossa equipe</a>
+
+    <% if (
+      typeof configuracoes !== "undefined" &&
+      configuracoes &&
+      configuracoes.aplicacoesAtivas
+    ) { %>
+      <a href="/aplicacoes">Aplicações</a>
+    <% } %>
+
+    <% if (
+      typeof configuracoes !== "undefined" &&
+      configuracoes &&
+      configuracoes.noticiasAtivas
+    ) { %>
+      <a href="/noticias">Notícias</a>
+    <% } %>
+
+    <a href="/contato">Contato</a>
+    <a href="/login">Login</a>
+  </div>
 
   <div
     id="google_translate_element"
-    style="display: none;"
+    class="google-translate-hidden"
   ></div>
-
 </header>
 
-
-<!-- ==========================================
-     GOOGLE TRANSLATE
-========================================== -->
-
 <script>
+  (() => {
+    const header = document.querySelector(".site-header");
 
-  function googleTranslateElementInit() {
+    if (!header || header.dataset.initialized === "true") {
+      return;
+    }
 
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: "pt",
-        includedLanguages: "pt,en",
-        autoDisplay: false
-      },
-      "google_translate_element"
-    );
+    header.dataset.initialized = "true";
 
-  }
+    const mobileButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const languageButton = document.getElementById("language-button");
+    const languageMenu = document.getElementById("language-menu");
+    const currentLanguage = document.getElementById("current-language");
 
-</script>
+    // Menu mobile
+    mobileButton?.addEventListener("click", () => {
+      const isOpen =
+        mobileButton.getAttribute("aria-expanded") === "true";
 
+      mobileButton.setAttribute("aria-expanded", String(!isOpen));
+      mobileButton.setAttribute(
+        "aria-label",
+        isOpen ? "Abrir menu" : "Fechar menu"
+      );
 
-<script
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-></script>
-
-
-<!-- ==========================================
-     MENU DE IDIOMA
-========================================== -->
-
-<script>
-
-  const languageButton =
-    document.getElementById("language-button");
-
-  const languageMenu =
-    document.getElementById("language-menu");
-
-
-  /*
-   * ABRIR / FECHAR MENU
-   */
-
-  if (languageButton && languageMenu) {
-
-    languageButton.addEventListener(
-      "click",
-      function(event) {
-
-        event.stopPropagation();
-
-        languageMenu.classList.toggle("hidden");
-
+      if (mobileMenu) {
+        mobileMenu.hidden = isOpen;
       }
-    );
 
-  }
+      header.classList.toggle("menu-open", !isOpen);
+    });
 
+    // Seletor de idiomas
+    languageButton?.addEventListener("click", () => {
+      const isOpen =
+        languageButton.getAttribute("aria-expanded") === "true";
 
-  /*
-   * FECHAR AO CLICAR FORA
-   */
-
-  document.addEventListener(
-    "click",
-    function() {
+      languageButton.setAttribute("aria-expanded", String(!isOpen));
 
       if (languageMenu) {
-
-        languageMenu.classList.add("hidden");
-
+        languageMenu.hidden = isOpen;
       }
+    });
 
-    }
-  );
+    // Troca de idioma
+    languageMenu?.querySelectorAll("[data-language]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const language = button.dataset.language;
 
+        if (currentLanguage) {
+          currentLanguage.textContent = language === "en" ? "EN" : "PT";
+        }
 
-  /*
-   * ALTERAR IDIOMA
-   */
+        languageButton?.setAttribute("aria-expanded", "false");
 
-  function changeLanguage(language) {
+        if (languageMenu) {
+          languageMenu.hidden = true;
+        }
 
-    const select =
-      document.querySelector(".goog-te-combo");
+        const translateSelect = document.querySelector(".goog-te-combo");
 
+        if (translateSelect) {
+          translateSelect.value = language;
+          translateSelect.dispatchEvent(new Event("change"));
+        } else {
+          console.warn(
+            "O Google Translate ainda não está disponível nesta página."
+          );
+        }
+      });
+    });
 
-    if (!select) {
+    // Fecha o seletor de idiomas ao clicar fora do cabeçalho
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target)) {
+        languageButton?.setAttribute("aria-expanded", "false");
 
-      console.warn(
-        "Google Translate ainda não foi carregado."
+        if (languageMenu) {
+          languageMenu.hidden = true;
+        }
+      }
+    });
+
+    // Fecha o menu mobile ao voltar para o desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        if (mobileMenu) {
+          mobileMenu.hidden = true;
+        }
+
+        mobileButton?.setAttribute("aria-expanded", "false");
+        mobileButton?.setAttribute("aria-label", "Abrir menu");
+        header.classList.remove("menu-open");
+      }
+    });
+
+    // Fecha o menu mobile ao selecionar um link
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.hidden = true;
+        mobileButton?.setAttribute("aria-expanded", "false");
+        mobileButton?.setAttribute("aria-label", "Abrir menu");
+        header.classList.remove("menu-open");
+      });
+    });
+  })();
+
+  // Inicialização do Google Translate
+  function googleTranslateElementInit() {
+    if (
+      window.google &&
+      google.translate &&
+      google.translate.TranslateElement
+    ) {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "pt",
+          includedLanguages: "pt,en",
+          autoDisplay: false
+        },
+        "google_translate_element"
       );
-
-      return;
-
     }
-
-
-    /*
-     * PORTUGUÊS
-     */
-
-    if (language === "pt") {
-
-      select.value = "pt";
-
-      const currentLanguage =
-        document.getElementById(
-          "current-language"
-        );
-
-      if (currentLanguage) {
-
-        currentLanguage.innerHTML =
-          "🇧🇷 PT";
-
-      }
-
-    }
-
-
-    /*
-     * INGLÊS
-     */
-
-    if (language === "en") {
-
-      select.value = "en";
-
-      const currentLanguage =
-        document.getElementById(
-          "current-language"
-        );
-
-      if (currentLanguage) {
-
-        currentLanguage.innerHTML =
-          "🇺🇸 EN";
-
-      }
-
-    }
-
-
-    select.dispatchEvent(
-      new Event("change")
-    );
-
-
-    if (languageMenu) {
-
-      languageMenu.classList.add("hidden");
-
-    }
-
   }
-
 </script>
 
+<script
+  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  defer
+></script>
 
-<!-- ==========================================
-     REMOVER BARRA DO GOOGLE
-========================================== -->
-
-<script>
-
-  function removeGoogleTranslateBar() {
-
-    document
-      .querySelectorAll(
-        ".goog-te-banner-frame, iframe.goog-te-banner-frame, body > .skiptranslate"
-      )
-      .forEach(
-        element => element.remove()
-      );
-
-
-    document.documentElement.style.top =
-      "0px";
-
-    document.body.style.top =
-      "0px";
-
-    document.body.style.marginTop =
-      "0px";
-
-  }
-
-
-  /*
-   * O Google Translate injeta a barra
-   * depois do carregamento.
-   */
-
-  window.addEventListener(
-    "load",
-    function() {
-
-      removeGoogleTranslateBar();
-
-      setTimeout(
-        removeGoogleTranslateBar,
-        500
-      );
-
-      setTimeout(
-        removeGoogleTranslateBar,
-        1000
-      );
-
-      setTimeout(
-        removeGoogleTranslateBar,
-        2000
-      );
-
-    }
-  );
-
-</script>
-
+<script src="/js/menu.js" defer></script>

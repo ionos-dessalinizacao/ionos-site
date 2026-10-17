@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/admin.css">
+
+  <style>
+    .inicio-editor {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .inicio-editor fieldset {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 22px;
+      margin: 24px 0;
+    }
+
+    .inicio-editor legend {
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 0 8px;
+    }
+
+    .inicio-editor .campo {
+      margin-bottom: 18px;
+    }
+
+    .inicio-editor label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .inicio-editor input,
+    .inicio-editor textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 11px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    .inicio-editor textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .inicio-editor .card-editor {
+      border-top: 1px solid #e5e5e5;
+      margin-top: 20px;
+      padding-top: 18px;
+    }
+
+    .inicio-editor .salvar-conteudo {
+      padding: 13px 22px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      background: #126b52;
+      color: white;
+    }
+
+    .inicio-editor .aviso-sucesso {
+      padding: 12px;
+      margin: 18px 0;
+      background: #e3f5e9;
+      color: #176534;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="admin-container">
+    <a href="/admin">← Voltar ao painel</a>
+
+    <h1>Administrar página inicial</h1>
+    <p>Edite os textos exibidos na página pública da Ionos.</p>
+
+    <% if (salvo) { %>
+      <p class="aviso-sucesso">Conteúdo salvo com sucesso!</p>
+    <% } %>
+
+    <section>
+      <h2>Status da seção</h2>
+
+      <% if (configuracoes.inicioAtivo !== false) { %>
+        <p class="admin-status active">● Ativa</p>
+      <% } else { %>
+        <p class="admin-status inactive">● Desativada</p>
+      <% } %>
+
+      <p>
+        A edição dos textos não altera o status de ativação da seção.
+      </p>
+    </section>
+
+    <form
+      class="inicio-editor"
+      action="/admin/inicio/salvar"
+      method="POST"
+    >
+      <fieldset>
+        <legend>Capa da página</legend>
+
+        <div class="campo">
+          <label for="hero-titulo">Título</label>
+          <input
+            id="hero-titulo"
+            name="hero[titulo]"
+            value="<%= conteudoInicio.hero.titulo %>"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label for="hero-descricao">Descrição</label>
+          <textarea
+            id="hero-descricao"
+            name="hero[descricao]"
+            required
+          ><%= conteudoInicio.hero.descricao %></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="hero-botao">Texto do botão</label>
+          <input
+            id="hero-botao"
+            name="hero[botaoTexto]"
+            value="<%= conteudoInicio.hero.botaoTexto %>"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label for="hero-link">Destino do botão</label>
+          <input
+            id="hero-link"
+            name="hero[botaoLink]"
+            value="<%= conteudoInicio.hero.botaoLink %>"
+            required
+          >
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Seção A Tecnologia</legend>
+
+        <div class="campo">
+          <label>Texto superior</label>
+          <input
+            name="tecnologia[eyebrow]"
+            value="<%= conteudoInicio.tecnologia.eyebrow %>"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label>Título</label>
+          <input
+            name="tecnologia[titulo]"
+            value="<%= conteudoInicio.tecnologia.titulo %>"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label>Subtítulo</label>
+          <input
+            name="tecnologia[subtitulo]"
+            value="<%= conteudoInicio.tecnologia.subtitulo %>"
+            required
+          >
+        </div>
+
+        <% conteudoInicio.tecnologia.cards.forEach((card, i) => { %>
+          <div class="card-editor">
+            <h3>Card de tecnologia <%= i + 1 %></h3>
+
+            <div class="campo">
+              <label>Título</label>
+              <input
+                name="tecnologia[cards][<%= i %>][titulo]"
+                value="<%= card.titulo %>"
+                required
+              >
+            </div>
+
+            <div class="campo">
+              <label>Descrição</label>
+              <textarea
+                name="tecnologia[cards][<%= i %>][descricao]"
+                required
+              ><%= card.descricao %></textarea>
+            </div>
+          </div>
+        <% }) %>
+      </fieldset>
+
+      <fieldset>
+        <legend>Seção Nossas Conquistas</legend>
+
+        <div class="campo">
+          <label>Texto superior</label>
+          <input
+            name="conquistas[eyebrow]"
+            value="<%= conteudoInicio.conquistas.eyebrow %>"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label>Título</label>
+          <input
+            name="conquistas[titulo]"
+            value="<%= conteudoInicio.conquistas.titulo %>"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label>Descrição introdutória</label>
+          <textarea
+            name="conquistas[descricao]"
+            required
+          ><%= conteudoInicio.conquistas.descricao %></textarea>
+        </div>
+
+        <% conteudoInicio.conquistas.cards.forEach((card, i) => { %>
+          <div class="card-editor">
+            <h3>Conquista <%= i + 1 %></h3>
+
+            <div class="campo">
+              <label>Título</label>
+              <input
+                name="conquistas[cards][<%= i %>][titulo]"
+                value="<%= card.titulo %>"
+                required
+              >
+            </div>
+
+            <div class="campo">
+              <label>Etiqueta (opcional)</label>
+              <input
+                name="conquistas[cards][<%= i %>][tag]"
+                value="<%= card.tag %>"
+              >
+            </div>
+
+            <div class="campo">
+              <label>Descrição</label>
+              <textarea
+                name="conquistas[cards][<%= i %>][descricao]"
+                required
+              ><%= card.descricao %></textarea>
+            </div>
+          </div>
+        <% }) %>
+      </fieldset>
+
+      <button type="submit" class="salvar-conteudo">
+        Salvar alterações
+      </button>
+    </form>
+  </main>
+</body>
+</html>

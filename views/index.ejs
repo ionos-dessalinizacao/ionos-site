@@ -1,411 +1,416 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
 
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-  <link rel="icon" href="/images/logo/icon-ionos.png?v=2" type="image/png">
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title><%= title || "Ionos | Dessalinização" %></title>
+
+  <meta
+    name="description"
+    content="Conheça a Ionos Dessalinização: inovação e tecnologia para soluções sustentáveis de tratamento e dessalinização de água."
+  >
+  <meta name="theme-color" content="#FFFFFF">
+
+  <link rel="icon" href="/images/logo/icon-ionos.png" type="image/png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-[Inter]">
-
-  <!-- NAVBAR -->
+<body class="pagina-inicial">
   <%- include('partials/header.ejs') %>
 
-
   <main>
+    <!-- HERO / APRESENTAÇÃO -->
+    <section class="home-hero">
+      <div class="home-hero-media" aria-hidden="true">
+        <video
+          class="home-hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <source src="/videos/agua.mp4" type="video/mp4">
+        </video>
 
-   <!--*******************************************************HERO/CAPA*******************************************************-->
-    <!-- HERO -->
-<section class="relative overflow-hidden h-screen flex items-center bg-gradient-to-br from-[#005A72] via-[#007A8F] to-[#07C0D4]">
-
-  <!-- Ondas -->
-  <div class="absolute -top-56 -left-40 w-[650px] h-[650px] rounded-full border border-white/10"></div>
-  <div class="absolute -top-40 -left-20 w-[450px] h-[450px] rounded-full border border-white/10"></div>
-
-  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-white/5"></div>
-  <div class="absolute top-32 right-32 w-5 h-5 rounded-full bg-white/20"></div>
-  <div class="absolute bottom-24 left-1/2 w-3 h-3 rounded-full bg-white/30"></div>
-
-  <div class="relative container mx-auto px-6 text-center">
-
-    <h1 class="text-5xl md:text-7xl font-bold text-white">
-      <a class="notranslate"
-  translate="no">Ionos </a>Dessalinização
-    </h1>
-
-    
-
-    <p class="mt-6 max-w-2xl mx-auto text-xl md:text-2xl text-white/90 leading-9">
-      Somos uma startup focada no desenvolvimento de sistemas de dessalinização para a produção de água de qualidade de forma eficiente e sustentável
-    </p>
-
-    <div class="mt-10">
-      <a href="#technology"
-        class="inline-block bg-white text-[#005A72] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition">
-        Conheça nossa tecnologia
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
-<!---------------------------------------------------HERO/CAPA------------------------------------------------------------------------>
-
-
-<!--*******************************************************A TECNOLOGIA*******************************************************-->
-
-<section id="technology" class="relative py-24 overflow-hidden bg-gray-50">
-
-  <!-- Elementos decorativos -->
-  <div class="absolute -top-32 -right-32 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-40"></div>
-  <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
-
-  <div class="relative container mx-auto px-6">
-
-    <!-- Cabeçalho -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-
-      <p class="text-cyan-600 font-semibold uppercase tracking-widest text-sm mb-3">
-        Nossa tecnologia
-      </p>
-
-      <h2 class="text-4xl md:text-5xl font-bold text-[#0D0D0D]">
-        A Tecnologia
-      </h2>
-
-      <div class="w-20 h-1 bg-[#07C0D4] rounded-full mx-auto mt-5"></div>
-
-      <h3 class="text-2xl md:text-3xl font-semibold text-[#007A8F] mt-8">
-        Deionização Capacitiva (CDI)
-      </h3>
-
-    </div>
-
-
-    <!-- Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-
-      <!-- CARD 1 -->
-      <div class="group bg-white rounded-2xl p-8 shadow-lg
-                  border border-gray-100
-                  hover:-translate-y-2 hover:shadow-2xl
-                  transition-all duration-300">
-
-        <div class="w-16 h-16 flex items-center justify-center
-                    rounded-2xl bg-cyan-50 text-[#007A8F]
-                    group-hover:bg-[#007A8F]
-                    group-hover:text-white
-                    transition-all duration-300 mb-6">
-
-          <svg xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke-width="1.5"
-               stroke="currentColor"
-               class="w-8 h-8">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-
-          </svg>
-
-        </div>
-
-        <h3 class="text-xl font-bold text-[#0D0D0D] mb-4">
-          A Deionização Capacitiva
-        </h3>
-
-        <p class="text-[#5F5F5F] leading-7">
-          A CDI consome menos energia que a osmose reversa
-          (tecnologia mais utilizada) para a dessalinização
-          de águas salobras.
-        </p>
-
+        <div class="home-hero-overlay"></div>
       </div>
 
-
-      <!-- CARD 2 -->
-      <div class="group bg-white rounded-2xl p-8 shadow-lg
-                  border border-gray-100
-                  hover:-translate-y-2 hover:shadow-2xl
-                  transition-all duration-300">
-
-        <div class="w-16 h-16 flex items-center justify-center
-                    rounded-2xl bg-cyan-50 text-[#007A8F]
-                    group-hover:bg-[#007A8F]
-                    group-hover:text-white
-                    transition-all duration-300 mb-6">
-
-          <svg xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke-width="1.5"
-               stroke="currentColor"
-               class="w-8 h-8">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-1.5 5.231 5.231m0 0L21 21m-6-6-3.769-3.769m0 0L8.25 7.5l-3.769 3.769m3.769 3.769 3.769 3.769M12 21l-3.769-3.769" />
-
-          </svg>
-
-        </div>
-
-        <h3 class="text-xl font-bold text-[#0D0D0D] mb-4">
-          Monitoramento Remoto
-        </h3>
-
-        <p class="text-[#5F5F5F] leading-7">
-          Acompanhamos o desempenho do sistema em tempo real,
-          garantindo manutenção preditiva, antecipando as falhas
-          e mantendo a continuidade do processo.
-        </p>
-
-      </div>
-
-
-      <!-- CARD 3 -->
-      <div class="group bg-white rounded-2xl p-8 shadow-lg
-                  border border-gray-100
-                  hover:-translate-y-2 hover:shadow-2xl
-                  transition-all duration-300">
-
-        <div class="w-16 h-16 flex items-center justify-center
-                    rounded-2xl bg-cyan-50 text-[#007A8F]
-                    group-hover:bg-[#007A8F]
-                    group-hover:text-white
-                    transition-all duration-300 mb-6">
-
-          <svg xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke-width="1.5"
-               stroke="currentColor"
-               class="w-8 h-8">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V5.75A2.25 2.25 0 0 0 18 3.5H6A2.25 2.25 0 0 0 3.75 5.75v12.5A2.25 2.25 0 0 0 6 20.25Z" />
-
-          </svg>
-
-        </div>
-
-        <h3 class="text-xl font-bold text-[#0D0D0D] mb-4">
-          Controle Inteligente
-        </h3>
-
-        <p class="text-[#5F5F5F] leading-7">
-          Nossos sistemas usam sensores e algoritmos para otimizar
-          o ciclo de dessalinização em tempo real, maximizando a
-          eficiência e a vida útil dos materias.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!---------------------------------------------------A TECNOLOGIA------------------------------------------------------------------------>
-
-
-
-
-
-<!--*******************************************************CONQUISTAS*******************************************************-->
-
-<section class="relative py-24 overflow-hidden bg-white">
-
-  <!-- Elementos decorativos -->
-  <div class="absolute top-0 left-0 w-72 h-72 bg-cyan-50 rounded-full blur-3xl opacity-60"></div>
-  <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
-
-  <div class="relative container mx-auto px-6">
-
-    <!-- Cabeçalho -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-
-      <p class="text-cyan-600 font-semibold uppercase tracking-widest text-sm mb-3">
-        Nossa trajetória
-      </p>
-
-      <h2 class="text-4xl md:text-5xl font-bold text-[#0D0D0D]">
-        Nossas Conquistas
-      </h2>
-
-      <div class="w-20 h-1 bg-[#07C0D4] rounded-full mx-auto mt-5"></div>
-
-      <p class="text-[#5F5F5F] mt-6 leading-7">
-        Estamos orgulhosos de sermos reconhecidos em programas de inovação e aceleração que validam nosso impacto e tecnologia.
-      </p>
-
-    </div>
-
-
-    <!-- Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8
-                max-w-6xl mx-auto">
-
-
-      <!-- CARD 1 -->
-      <div class="relative bg-gradient-to-br from-[#007A8F] to-[#005F70]
-                  text-white rounded-2xl p-8 shadow-xl
-                  hover:-translate-y-2 hover:shadow-2xl
-                  transition-all duration-300">
-
-        <span class="absolute top-5 right-5
-                     bg-[#07C0D4] text-[#0D0D0D]
-                     text-xs font-bold px-3 py-1
-                     rounded-full uppercase tracking-wide">
-          Mais Recente
+      <div class="home-hero-content home-reveal">
+        <span class="home-eyebrow home-eyebrow-light">
+          Tecnologia para transformar a água
         </span>
 
-        <div class="w-14 h-14 flex items-center justify-center
-                    rounded-xl bg-white/10 mb-6">
+        <h1>
+          <% if (
+            typeof conteudoInicio !== "undefined" &&
+            conteudoInicio &&
+            conteudoInicio.hero &&
+            conteudoInicio.hero.titulo
+          ) { %>
+            <%- conteudoInicio.hero.titulo %>
+          <% } else { %>
+            Novas possibilidades para um futuro com <em>mais água</em>.
+          <% } %>
+        </h1>
 
-          <svg xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke-width="1.5"
-               stroke="currentColor"
-               class="w-8 h-8">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-6.75c-.621 0-1.125.504-1.125 1.125V18.75m9 0h-9m9 0h-9m0 0H5.625M18.375 18.75h.008v.008h-.008v-.008Z" />
-
-          </svg>
-
-        </div>
-
-        <h3 class="text-xl font-bold mb-4">
-          Incubação no Partec - UFC
-        </h3>
-
-        <p class="text-white/85 text-sm leading-7">
-          Em <strong>2025</strong>, fomos
-          <strong>aprovados no processo de incubação do Partec</strong>,
-          o Parque Tecnológico da UFC. Este marco reforça nosso
-          compromisso com o desenvolvimento tecnológico e a inovação sustentável.
+        <p>
+          <% if (
+            typeof conteudoInicio !== "undefined" &&
+            conteudoInicio &&
+            conteudoInicio.hero &&
+            conteudoInicio.hero.descricao
+          ) { %>
+            <%= conteudoInicio.hero.descricao %>
+          <% } else { %>
+            Desenvolvemos soluções tecnológicas para o tratamento e a dessalinização da água, conectando ciência, inovação e sustentabilidade.
+          <% } %>
         </p>
 
+        <div class="home-hero-actions">
+          <a
+            class="home-button home-button-accent"
+            href="<%= typeof conteudoInicio !== 'undefined' && conteudoInicio && conteudoInicio.hero && conteudoInicio.hero.botaoLink ? conteudoInicio.hero.botaoLink : '/sobre' %>"
+          >
+            <%= typeof conteudoInicio !== 'undefined' && conteudoInicio && conteudoInicio.hero && conteudoInicio.hero.botaoTexto ? conteudoInicio.hero.botaoTexto : 'Conheça a Ionos' %>
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="home-text-link home-text-link-light" href="/aplicacoes">
+            Explore nossas aplicações <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
 
+      <a
+        href="#tecnologia"
+        class="home-scroll-cue"
+        aria-label="Descer para conhecer a tecnologia"
+      >
+        <span></span>
+        <small>Descubra</small>
+      </a>
 
-      <!-- CARD 2 -->
-      <div class="group bg-gray-50 rounded-2xl p-8
-                  border border-gray-100 shadow-lg
-                  hover:-translate-y-2 hover:shadow-xl
-                  transition-all duration-300">
+      <div class="home-hero-index" aria-hidden="true">IONOS / 01</div>
+    </section>
 
-        <div class="w-14 h-14 flex items-center justify-center
-                    rounded-xl bg-cyan-50 text-[#007A8F]
-                    group-hover:bg-[#007A8F]
-                    group-hover:text-white
-                    transition-all duration-300 mb-6">
+    <!-- INTRODUÇÃO -->
+    <section class="home-intro section-space" id="tecnologia">
+      <div class="home-container home-intro-grid">
+        <div class="home-intro-heading home-reveal">
+          <span class="home-eyebrow">Ciência em movimento</span>
 
-          <svg xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke-width="1.5"
-               stroke="currentColor"
-               class="w-8 h-8">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-
-          </svg>
-
+          <h2>
+            A água como ponto de partida para
+            <em>novas soluções.</em>
+          </h2>
         </div>
 
-        <h3 class="text-xl font-bold mb-4 text-[#0D0D0D]">
-          Empreende UFC & Corredores Digitais
-        </h3>
+        <div class="home-intro-copy home-reveal">
+          <p>
+            Acreditamos que a inovação pode transformar a forma como
+            tratamos e utilizamos a água. Por isso, unimos pesquisa,
+            engenharia e tecnologia para desenvolver alternativas
+            alinhadas aos desafios de hoje e de amanhã.
+          </p>
 
-        <p class="text-[#5F5F5F] text-sm leading-7">
-          Em <strong>2025</strong>, conquistamos o
-          <strong>1º lugar no Demoday</strong> da fase
-          <strong>BORA CRIAR</strong> do programa Empreende UFC,
-          em parceria com os Corredores Digitais. Essa conquista
-          destaca nosso potencial de inovação e impacto tecnológico.
-        </p>
-
+          <a href="/sobre" class="home-text-link">
+            Descubra nossa história <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
+    </section>
 
+    <!-- PILARES / TECNOLOGIA -->
+    <section class="home-technology section-space">
+      <div class="home-container">
+        <div class="home-section-heading home-reveal">
+          <div>
+            <span class="home-eyebrow">
+              <%= typeof conteudoInicio !== "undefined" && conteudoInicio && conteudoInicio.tecnologia && conteudoInicio.tecnologia.eyebrow ? conteudoInicio.tecnologia.eyebrow : 'Nossa abordagem' %>
+            </span>
 
-      <!-- CARD 3 -->
-      <div class="group bg-gray-50 rounded-2xl p-8
-                  border border-gray-100 shadow-lg
-                  hover:-translate-y-2 hover:shadow-xl
-                  transition-all duration-300">
+            <h2>
+              <%= typeof conteudoInicio !== "undefined" && conteudoInicio && conteudoInicio.tecnologia && conteudoInicio.tecnologia.titulo ? conteudoInicio.tecnologia.titulo : 'Tecnologia com propósito.' %>
+            </h2>
+          </div>
 
-        <div class="w-14 h-14 flex items-center justify-center
-                    rounded-xl bg-cyan-50 text-[#007A8F]
-                    group-hover:bg-[#007A8F]
-                    group-hover:text-white
-                    transition-all duration-300 mb-6">
-
-          <svg xmlns="http://www.w3.org/2000/svg"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke-width="1.5"
-               stroke="currentColor"
-               class="w-8 h-8">
-
-            <path stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-
-          </svg>
-
+          <p>
+            <%= typeof conteudoInicio !== "undefined" && conteudoInicio && conteudoInicio.tecnologia && conteudoInicio.tecnologia.subtitulo ? conteudoInicio.tecnologia.subtitulo : 'Desenvolvemos caminhos para tornar o tratamento da água mais eficiente e sustentável.' %>
+          </p>
         </div>
 
-        <h3 class="text-xl font-bold mb-4 text-[#0D0D0D]">
-          Catalisa ICT (SEBRAE)
-        </h3>
+        <div class="home-pillar-grid">
+          <% if (
+            typeof conteudoInicio !== "undefined" &&
+            conteudoInicio &&
+            conteudoInicio.tecnologia &&
+            Array.isArray(conteudoInicio.tecnologia.cards) &&
+            conteudoInicio.tecnologia.cards.length
+          ) { %>
+            <% conteudoInicio.tecnologia.cards.forEach((card, index) => { %>
+              <article class="home-pillar-card home-reveal">
+                <div class="home-pillar-top">
+                  <span class="home-pillar-number">
+                    <%= String(index + 1).padStart(2, '0') %>
+                  </span>
 
-        <p class="text-[#5F5F5F] text-sm leading-7">
-          Projeto aprovado em <strong>2025</strong> na 1ª fase
-          do programa Catalisa ICT, promovido pelo SEBRAE.
-        </p>
+                  <span class="home-pillar-icon" aria-hidden="true">
+                    <% if (index % 4 === 0) { %>
+                      <svg viewBox="0 0 48 48" fill="none">
+                        <path d="M24 5C19 13 10 22 10 30a14 14 0 0 0 28 0C38 22 29 13 24 5Z" />
+                        <path d="M17 31c1 4 4 6 8 7" />
+                      </svg>
+                    <% } else if (index % 4 === 1) { %>
+                      <svg viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="15" />
+                        <path d="M24 9v30M9 24h30M13 13l22 22M35 13 13 35" />
+                      </svg>
+                    <% } else if (index % 4 === 2) { %>
+                      <svg viewBox="0 0 48 48" fill="none">
+                        <path d="M8 35h32M12 30l8-9 6 5 11-15" />
+                        <path d="M29 11h8v8" />
+                      </svg>
+                    <% } else { %>
+                      <svg viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="16" />
+                        <path d="M24 14v10l7 5" />
+                        <path d="M18 4h12" />
+                      </svg>
+                    <% } %>
+                  </span>
+                </div>
 
+                <h3><%= card.titulo %></h3>
+                <p><%= card.descricao %></p>
+                <span class="home-card-line" aria-hidden="true"></span>
+              </article>
+            <% }) %>
+          <% } else { %>
+            <article class="home-pillar-card home-reveal">
+              <div class="home-pillar-top">
+                <span class="home-pillar-number">01</span>
+                <span class="home-pillar-icon" aria-hidden="true">◇</span>
+              </div>
+              <h3>Pesquisa e desenvolvimento</h3>
+              <p>Conhecimento científico aplicado à busca de novas soluções.</p>
+              <span class="home-card-line" aria-hidden="true"></span>
+            </article>
+
+            <article class="home-pillar-card home-reveal">
+              <div class="home-pillar-top">
+                <span class="home-pillar-number">02</span>
+                <span class="home-pillar-icon" aria-hidden="true">⌁</span>
+              </div>
+              <h3>Inovação tecnológica</h3>
+              <p>Tecnologia pensada para enfrentar desafios reais.</p>
+              <span class="home-card-line" aria-hidden="true"></span>
+            </article>
+
+            <article class="home-pillar-card home-reveal">
+              <div class="home-pillar-top">
+                <span class="home-pillar-number">03</span>
+                <span class="home-pillar-icon" aria-hidden="true">◎</span>
+              </div>
+              <h3>Eficiência hídrica</h3>
+              <p>Novas possibilidades para o tratamento da água.</p>
+              <span class="home-card-line" aria-hidden="true"></span>
+            </article>
+
+            <article class="home-pillar-card home-reveal">
+              <div class="home-pillar-top">
+                <span class="home-pillar-number">04</span>
+                <span class="home-pillar-icon" aria-hidden="true">✳</span>
+              </div>
+              <h3>Sustentabilidade</h3>
+              <p>Desenvolvimento alinhado às necessidades ambientais.</p>
+              <span class="home-card-line" aria-hidden="true"></span>
+            </article>
+          <% } %>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- CONQUISTAS / DESTAQUES -->
+    <section class="home-highlights section-space">
+      <div class="home-container">
+        <div class="home-section-heading home-reveal">
+          <div>
+            <span class="home-eyebrow">
+              <%= typeof conteudoInicio !== "undefined" && conteudoInicio && conteudoInicio.conquistas && conteudoInicio.conquistas.eyebrow ? conteudoInicio.conquistas.eyebrow : 'Pesquisa e desenvolvimento' %>
+            </span>
 
-  </div>
+            <h2>
+              <%= typeof conteudoInicio !== "undefined" && conteudoInicio && conteudoInicio.conquistas && conteudoInicio.conquistas.titulo ? conteudoInicio.conquistas.titulo : 'Ideias que ganham forma.' %>
+            </h2>
+          </div>
 
-</section>
+          <p>
+            <%= typeof conteudoInicio !== "undefined" && conteudoInicio && conteudoInicio.conquistas && conteudoInicio.conquistas.descricao ? conteudoInicio.conteudoInicio?.conquistas?.descricao : 'Conheça os avanços, projetos e iniciativas que fazem parte da nossa jornada.' %>
+          </p>
+        </div>
 
+        <div class="home-highlight-grid">
+          <% if (
+            typeof conteudoInicio !== "undefined" &&
+            conteudoInicio &&
+            conteudoInicio.conquistas &&
+            Array.isArray(conteudoInicio.conquistas.cards) &&
+            conteudoInicio.conquistas.cards.length
+          ) { %>
+            <% conteudoInicio.conquistas.cards.forEach((card, index) => { %>
+              <article class="home-highlight-card home-reveal">
+                <div class="home-highlight-image">
+                  <img
+                    src="<%= card.imagemUrl || '/images/agua.jpg' %>"
+                    alt="<%= card.titulo %>"
+                    loading="lazy"
+                  >
+                  <span class="home-highlight-index">
+                    <%= String(index + 1).padStart(2, '0') %>
+                  </span>
+                </div>
 
-<!---------------------------------------------------CONQUISTAS------------------------------------------------------------------------>
+                <div class="home-highlight-content">
+                  <% if (card.tag) { %>
+                    <span class="home-tag"><%= card.tag %></span>
+                  <% } %>
 
+                  <h3><%= card.titulo %></h3>
+                  <p><%= card.descricao %></p>
+                </div>
+              </article>
+            <% }) %>
+          <% } else { %>
+            <article class="home-highlight-card home-reveal">
+              <div class="home-highlight-image">
+                <img
+                  src="/images/equipe/equipe-escada.jpg"
+                  alt="Equipe da Ionos Dessalinização"
+                  loading="lazy"
+                >
+                <span class="home-highlight-index">01</span>
+              </div>
+              <div class="home-highlight-content">
+                <span class="home-tag">Pesquisa</span>
+                <h3>Ciência aplicada à água</h3>
+                <p>Pesquisa e desenvolvimento para ampliar as possibilidades de tratamento da água.</p>
+              </div>
+            </article>
 
+            <article class="home-highlight-card home-reveal">
+              <div class="home-highlight-image">
+                <img
+                  src="/images/equipe/equipe-escada.jpg"
+                  alt="Equipe trabalhando em inovação"
+                  loading="lazy"
+                >
+                <span class="home-highlight-index">02</span>
+              </div>
+              <div class="home-highlight-content">
+                <span class="home-tag">Tecnologia</span>
+                <h3>Do laboratório à aplicação</h3>
+                <p>Transformamos conhecimento técnico em soluções para desafios concretos.</p>
+              </div>
+            </article>
+
+            <article class="home-highlight-card home-reveal">
+              <div class="home-highlight-image">
+                <img
+                  src="/images/equipe/equipe-escada.jpg"
+                  alt="Time Ionos Dessalinização"
+                  loading="lazy"
+                >
+                <span class="home-highlight-index">03</span>
+              </div>
+              <div class="home-highlight-content">
+                <span class="home-tag">Colaboração</span>
+                <h3>Inovação feita em equipe</h3>
+                <p>Conectamos pessoas, ciência e engenharia para desenvolver novas ideias.</p>
+              </div>
+            </article>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO -->
+    <section class="home-cta-section">
+      <div class="home-container">
+        <div class="home-cta-panel home-reveal">
+          <div class="home-cta-decoration" aria-hidden="true"></div>
+
+          <div class="home-cta-copy">
+            <span class="home-eyebrow home-eyebrow-light">
+              Vamos conversar
+            </span>
+
+            <h2>
+              O futuro da água começa com
+              <em>novas ideias.</em>
+            </h2>
+
+            <p>
+              Quer conhecer melhor nossas soluções ou conversar sobre uma
+              oportunidade de colaboração? Entre em contato com a Ionos.
+            </p>
+
+            <a href="/contato" class="home-button home-button-accent">
+              Fale com a nossa equipe <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="home-cta-mark" aria-hidden="true">
+            <span>IONOS</span>
+            <span>DESSALINIZAÇÃO</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-
-  <!-- FOOTER -->
   <%- include('partials/footer.ejs') %>
 
+  <script>
+    (() => {
+      const elements = document.querySelectorAll(".home-reveal");
 
-  <!-- SCRIPTS -->
-  <%- include('partials/scripts.ejs') %>
+      if (!("IntersectionObserver" in window)) {
+        elements.forEach((element) => {
+          element.classList.add("home-visible");
+        });
+        return;
+      }
 
+      const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("home-visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -30px 0px"
+        }
+      );
+
+      elements.forEach((element) => observer.observe(element));
+    })();
+  </script>
 </body>
 </html>
-

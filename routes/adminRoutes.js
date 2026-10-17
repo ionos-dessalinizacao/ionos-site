@@ -1,7 +1,47 @@
-const express = require("express");
 
+const express = require("express");
+const multer = require("multer");
 const router = express.Router();
 
+// ==========================================
+// UPLOAD DE IMAGENS
+// ==========================================
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024
+  },
+  fileFilter: (req, file, cb) => {
+    if (!file.mimetype.startsWith("image/")) {
+      return cb(
+        new Error("Apenas arquivos de imagem são permitidos.")
+      );
+    }
+
+    cb(null, true);
+  }
+});
+
+// Trata erros do Multer antes de chamar o controller.
+function uploadImagem(req, res, next) {
+  upload.single("imagem")(req, res, (error) => {
+    if (error) {
+      const mensagem = error instanceof multer.MulterError
+        ? error.code === "LIMIT_FILE_SIZE"
+          ? "A imagem deve ter no máximo 5 MB."
+          : "Erro ao receber o arquivo de imagem."
+        : error.message || "Erro ao enviar a imagem.";
+
+      return res.status(400).json({
+        sucesso: false,
+        erro: mensagem
+      });
+    }
+
+    next();
+  });
+}
 
 // ==========================================
 // SERVICES
@@ -10,14 +50,14 @@ const router = express.Router();
 const {
   pegarConfiguracoes,
   ativarNoticias,
-  desativarNoticias
+  desativarNoticias,
+  ativarAplicacoes,
+  desativarAplicacoes
 } = require("../services/configService");
-
 
 const {
   pegarTodasNoticias
 } = require("../services/noticiaService");
-
 
 // ==========================================
 // CONTROLLER DE NOTÍCIAS
@@ -29,325 +69,233 @@ const {
   atualizar,
   arquivar,
   desarquivar
-} = require("../controllers/noticiaController");
+} = require("../controllers/noticiasController");
+
+
+const {
+  pegarConteudoInicio,
+  salvarConteudoInicio
+} = require("../services/inicioService");
 
 
 // ==========================================
-// MIDDLEWARE DE AUTENTICAÇÃO
+// AUTENTICAÇÃO
 // ==========================================
 
 function verificarLogin(req, res, next) {
-
-  if (!req.session.usuario) {
-
+  if (!req.session || !req.session.usuario) {
     return res.redirect("/login");
-
   }
 
   next();
-
 }
 
 router.use(verificarLogin);
-
 
 // ==========================================
 // PAINEL PRINCIPAL
 // ==========================================
 
 router.get("/", async (req, res) => {
-
   try {
+    const configuracoes = await pegarConfiguracoes();
 
-    const configuracoes =
-      await pegarConfiguracoes();
-
-    res.render("admin/index", {
-
+    return res.render("admin/index", {
       title: "Painel Administrativo",
-
       configuracoes
-
     });
-
   } catch (error) {
-
-    console.error(
-      "Erro ao carregar painel administrativo:",
-      error
-    );
-
-    res.status(500).send(
+    console.error("Erro ao carregar painel:", error);
+    return res.status(500).send(
       "Erro ao carregar o painel administrativo."
     );
-
   }
-
 });
 
-
 // ==========================================
-// INÍCIO
+// OUTRAS PÁGINAS ADMINISTRATIVAS
 // ==========================================
 
-router.get("/inicio", (req, res) => {
+router.get("/inicio", async (req, res) => {
+  try {
+    const [configuracoes, conteudoInicio] = await Promise.all([
+      pegarConfiguracoes(),
+      pegarConteudoInicio()
+    ]);
 
-  res.render("admin/inicio", {
+    res.render("admin/inicio", {
+      title: "Administrar Início",
+      configuracoes,
+      conteudoInicio,
+      salvo: req.query.salvo === "1"
+    });
+  } catch (error) {
+    console.error("Erro ao carregar a administração do início:", error);
 
-    title: "Administrar Início"
-
-  });
-
+    res.status(500).send(
+      "Não foi possível carregar a administração da página inicial."
+    );
+  }
 });
-
-
-// ==========================================
-// EQUIPE
-// ==========================================
 
 router.get("/equipe", (req, res) => {
-
   res.render("admin/equipe", {
-
     title: "Administrar Equipe"
-
   });
-
 });
-
-
-// ==========================================
-// APLICAÇÕES
-// ==========================================
 
 router.get("/aplicacoes", (req, res) => {
-
   res.render("admin/aplicacoes", {
-
     title: "Administrar Aplicações"
-
   });
-
 });
 
+router.get("/sobre", (req, res) => {
+  res.render("admin/sobre", {
+    title: "Administrar Sobre Nós"
+  });
+});
+
+router.get("/contato", (req, res) => {
+  res.render("admin/contato", {
+    title: "Administrar Contato"
+  });
+});
 
 // ==========================================
-// NOTÍCIAS — PÁGINA ADMIN
+// LISTAR NOTÍCIAS NO PAINEL
 // ==========================================
 
 router.get("/noticias", async (req, res) => {
-
   try {
+    const [noticias, configuracoes] = await Promise.all([
+      pegarTodasNoticias(),
+      pegarConfiguracoes()
+    ]);
 
-    // Admin precisa receber TODAS as notícias,
-    // inclusive as arquivadas.
-
-    const noticias =
-      await pegarTodasNoticias();
-
-    const configuracoes =
-      await pegarConfiguracoes();
-
-
-    res.render("admin/noticias", {
-
+    return res.render("admin/noticias", {
       title: "Administrar Notícias",
-
       noticias,
-
       configuracoes
-
     });
-
   } catch (error) {
+    console.error("Erro ao carregar notícias:", error);
 
-    console.error(
-      "Erro ao carregar notícias:",
-      error
-    );
-
-    res.status(500).send(
+    return res.status(500).send(
       "Erro ao carregar as notícias."
     );
-
   }
-
 });
 
-
 // ==========================================
-// CRIAR NOTÍCIA
-// POST /admin/noticias
+// CRUD DE NOTÍCIAS
 // ==========================================
 
-router.post(
-  "/noticias",
-  criar
-);
+router.post("/noticias", uploadImagem, criar);
 
+router.put("/noticias/:id", uploadImagem, atualizar);
 
-// ==========================================
-// ATUALIZAR NOTÍCIA
-// PUT /admin/noticias/:id
-// ==========================================
+router.delete("/noticias/:id", deletar);
 
-router.put(
-  "/noticias/:id",
-  atualizar
-);
+router.patch("/noticias/:id/arquivar", arquivar);
 
+router.patch("/noticias/:id/desarquivar", desarquivar);
 
 // ==========================================
-// DELETAR NOTÍCIA
-// DELETE /admin/noticias/:id
+// ATIVAR / DESATIVAR NOTÍCIAS
 // ==========================================
 
-router.delete(
-  "/noticias/:id",
-  deletar
-);
+router.post("/noticias/ativar", async (req, res) => {
+  try {
+    await ativarNoticias();
 
+    return res.json({
+      sucesso: true,
+      mensagem: "Seção de notícias ativada."
+    });
+  } catch (error) {
+    console.error("Erro ao ativar notícias:", error);
 
-// ==========================================
-// ARQUIVAR NOTÍCIA
-// PATCH /admin/noticias/:id/arquivar
-// ==========================================
-
-router.patch(
-  "/noticias/:id/arquivar",
-  arquivar
-);
-
-
-// ==========================================
-// DESARQUIVAR NOTÍCIA
-// PATCH /admin/noticias/:id/desarquivar
-// ==========================================
-
-router.patch(
-  "/noticias/:id/desarquivar",
-  desarquivar
-);
-
-
-// ==========================================
-// ATIVAR NOTÍCIAS
-// ==========================================
-
-router.post(
-  "/noticias/ativar",
-  async (req, res) => {
-
-    try {
-
-      await ativarNoticias();
-
-      return res.json({
-
-        sucesso: true,
-
-        mensagem:
-          "Seção de notícias ativada."
-
-      });
-
-    } catch (error) {
-
-      console.error(
-        "Erro ao ativar notícias:",
-        error
-      );
-
-      return res.status(500).json({
-
-        sucesso: false,
-
-        mensagem:
-          "Erro ao ativar a seção de notícias."
-
-      });
-
-    }
-
+    return res.status(500).json({
+      sucesso: false,
+      erro: "Erro ao ativar a seção de notícias."
+    });
   }
-);
-
-
-// ==========================================
-// DESATIVAR NOTÍCIAS
-// ==========================================
-
-router.post(
-  "/noticias/desativar",
-  async (req, res) => {
-
-    try {
-
-      await desativarNoticias();
-
-      return res.json({
-
-        sucesso: true,
-
-        mensagem:
-          "Seção de notícias desativada."
-
-      });
-
-    } catch (error) {
-
-      console.error(
-        "Erro ao desativar notícias:",
-        error
-      );
-
-      return res.status(500).json({
-
-        sucesso: false,
-
-        mensagem:
-          "Erro ao desativar a seção de notícias."
-
-      });
-
-    }
-
-  }
-);
-
-
-// ==========================================
-// SOBRE
-// ==========================================
-
-router.get("/sobre", (req, res) => {
-
-  res.render("admin/sobre", {
-
-    title: "Administrar Sobre Nós"
-
-  });
-
 });
 
+router.post("/noticias/desativar", async (req, res) => {
+  try {
+    await desativarNoticias();
 
-// ==========================================
-// CONTATO
-// ==========================================
+    return res.json({
+      sucesso: true,
+      mensagem: "Seção de notícias desativada."
+    });
+  } catch (error) {
+    console.error("Erro ao desativar notícias:", error);
 
-router.get("/contato", (req, res) => {
-
-  res.render("admin/contato", {
-
-    title: "Administrar Contato"
-
-  });
-
+    return res.status(500).json({
+      sucesso: false,
+      erro: "Erro ao desativar a seção de notícias."
+    });
+  }
 });
 
+// ==========================================
+// ATIVAR / DESATIVAR APLICAÇÕES
+// ==========================================
+
+router.post("/aplicacoes/ativar", async (req, res) => {
+  try {
+    await ativarAplicacoes();
+
+    return res.json({
+      sucesso: true,
+      mensagem: "Seção de aplicações ativada."
+    });
+  } catch (error) {
+    console.error("Erro ao ativar aplicações:", error);
+
+    return res.status(500).json({
+      sucesso: false,
+      erro: "Erro ao ativar a seção de aplicações."
+    });
+  }
+});
+
+router.post("/aplicacoes/desativar", async (req, res) => {
+  try {
+    await desativarAplicacoes();
+
+    return res.json({
+      sucesso: true,
+      mensagem: "Seção de aplicações desativada."
+    });
+  } catch (error) {
+    console.error("Erro ao desativar aplicações:", error);
+
+    return res.status(500).json({
+      sucesso: false,
+      erro: "Erro ao desativar a seção de aplicações."
+    });
+  }
+});
 
 // ==========================================
 // EXPORTAÇÃO
 // ==========================================
+router.post("/inicio/salvar", async (req, res) => {
+  try {
+    await salvarConteudoInicio(req.body);
+
+    res.redirect("/admin/inicio?salvo=1");
+  } catch (error) {
+    console.error("Erro ao salvar o conteúdo da página inicial:", error);
+
+    res.status(500).send(
+      "Não foi possível salvar o conteúdo da página inicial."
+    );
+  }
+});
 
 module.exports = router;

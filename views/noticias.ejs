@@ -1,282 +1,437 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title><%= typeof title !== "undefined" ? title : "Notícias | Ionos Dessalinização" %></title>
 
   <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    name="description"
+    content="Acompanhe as novidades, pesquisas e atualizações da Ionos Dessalinização."
   >
+  <meta name="theme-color" content="#007A8F">
 
-  <title><%= title %></title>
+  <link rel="icon" type="image/png" href="/images/logo/icon-ionos.png">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    rel="stylesheet"
-    href="/css/style.css"
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/noticias.css">
+  <link rel="stylesheet" href="/css/footer.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="pagina-noticias">
 
-  <%- include("partials/header.ejs") %>
+  <%- include('partials/header.ejs', { headerClass: 'header-light' }) %>
 
+  <main>
+    <!-- HERO -->
+    <section class="noticias-hero">
+      <div class="noticias-hero__pattern" aria-hidden="true"></div>
+      <div class="noticias-hero__orb noticias-hero__orb--one" aria-hidden="true"></div>
+      <div class="noticias-hero__orb noticias-hero__orb--two" aria-hidden="true"></div>
 
-  <!-- HERO -->
-
-  <section class="relative overflow-hidden bg-[#007A8F] text-white py-28">
-
-    <div
-      class="absolute -top-32 -right-32
-             w-96 h-96
-             bg-[#07C0D4]
-             rounded-full
-             opacity-30
-             blur-3xl">
-    </div>
-
-    <div
-      class="absolute -bottom-40 -left-32
-             w-96 h-96
-             bg-white
-             rounded-full
-             opacity-10
-             blur-3xl">
-    </div>
-
-    <div class="relative container mx-auto px-6 text-center">
-
-      <p
-        class="text-[#07C0D4]
-               font-semibold
-               uppercase
-               tracking-widest
-               text-sm
-               mb-4"
-      >
-        Ionos Dessalinização
-      </p>
-
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">
-        Notícias
-      </h1>
-
-      <div
-        class="w-24 h-1
-               bg-[#07C0D4]
-               rounded-full
-               mx-auto
-               mb-8">
-      </div>
-
-      <p
-        class="max-w-2xl
-               mx-auto
-               text-lg md:text-xl
-               text-white/90
-               leading-8"
-      >
-        Acompanhe as novidades, conquistas,
-        projetos e avanços da Ionos.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTEÚDO -->
-
-  <main class="py-24">
-
-    <div class="container mx-auto px-6">
-
-      <div class="text-center mb-16">
-
-        <span
-          class="uppercase
-                 tracking-widest
-                 text-[#007A8F]
-                 font-semibold
-                 text-sm"
-        >
-          Atualizações
+      <div class="noticias-container noticias-hero__content">
+        <span class="noticias-eyebrow noticias-reveal">
+          <span class="noticias-eyebrow__line"></span>
+          Informação e conhecimento
         </span>
 
-        <h2
-          class="text-4xl
-                 md:text-5xl
-                 font-bold
-                 text-[#0D0D0D]
-                 mt-4"
-        >
-          Acompanhe nossa jornada
-        </h2>
+        <h1 class="noticias-hero__title noticias-reveal">
+          Ideias que movem
+          <span>o futuro da água.</span>
+        </h1>
 
-        <div
-          class="w-20 h-1
-                 bg-[#07C0D4]
-                 rounded-full
-                 mx-auto
-                 mt-5
-                 mb-6">
-        </div>
-
-      </div>
-
-
-      <!-- NOTÍCIAS -->
-
-      <% if (noticias.length === 0) { %>
-
-        <div class="text-center py-20">
-
-          <p class="text-gray-500 text-lg">
-            Nenhuma notícia publicada no momento.
-          </p>
-
-        </div>
-
-      <% } else { %>
-
-        <div
-          class="grid
-                 md:grid-cols-2
-                 lg:grid-cols-3
-                 gap-8"
-        >
-
-          <% noticias.forEach(noticia => { %>
-
-            <article
-              class="group
-                     bg-white
-                     rounded-3xl
-                     overflow-hidden
-                     border border-gray-100
-                     shadow-lg
-                     hover:shadow-2xl
-                     hover:-translate-y-2
-                     transition-all
-                     duration-300"
-            >
-
-              <% if (noticia.imagemUrl) { %>
-
-                <img
-                  src="<%= noticia.imagemUrl %>"
-                  alt="<%= noticia.titulo %>"
-                  class="w-full h-48 object-cover"
-                >
-
-              <% } else { %>
-
-                <div
-                  class="h-48
-                         bg-gradient-to-br
-                         from-[#007A8F]
-                         to-[#07C0D4]
-                         flex
-                         items-center
-                         justify-center"
-                >
-
-                  <span
-                    class="text-white
-                           font-semibold
-                           uppercase
-                           tracking-widest
-                           text-sm"
-                  >
-                    Ionos
-                  </span>
-
-                </div>
-
-              <% } %>
-
-
-              <div class="p-8">
-
-                <p
-                  class="text-[#007A8F]
-                         text-sm
-                         font-semibold
-                         mb-3"
-                >
-                  Notícias
-                </p>
-
-                <h3
-                  class="text-2xl
-                         font-bold
-                         text-[#0D0D0D]
-                         mb-4
-                         group-hover:text-[#007A8F]
-                         transition"
-                >
-                  <%= noticia.titulo %>
-                </h3>
-
-                <p
-                  class="text-[#5F5F5F]
-                         leading-7
-                         mb-6"
-                >
-                  <%= noticia.descricao %>
-                </p>
-
-              </div>
-
-            </article>
-
-          <% }) %>
-
-        </div>
-
-      <% } %>
-
-
-      <div class="text-center mt-16">
+        <p class="noticias-hero__description noticias-reveal">
+          Acompanhe as novidades da Ionos, conheça nossos avanços
+          e fique por dentro de assuntos relacionados à inovação,
+          tecnologia e dessalinização.
+        </p>
 
         <a
-          href="/"
-          class="inline-flex
-                 items-center
-                 gap-2
-                 bg-[#007A8F]
-                 hover:bg-[#005F70]
-                 text-white
-                 font-semibold
-                 px-7
-                 py-3
-                 rounded-xl
-                 transition
-                 duration-300"
+          href="#central-noticias"
+          class="noticias-button noticias-button--primary noticias-reveal"
         >
-          ← Voltar para o início
+          Explorar notícias
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 5v14m0 0 6-6m-6 6-6-6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </a>
-
       </div>
 
-    </div>
+      <div class="noticias-hero__vertical" aria-hidden="true">
+        IONOS DESSALINIZAÇÃO
+      </div>
+    </section>
 
+    <!-- INTRODUÇÃO -->
+    <section class="noticias-intro" id="central-noticias">
+      <div class="noticias-container noticias-intro__layout">
+        <div class="noticias-intro__heading noticias-reveal">
+          <span class="noticias-eyebrow">
+            <span class="noticias-eyebrow__line"></span>
+            Central de notícias
+          </span>
+
+          <h2>
+            Conhecimento que
+            <span>gera possibilidades.</span>
+          </h2>
+        </div>
+
+        <div class="noticias-intro__text noticias-reveal">
+          <p>
+            Acompanhe os conteúdos publicados pela Ionos Dessalinização
+            e descubra novidades sobre nossas atividades, pesquisas
+            e iniciativas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO DAS NOTÍCIAS -->
+    <section class="noticias-conteudo">
+      <div class="noticias-container">
+
+        <%
+          const listaNoticias = Array.isArray(noticias) ? noticias : [];
+
+          const noticiasOrdenadas = [...listaNoticias];
+
+          const noticiaPrincipal = noticiasOrdenadas.shift();
+          const noticiasSecundarias = noticiasOrdenadas;
+
+          const obterData = (noticia) => {
+            const valor = noticia && (
+              noticia.dataPublicacao ||
+              noticia.publicadaEm ||
+              noticia.criadoEm
+            );
+
+            if (!valor) return "";
+
+            let data;
+
+            if (typeof valor.toDate === "function") {
+              data = valor.toDate();
+            } else if (typeof valor.seconds === "number") {
+              data = new Date(valor.seconds * 1000);
+            } else {
+              data = new Date(valor);
+            }
+
+            if (Number.isNaN(data.getTime())) return "";
+
+            return data.toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric"
+            });
+          };
+        %>
+
+        <% if (noticiaPrincipal) { %>
+
+          <!-- NOTÍCIA PRINCIPAL -->
+          <div class="noticias-featured-heading noticias-reveal">
+            <span class="noticias-eyebrow">
+              <span class="noticias-eyebrow__line"></span>
+              Em destaque
+            </span>
+          </div>
+
+          <article class="noticia-principal noticias-reveal">
+            <a
+              class="noticia-principal__image-link"
+              href="/noticias/<%= noticiaPrincipal.id %>"
+              aria-label="Ler notícia: <%= noticiaPrincipal.titulo %>"
+            >
+              <% if (noticiaPrincipal.imagemUrl) { %>
+                <img
+                  class="noticia-principal__image"
+                  src="<%= noticiaPrincipal.imagemUrl %>"
+                  alt="<%= noticiaPrincipal.titulo %>"
+                  loading="eager"
+                >
+              <% } else { %>
+                <div class="noticia-principal__placeholder">
+                  <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <path
+                      d="M32 7C22 22 12 32 12 43a20 20 0 0 0 40 0C52 32 42 22 32 7Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M23 43c1 5 4 8 9 9"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              <% } %>
+
+              <span class="noticia-principal__image-label">
+                Ionos Dessalinização
+              </span>
+            </a>
+
+            <div class="noticia-principal__content">
+              <span class="noticia-tag">
+                <span class="noticia-tag__dot"></span>
+                Notícia em destaque
+              </span>
+
+              <% const dataPrincipal = obterData(noticiaPrincipal); %>
+
+              <% if (dataPrincipal) { %>
+                <time class="noticia-data">
+                  <%= dataPrincipal %>
+                </time>
+              <% } %>
+
+              <h2>
+                <a href="/noticias/<%= noticiaPrincipal.id %>">
+                  <%= noticiaPrincipal.titulo %>
+                </a>
+              </h2>
+
+              <% if (noticiaPrincipal.descricao) { %>
+                <p class="noticia-principal__description">
+                  <%= noticiaPrincipal.descricao %>
+                </p>
+              <% } %>
+
+              <a
+                href="/noticias/<%= noticiaPrincipal.id %>"
+                class="noticia-read-more"
+              >
+                <span>Leia a notícia completa</span>
+                <span class="noticia-read-more__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14m-6-6 6 6-6 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+        <% } %>
+
+        <!-- NOTÍCIAS SECUNDÁRIAS -->
+        <% if (noticiasSecundarias.length > 0) { %>
+
+          <div class="noticias-lista-heading noticias-reveal">
+            <div>
+              <span class="noticias-eyebrow">
+                <span class="noticias-eyebrow__line"></span>
+                Mais conteúdos
+              </span>
+
+              <h2>
+                Outras <span>notícias.</span>
+              </h2>
+            </div>
+
+            <span class="noticias-lista-count">
+              <%= noticiasSecundarias.length %>
+              <%= noticiasSecundarias.length === 1 ? "publicação" : "publicações" %>
+            </span>
+          </div>
+
+          <div class="noticias-grid">
+            <% noticiasSecundarias.forEach((noticia, index) => { %>
+              <article
+                class="noticia-card noticias-reveal"
+                style="--noticia-index: <%= index %>"
+              >
+                <a
+                  href="/noticias/<%= noticia.id %>"
+                  class="noticia-card__image-link"
+                  aria-label="Ler notícia: <%= noticia.titulo %>"
+                >
+                  <% if (noticia.imagemUrl) { %>
+                    <img
+                      class="noticia-card__image"
+                      src="<%= noticia.imagemUrl %>"
+                      alt="<%= noticia.titulo %>"
+                      loading="lazy"
+                    >
+                  <% } else { %>
+                    <div class="noticia-card__placeholder">
+                      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                        <path
+                          d="M32 7C22 22 12 32 12 43a20 20 0 0 0 40 0C52 32 42 22 32 7Z"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M23 43c1 5 4 8 9 9"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                  <% } %>
+
+                  <span class="noticia-card__image-number">
+                    <%= String(index + 2).padStart(2, "0") %>
+                  </span>
+                </a>
+
+                <div class="noticia-card__content">
+                  <% const dataSecundaria = obterData(noticia); %>
+
+                  <% if (dataSecundaria) { %>
+                    <time class="noticia-data">
+                      <%= dataSecundaria %>
+                    </time>
+                  <% } %>
+
+                  <h3>
+                    <a href="/noticias/<%= noticia.id %>">
+                      <%= noticia.titulo %>
+                    </a>
+                  </h3>
+
+                  <% if (noticia.descricao) { %>
+                    <p><%= noticia.descricao %></p>
+                  <% } %>
+
+                  <a
+                    href="/noticias/<%= noticia.id %>"
+                    class="noticia-card__link"
+                  >
+                    Ler mais
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M5 12h14m-6-6 6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            <% }); %>
+          </div>
+
+        <% } else if (!noticiaPrincipal) { %>
+
+          <!-- ESTADO VAZIO -->
+          <div class="noticias-empty noticias-reveal">
+            <div class="noticias-empty__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path
+                  d="M13 11h38v42H13z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M22 23h20M22 32h20M22 41h13"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <span class="noticias-eyebrow">
+              <span class="noticias-eyebrow__line"></span>
+              Em breve
+            </span>
+
+            <h2>Novidades estão a caminho.</h2>
+
+            <p>
+              Ainda não há notícias publicadas. Em breve, você poderá
+              acompanhar as novidades e atualizações da Ionos por aqui.
+            </p>
+
+            <a href="/contato" class="noticias-button noticias-button--primary">
+              Entre em contato
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12h14m-6-6 6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+        <% } %>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="noticias-cta">
+      <div class="noticias-cta__pattern" aria-hidden="true"></div>
+
+      <div class="noticias-container noticias-cta__content noticias-reveal">
+        <span class="noticias-eyebrow noticias-eyebrow--light">
+          <span class="noticias-eyebrow__line"></span>
+          Vamos conversar
+        </span>
+
+        <h2>
+          Quer saber mais sobre
+          <span>o trabalho da Ionos?</span>
+        </h2>
+
+        <p>
+          Fale com nossa equipe para conhecer melhor nossas iniciativas,
+          tecnologias e possibilidades de colaboração.
+        </p>
+
+        <a href="/contato" class="noticias-button noticias-button--light">
+          Fale conosco
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M5 12h14m-6-6 6 6-6 6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <div class="noticias-cta__watermark" aria-hidden="true">IONOS</div>
+    </section>
   </main>
 
+  <%- include('partials/footer.ejs') %>
 
-  <%- include("partials/footer.ejs") %>
-
-  <script src="/js/menu.js"></script>
-
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/noticias.js" defer></script>
 </body>
-
 </html>

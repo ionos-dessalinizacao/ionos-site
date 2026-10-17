@@ -1,420 +1,470 @@
+
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+    <title><%= title || "Administrar Notícias" %></title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+    <link rel="stylesheet" href="/css/admin-noticias.css">
 
-  <title><%= title %></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  <link
-    rel="stylesheet"
-    href="/css/admin-noticias.css"
-  >
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
 
+        .container {
+            width:  min(1100px, 94%);
+            margin: 30px auto;
+        }
+
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .cabecalho h1 {
+            margin: 0;
+        }
+
+        .painel {
+            background: #fff;
+            padding: 24px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+        }
+
+        .painel h2 {
+            margin-top: 0;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 16px;
+        }
+
+        .campo label {
+            font-weight: bold;
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        .campo textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .botoes,
+        .acoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .botao {
+            display: inline-block;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .botao:disabled {
+            opacity: .6;
+            cursor: wait;
+        }
+
+        .azul {
+            background: #2563eb;
+        }
+
+        .cinza {
+            background: #4b5563;
+        }
+
+        .laranja {
+            background: #d97706;
+        }
+
+        .verde {
+            background: #15803d;
+        }
+
+        .vermelho {
+            background: #dc2626;
+        }
+
+        .status {
+            display: inline-block;
+            margin: 8px 0;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-publicada {
+            color: #166534;
+            background: #dcfce7;
+        }
+
+        .status-arquivada {
+            color: #92400e;
+            background: #fef3c7;
+        }
+
+        .lista-noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card-noticia {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fff;
+            overflow-wrap: anywhere;
+        }
+
+        .card-noticia img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 7px;
+            margin-bottom: 12px;
+        }
+
+        .card-noticia h3 {
+            margin: 8px 0;
+        }
+
+        .descricao {
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        .acoes {
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        .mensagem {
+            display: none;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .vazio {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .painel {
+                padding: 16px;
+            }
+
+            .cabecalho {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .acoes .botao {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
 </head>
 
-
 <body>
+    <main class="container">
 
+        <header class="cabecalho">
+            <h1>Administrar Notícias</h1>
 
-  <!-- =====================================
-       HEADER
-  ====================================== -->
-
-  <header class="admin-header">
-
-    <div>
-
-      <a
-        href="/admin"
-        class="back-link"
-      >
-        ← Painel
-      </a>
-
-      <h1>
-        Gerenciar Notícias
-      </h1>
-
-      <p>
-        Ionos Dessalinização
-      </p>
-
-    </div>
-
-
-    <a
-      href="/login/sair"
-      class="logout-button"
-    >
-      Sair
-    </a>
-
-  </header>
-
-
-
-  <main class="admin-container">
-
-
-    <!-- =====================================
-         INTRODUÇÃO
-    ====================================== -->
-
-    <section class="page-introduction">
-
-      <span>
-        CONTEÚDO
-      </span>
-
-      <h2>
-        Notícias
-      </h2>
-
-      <p>
-        Crie, edite, arquive ou remova
-        as notícias publicadas no site.
-      </p>
-
-    </section>
-
-
-
-    <!-- =====================================
-         CRIAR NOTÍCIA
-    ====================================== -->
-
-    <section class="admin-card">
-
-      <div class="card-header">
-
-        <div>
-
-          <span class="card-label">
-            NOVA PUBLICAÇÃO
-          </span>
-
-          <h2>
-            Criar notícia
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <form
-        id="formNoticia"
-        class="noticia-form"
-      >
-
-
-        <div class="form-group">
-
-          <label for="titulo">
-            Título
-          </label>
-
-          <input
-            id="titulo"
-            name="titulo"
-            type="text"
-            placeholder="Digite o título da notícia"
-            required
-          >
-
-        </div>
-
-
-
-        <div class="form-group">
-
-          <label for="descricao">
-            Descrição
-          </label>
-
-          <textarea
-            id="descricao"
-            name="descricao"
-            rows="6"
-            placeholder="Digite o conteúdo ou descrição da notícia"
-            required
-          ></textarea>
-
-        </div>
-
-
-
-        <div class="form-group">
-
-          <label for="imagemFile">
-            Imagem
-          </label>
-
-          <input
-            id="imagemFile"
-            type="file"
-            accept="image/*"
-          >
-
-          <small>
-            Selecione uma imagem para a notícia.
-          </small>
-
-        </div>
-
-
-
-        <div
-          id="preview-container"
-          class="preview-container"
-          style="display: none;"
-        >
-
-          <span>
-            Pré-visualização
-          </span>
-
-          <img
-            id="preview"
-            alt="Pré-visualização da notícia"
-          >
-
-        </div>
-
-
-
-        <button
-          type="submit"
-          class="primary-button"
-        >
-
-          Criar notícia
-
-        </button>
-
-
-      </form>
-
-    </section>
-
-
-
-    <!-- =====================================
-         LISTA DE NOTÍCIAS
-    ====================================== -->
-
-    <section class="admin-card">
-
-
-      <div class="card-header">
-
-        <div>
-
-          <span class="card-label">
-            PUBLICAÇÕES
-          </span>
-
-          <h2>
-            Notícias cadastradas
-          </h2>
-
-        </div>
-
-
-        <span class="news-count">
-          <%= noticias.length %>
-          notícia(s)
-        </span>
-
-      </div>
-
-
-
-      <div
-        id="listaNoticias"
-        class="noticias-list"
-      >
-
-
-        <% if (noticias.length === 0) { %>
-
-          <div class="empty-state">
-
-            <div class="empty-icon">
-              📰
+            <div class="botoes">
+                <a href="/admin" class="botao cinza">Voltar ao painel</a>
+                <a href="/login/sair" class="botao vermelho">Sair</a>
             </div>
+        </header>
 
-            <h3>
-              Nenhuma notícia cadastrada
-            </h3>
+        <div id="mensagem" class="mensagem" role="status"></div>
 
-            <p>
-              Crie sua primeira notícia
-              utilizando o formulário acima.
-            </p>
+        <section class="painel">
+            <h2>Status da seção de notícias</h2>
 
-          </div>
-
-        <% } %>
-
-
-
-        <% noticias.forEach(noticia => { %>
-
-
-          <article
-            class="admin-noticia
-            <%= noticia.arquivada ? 'noticia-arquivada' : '' %>"
-          >
-
-
-            <!-- IMAGEM -->
-
-            <div class="noticia-image">
-
-              <% if (noticia.imagemUrl) { %>
-
-                <img
-                  src="<%= noticia.imagemUrl %>"
-                  alt="<%= noticia.titulo %>"
+            <% if (configuracoes && configuracoes.noticiasAtivas) { %>
+                <p>A seção de notícias está ativa.</p>
+                <button
+                    type="button"
+                    class="botao vermelho"
+                    id="btnDesativarSecao"
                 >
+                    Desativar seção
+                </button>
+            <% } else { %>
+                <p>A seção de notícias está desativada.</p>
+                <button
+                    type="button"
+                    class="botao verde"
+                    id="btnAtivarSecao"
+                >
+                    Ativar seção
+                </button>
+            <% } %>
+        </section>
 
-              <% } else { %>
+        <section class="painel">
+            <h2>Adicionar notícia</h2>
 
-                <div class="no-image">
+            <form
+                id="formNoticia"
+                action="/admin/noticias"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <div class="campo">
+                    <label for="titulo">Título</label>
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        required
+                    >
+                </div>
 
-                  <span>
-                    Ionos
-                  </span>
+                <div class="campo">
+                    <label for="descricao">Descrição</label>
+                    <textarea
+                        id="descricao"
+                        name="descricao"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="imagemFile">Imagem (opcional)</label>
+                    <input
+                        type="file"
+                        id="imagemFile"
+                        name="imagem"
+                        accept="image/*"
+                    >
+                </div>
+
+                <div id="preview-container" hidden>
+                    <p>Pré-visualização:</p>
+                    <img
+                        id="preview"
+                        alt="Pré-visualização da imagem"
+                        style="max-width: 250px; max-height: 180px;"
+                    >
+                </div>
+
+                <div class="botoes">
+                    <button type="submit" class="botao azul">
+                        Cadastrar notícia
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="painel" id="painelEdicao" hidden>
+            <h2>Editar notícia</h2>
+
+            <form id="formEdicaoNoticia" enctype="multipart/form-data">
+                <input type="hidden" id="edicaoId" name="id">
+
+                <div class="campo">
+                    <label for="edicaoTitulo">Título</label>
+                    <input
+                        type="text"
+                        id="edicaoTitulo"
+                        name="titulo"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="edicaoDescricao">Descrição</label>
+                    <textarea
+                        id="edicaoDescricao"
+                        name="descricao"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="edicaoImagem">Trocar imagem (opcional)</label>
+                    <input
+                        type="file"
+                        id="edicaoImagem"
+                        name="imagem"
+                        accept="image/*"
+                    >
+                </div>
+
+                <div id="previewEdicaoContainer" hidden>
+                    <p>Imagem atual ou nova imagem:</p>
+                    <img
+                        id="previewEdicao"
+                        alt="Pré-visualização da imagem"
+                        style="max-width: 250px; max-height: 180px;"
+                    >
+                </div>
+
+                <div class="botoes">
+                    <button type="submit" class="botao azul">
+                        Salvar alterações
+                    </button>
+
+                    <button
+                        type="button"
+                        class="botao cinza"
+                        id="btnCancelarEdicao"
+                    >
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="painel">
+            <h2>Notícias cadastradas</h2>
+
+            <% if (noticias && noticias.length > 0) { %>
+
+                <div class="lista-noticias" id="listaNoticias">
+
+                    <% noticias.forEach(function(noticia) { %>
+
+                        <article
+                            class="card-noticia"
+                            data-id="<%= noticia.id %>"
+                            data-titulo="<%= noticia.titulo || '' %>"
+                            data-descricao="<%= noticia.descricao || '' %>"
+                            data-imagem="<%= noticia.imagemUrl || '' %>"
+                            data-arquivada="<%= noticia.arquivada === true ? 'true' : 'false' %>"
+                        >
+
+                            <% if (noticia.imagemUrl) { %>
+                                <img
+                                    src="<%= noticia.imagemUrl %>"
+                                    alt="<%= noticia.titulo || 'Imagem da notícia' %>"
+                                    loading="lazy"
+                                >
+                            <% } %>
+
+                            <h3><%= noticia.titulo || 'Sem título' %></h3>
+
+                            <p class="descricao"><%= noticia.descricao || '' %></p>
+
+                            <% if (noticia.arquivada === true) { %>
+                                <span class="status status-arquivada">
+                                    Arquivada
+                                </span>
+                            <% } else { %>
+                                <span class="status status-publicada">
+                                    Publicada
+                                </span>
+                            <% } %>
+
+                            <div class="acoes">
+
+                                <button
+                                    type="button"
+                                    class="botao azul"
+                                    data-action="editar"
+                                >
+                                    Editar
+                                </button>
+
+                                <% if (noticia.arquivada === true) { %>
+                                    <button
+                                        type="button"
+                                        class="botao verde"
+                                        data-action="desarquivar"
+                                    >
+                                        Desarquivar
+                                    </button>
+                                <% } else { %>
+                                    <button
+                                        type="button"
+                                        class="botao laranja"
+                                        data-action="arquivar"
+                                    >
+                                        Arquivar
+                                    </button>
+                                <% } %>
+
+                                <button
+                                    type="button"
+                                    class="botao vermelho"
+                                    data-action="excluir"
+                                >
+                                    Excluir
+                                </button>
+
+                            </div>
+                        </article>
+
+                    <% }); %>
 
                 </div>
 
-              <% } %>
+            <% } else { %>
 
-            </div>
+                <p class="vazio">
+                    Nenhuma notícia cadastrada. Utilize o formulário acima para adicionar a primeira.
+                </p>
 
+            <% } %>
+        </section>
 
+    </main>
 
-            <!-- CONTEÚDO -->
-
-            <div class="noticia-content">
-
-
-              <div class="noticia-status">
-
-                <% if (noticia.arquivada) { %>
-
-                  <span class="status archived">
-                    Arquivada
-                  </span>
-
-                <% } else { %>
-
-                  <span class="status published">
-                    Publicada
-                  </span>
-
-                <% } %>
-
-              </div>
-
-
-
-              <h3>
-                <%= noticia.titulo %>
-              </h3>
-
-
-              <p>
-                <%= noticia.descricao %>
-              </p>
-
-
-
-              <div class="admin-actions">
-
-
-                <% if (noticia.arquivada) { %>
-
-                  <button
-                    type="button"
-                    class="action-button archive-button"
-                    onclick="desarquivar('<%= noticia.id %>')"
-                  >
-                    Desarquivar
-                  </button>
-
-                <% } else { %>
-
-                  <button
-                    type="button"
-                    class="action-button archive-button"
-                    onclick="arquivar('<%= noticia.id %>')"
-                  >
-                    Arquivar
-                  </button>
-
-                <% } %>
-
-
-
-                <button
-                  type="button"
-                  class="action-button edit-button"
-                  onclick="editarNoticia(
-                    '<%= noticia.id %>',
-                    '<%= noticia.titulo.replace(/'/g, "\\'") %>',
-                    '<%= noticia.descricao.replace(/'/g, "\\'") %>',
-                    '<%= (noticia.imagemUrl || '').replace(/'/g, "\\'") %>'
-                  )"
-                >
-                  Editar
-                </button>
-
-
-
-                <button
-                  type="button"
-                  class="action-button delete-button"
-                  onclick="deletar('<%= noticia.id %>')"
-                >
-                  Deletar
-                </button>
-
-
-              </div>
-
-
-            </div>
-
-
-          </article>
-
-
-        <% }) %>
-
-
-      </div>
-
-
-    </section>
-
-
-  </main>
-
-
-
-  <script src="/js/admin-noticias.js"></script>
-
+    <script src="/js/admin.js"></script>
+    <script src="/js/adminNoticias.js"></script>
 
 </body>
-
 </html>

@@ -6,12 +6,11 @@ const session = require("express-session");
 
 const app = express();
 
-
 const carregarConfiguracoes =
   require("./middlewares/configMiddleware");
 
 // ==========================================
-// CONFIGURAÇÕES
+// CONFIGURAÇÕES GERAIS
 // ==========================================
 
 app.set("view engine", "ejs");
@@ -21,22 +20,27 @@ app.set(
   path.join(__dirname, "views")
 );
 
-// Arquivos públicos
+// Arquivos públicos: CSS, JS, imagens etc.
 app.use(
   express.static(
     path.join(__dirname, "public")
   )
 );
 
-// Ler JSON
+// Leitura de JSON
 app.use(express.json());
 
-// Ler formulários
-app.use(express.urlencoded({
-  extended: true
-}));
+// Leitura de formulários
+app.use(
+  express.urlencoded({
+    extended: true
+  })
+);
 
-// Sessão
+// ==========================================
+// SESSÃO
+// ==========================================
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -50,16 +54,11 @@ app.use(
   })
 );
 
-
-
 // ==========================================
 // CONFIGURAÇÕES DO SITE
 // ==========================================
 
-
-
 app.use(carregarConfiguracoes);
-
 
 // ==========================================
 // ROTAS
@@ -76,18 +75,19 @@ const adminRoutes = require("./routes/adminRoutes");
 
 // Site
 app.use("/", inicioRoutes);
-app.use("/equipe", equipeRoutes);
+
+// Equipe: páginas pública e administrativa
+app.use("/", equipeRoutes);
+
+// Demais seções
 app.use("/aplicacoes", aplicacoesRoutes);
 app.use("/noticias", noticiasRoutes);
 app.use("/sobre", sobreRoutes);
 app.use("/contato", contatoRoutes);
 
-// Administração
+// Login e administração
 app.use("/login", loginRoutes);
 app.use("/admin", adminRoutes);
-
-
-
 
 // ==========================================
 // SERVIDOR

@@ -1,0 +1,230 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/admin.css">
+
+  <style>
+    .team-admin {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .team-form, .member-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .team-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .team-form input, .team-form textarea,
+    .team-form select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      box-sizing: border-box;
+    }
+
+    .team-form label {
+      font-weight: 600;
+    }
+
+    .member-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .member-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .member-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .member-actions button, .team-form button {
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .member-actions button {
+      background: #e5e7eb;
+    }
+
+    .team-form button {
+      background: #007a8f;
+      color: white;
+    }
+
+    .status-archived {
+      color: #b45309;
+      font-weight: 600;
+    }
+
+    #mensagem {
+      margin: 12px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="admin-header">
+    <div class="admin-brand">
+      <span class="admin-brand-name">Ionos</span>
+      <span class="admin-brand-subtitle">Dessalinização</span>
+    </div>
+
+    <div class="admin-header-right">
+      <span class="admin-header-title">Administrar Equipe</span>
+      <a href="/login/sair" class="logout-button">Sair</a>
+    </div>
+  </header>
+
+  <main class="team-admin">
+    <p><a href="/admin">← Voltar ao painel</a></p>
+
+    <h1>Gerenciar membros</h1>
+    <p>Cadastre e mantenha as informações da equipe da Ionos.</p>
+
+    <p id="mensagem" role="status" aria-live="polite"></p>
+
+    <form id="formMembro" class="team-form">
+      <h2 id="tituloFormulario">Cadastrar membro</h2>
+
+      <input type="hidden" id="membroId">
+
+      <label for="nome">Nome *</label>
+      <input id="nome" name="nome" required>
+
+      <label for="cargo">Cargo *</label>
+      <input id="cargo" name="cargo" required>
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" name="descricao" rows="4"></textarea>
+
+      <label for="tipo">Categoria *</label>
+      <select id="tipo" name="tipo" required>
+        <option value="fundador">Fundador</option>
+        <option value="equipe" selected>Equipe multidisciplinar</option>
+      </select>
+
+      <label for="ordem">Ordem de exibição</label>
+      <input id="ordem" name="ordem" type="number" value="0">
+
+      <label for="imagem">Foto (JPG, PNG ou WEBP, até 5 MB)</label>
+      <input
+        id="imagem"
+        name="imagem"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+      >
+
+      <div id="previewAtual"></div>
+
+      <button type="submit">Salvar membro</button>
+      <button type="button" id="cancelarEdicao" hidden>
+        Cancelar edição
+      </button>
+    </form>
+
+    <h2>Membros cadastrados</h2>
+
+    <div class="member-list">
+      <% if (membros.length === 0) { %>
+        <p>Nenhum membro cadastrado.</p>
+      <% } %>
+
+      <% membros.forEach(membro => { %>
+        <article class="member-card">
+          <% if (membro.imagemUrl) { %>
+            <img
+              src="<%= membro.imagemUrl %>"
+              alt="Foto de <%= membro.nome %>"
+              loading="lazy"
+            >
+          <% } %>
+
+          <h3><%= membro.nome %></h3>
+          <p><%= membro.cargo %></p>
+          <p><%= membro.descricao || "" %></p>
+          <p>Categoria: <%= membro.tipo %></p>
+          <p>Ordem: <%= membro.ordem || 0 %></p>
+
+          <% if (membro.arquivada) { %>
+            <p class="status-archived">Arquivado</p>
+          <% } else { %>
+            <p>Publicado</p>
+          <% } %>
+
+          <div class="member-actions">
+            <button
+              type="button"
+              data-action="editar"
+              data-id="<%= membro.id %>"
+              data-nome="<%= membro.nome %>"
+              data-cargo="<%= membro.cargo %>"
+              data-descricao="<%= membro.descricao || '' %>"
+              data-tipo="<%= membro.tipo %>"
+              data-ordem="<%= membro.ordem || 0 %>"
+              data-imagem="<%= membro.imagemUrl || '' %>"
+            >
+              Editar
+            </button>
+
+            <% if (membro.arquivada) { %>
+              <button
+                type="button"
+                data-action="desarquivar"
+                data-id="<%= membro.id %>"
+              >
+                Restaurar
+              </button>
+            <% } else { %>
+              <button
+                type="button"
+                data-action="arquivar"
+                data-id="<%= membro.id %>"
+              >
+                Arquivar
+              </button>
+            <% } %>
+
+            <button
+              type="button"
+              data-action="deletar"
+              data-id="<%= membro.id %>"
+              data-nome="<%= membro.nome %>"
+            >
+              Excluir
+            </button>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </main>
+
+  <script src="/js/adminEquipe.js"></script>
+</body>
+</html>
+```
